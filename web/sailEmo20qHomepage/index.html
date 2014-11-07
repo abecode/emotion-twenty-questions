@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SAIL Emotion Twenty Questions (EMO20Q) Homepage</title>
+    <meta name="description" content="SAIL Lab Emotion Twenty Questions Project (EMO20Q)">
+    <meta name="author" content="Abe Kazemzadeh">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <!--HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="http://sail.usc.edu/wp-content/themes/bootstrap/style.css">
+
+    <style type="text/css">
+      .header {
+        padding-top: 0px;
+      }
+
+     
+      .topbar-wrapper {
+        position: relative;
+        height: 40px;
+      }
+
+      .topbar-wrapper .topbar {
+        position: absolute;
+      }
+
+      .container {
+        -moz-box-shadow: 0 0 5px 5px #888;
+        -webkit-box-shadow: 0 0 5px 5px #888;
+        box-shadow: 0 0 5px 5px #888;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+    <script src="http://sail.usc.edu/wp-content/themes/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="http://sail.usc.edu/wp-content/themes/bootstrap/js/bootstrap-dropdown.js"></script>
+
+    <script type="text/javascript" src="http://sail.usc.edu/wp-content/themes/bootstrap/js/mootools.js"></script>
+    <script type="text/javascript" src="http://sail.usc.edu/wp-content/themes/bootstrap/js/swfobject.js"></script>
+
+    <script type="text/javascript" src="http://sail.usc.edu/wp-content/themes/bootstrap/js/videobox.js"></script>
+    <link rel="stylesheet" href="http://sail.usc.edu/wp-content/themes/bootstrap/css/videobox.css" type="text/css" media="screen" />
+    </head>
+
+  <body>
+
+    
+    <div class="container">
+    <div class="container-header">
+      
+      <div class="hero-unit" style="background: #900; padding-bottom: 10px ; margin-bottom: 0px; padding-top: 10px;">
+          <a href="http://usc.edu"><img src="http://sail.usc.edu/wp-content/themes/bootstrap/images/HeaderLogoUSC.png"  alt="University of Southern California" border="0" /></a>
+      </div>
+      
+      <div class="hero-unit" style="background: #CCC; padding: 0px; margin-bottom: 0px;">
+	<h1><img src="http://sail.usc.edu/emo20q/emo20q.gif" height="80px" width="80px"/>Emotion Twenty Questions </h1>
+      <a href="http://sail.usc.edu/emotion"><img src="http://sail.usc.edu/wp-content/themes/bootstrap/images/emotions.gif" border="0" height="80px" width="660px" /></a>
+      <a href="http://viterbi.usc.edu"><img src="http://sail.usc.edu/wp-content/themes/bootstrap/images/viterbi.gif" border="0" style="padding-left: 0px;" /></a>
+      </div>
+    
+    <div class="topbar-wrapper" style="z-index: 5;">
+      <div class="topbar" data-dropdown="dropdown" >
+        <div class="topbar-inner">
+          <div class="container-header">
+
+            <ul class="nav">
+              <li id="emo20q"><a href="http://sail.usc.edu/emo20q">EMO20Q Homepage</a></li>
+              <li id="demos"><a href="http://sail.usc.edu/emo20q/demos.html">EMO20Q Demos</a></li>
+              <li id="resources"><a href="http://sail.usc.edu/emo20q/repos.html">EMO20Q Resources</a></li>
+              <li id="emo"><a href="http://sail.usc.edu/emotion">SAIL Emotion Group</a></li>
+              <li id="sail"><a href="http://sail.usc.edu"> SAIL Laboratory</a></li>
+            </ul>
+          </div> <!-- /container -->
+        </div><!-- /topbar-inner -->
+      </div><!-- /topbar -->
+    </div><!-- /topbar-wrapper -->
+<style type="text/css">
+#videosRow {background:url("http://sail.usc.edu/wp-content/themes/bootstrap/images/footerBg.png") no-repeat; height:170px; text-align:center; border-top: 3px solid #FFCC00; }
+
+.post {
+  margin: 20px 150px;
+}
+
+.small {
+font-size: 80%;
+}
+
+td {
+text-align: center !important;
+}
+
+</style>
+
+<div class="post" style="overflow: hidden">
+  <h2> Quick Links ... </h2>
+  <ul>
+    <li> <a href='http://code.google.com/p/emotion-twenty-questions/'> Code and data repository </a></li>
+    <li> <a href='https://www.ohloh.net/p/emo20q'> Project progress metrics </a></li>
+    <li> <a href='http://ark.usc.edu/~abe/wsgi_questioner'> Current web-based demo (in progress)</a></li>
+    <li> <a href='demos.html'> Other demos</a></li>
+    <li> <a href='http://sail.usc.edu/~kazemzad/emo20q/prefuseDemo/'> visualization of emo20q data using prefuse (note, this can be slow to load) </a> </li>
+  </ul>
+</div>
+
+<div class="post" style="overflow: hidden">
+  <h2> News ... </h2>
+  <ul>
+    <li> <a href='emotionml.xml'>EMO20Q vocabulary released in EmotionML
+	XML format (2012-08-22)</a></li>
+  </ul>
+</div>
+
+<div class="post" style="overflow: hidden">
+   <h2> About ... </h2>
+   
+     <!--    <div align="left" style="margin-left:50px;margin-right:150px;"> -->
+    <p> <em> Emotion Twenty Questions (EMO20Q)</em> is a dialog-based guessing
+    game.  It is much like the ordinary twenty questions game, but
+    instead of picking an object, player one (the <em>answerer</em>)
+    picks an emotion word.  Player two (the <em>questioner</em> )
+    then tries to guess the emotion in less than 20 questions. </p>
+
+
+    <p> This game is meant to be fun, but it will also benefit
+    science, technology, and society.  Science, like this game, often
+    starts with a good question. Scientifically, we want to study how
+    people understand emotions by observing their natural language
+    behavior.  For technology, it will help computers understand human
+    language that refers to emotions.  For society, it will help
+    people "get in touch with" their emotions and learn to express
+    these emotions articulately.  To these ends, your chat data will
+    be saved securely and studied anonymously. </p>
+
+</div>
+
+<div class="post" style="overflow: hidden">
+    <h2> For The Curious ... </h2> 
+
+    <p> The study of computers and emotions is known
+    as <a target="_blank"
+    href="http://en.wikipedia.org/wiki/Affective_computing">affective
+    computing</a>.  At the <a target="_blank"
+    href="http://sail.usc.edu">sail lab</a>, we have
+    a <a target="_blank" href="http://sail.usc.edu/emotion/"> big
+    group that studies emotions</a>.  In
+    particular, this project focuses on
+    <a target="_blank" href="http://sail.usc.edu/~kazemzad/emotion_in_text_cgi/">emotions in text</a>.
+    In contrast to other most other approaches to emotions in text, this does not study the emotion that
+    the speaker/writer feels, but rather the emotional meaning that they are trying to convey.  This is 
+    useful in cases when the speaker/writer is refering to 2nd hand emotional experiences like gossip or 
+    emotional experiences in the past (emotional self-report).  </p>
+
+
+    <p> The human-human chat site is based on <a target="_blank"
+    href="http://en.wikipedia.org/wiki/Extensible_Messaging_and_Presence_Protocol">XMPP/Jabber</a>
+    instant messaging technology.  The server runs <a target="_blank"
+    href="http://en.wikipedia.org/wiki/Ejabberd">ejabberd</a> and this
+    web-client is based on <a target="_blank"
+    href="http://www.ijab.im">iJab</a>. XMPP is an open standard, and
+    the client and server software are free and open
+    source.  Likewise, we endeavor to make our data and methodologies 
+    available to the community.  Currently these are hosted at
+    <a href='http://code.google.com/p/emotion-twenty-questions/'> code.google.com </a>.  
+    <a target="_blank" href='http://sail.usc.edu/~kazemzad/emo20q/acknowledgements.html'>
+    Here </a> is a description of how EMO20Q was inspired. </p>
+
+    <p> It is an observed fact that normally developing children ask
+    lots of questions when they are in the period of rapidly
+    increasing vocabulary.  We feel that we can use this behavior as a
+    model for making computers that can learn language.  From a
+    theoretical point of view, asking a question can be seen as the
+    colloquial equivalent of making a hypothesis.  The logician
+    Charles Sanders Peirce identified hypothesis, or abduction, as one
+    of the three main forms of reasoning.  The tradition of
+    question-asking has a long history that goes back to the Socratic
+    Method.  </p>
+
+    <p> The automated agent (computer) player of EMO20Q is powered by
+    a graph-based structure that allows us to analyze emotional
+    concepts in terms of graph connectivity. This can make for some
+    interesting visualizations
+    like <a href='http://sail.usc.edu/~kazemzad/emo20q/prefuseDemo/'>
+    this animation </a> (warning: can be slow to load). Other graph visualizations can be found
+    <a href='http://sail.usc.edu~kazemzad/Sites/share/emo20q_images/'>
+    here</a>.  </p>
+
+    <p> Another aspect of understanding EMO20Q is determining
+    how people conceptualize answers to yes/no questions, as can be
+    seen in <a href='fuzzyYN/t1_shortlist_boxplots_sorted.pdf'>Fuzzy
+    Yes/Yo graph 1 </a>
+    and <a href='fuzzyYN/t1_longlist_boxplots_sorted.pdf'> Fuzzy
+    Yes/No graph 2</a>.  </p>
+
+</div>
+
+
+<div class="post" style="overflow: hidden">
+    <h2> Publications ... </h2>
+      <ul>
+
+
+	<li>
+	<div class='title'>
+	A Sequential Bayesian Dialog Agent for Computational Ethnography
+	</div>
+	<div class='author'>
+	Abe Kazemzadeh, James "Jimmy" Gibson, Juanchen Li, Sungbok Lee, Panayiotis Georgiou, and Shrikanth Narayanan.
+	</div>
+	<div class='location'>
+	In Proceedings of Interspeech, Portland, OR, Sept. 2012
+	</div>
+	<div class='url'>
+	  <a href='http://emotion-twenty-questions.googlecode.com/svn/trunk/writing/interspeech2012_sequentialBayesianDialogAgent/emo20q_naive_bayes.pdf'>
+	URL
+	</a>,
+	  <a href='http://code.google.com/p/emotion-twenty-questions/source/browse/trunk/writing/#writing%2Finterspeech2012_sequentialBayesianDialogAgent%2Fdemo'>
+	Code and data
+	</a>,
+	  <a href='http://ark.usc.edu/~abe/wsgi_questioner'>
+	Demo
+	</a>
+	</div>
+	.
+	</li>
+
+	<li>
+	<div class='title'>
+	Emotion Twenty Questions (EMO20Q): Toward a Crowd-sourced Theory of Emotions
+	</div>
+	<div class='author'>
+	Abe Kazemzadeh, Sungbok Lee, Panayiotis Georgiou, and Shrikanth Narayanan.
+	</div>
+	<div class='location'>
+	In Proceedings of Affective Computing and Intelligent Interaction (ACII2011),Memphis, TN, Oct. 2011
+	</div>
+	<div class='url'>
+	  <a href='http://sail.usc.edu/~kazemzad/publications/emo20qCrowdSourcing.pdf'>
+	URL
+	</a>
+	.
+	</div>
+	</li>
+
+	<li>
+	<div class='title'>
+	EMO20Q Questioner Agent
+	</div>
+	<div class='author'>
+	Abe Kazemzadeh, James Gibson, Panayiotis Georgiou, Sungbok Lee, and Shrikanth Narayanan.
+	</div>
+	<div class='location'>
+	In Proceedings of Affective Computing and Intelligent Interaction (ACII2011),Memphis, TN, Oct. 2011
+	</div>
+	<div class='url'>
+	  <a href='http://sail.usc.edu/~kazemzad/publications/aciidemo.pdf'>
+	URL
+	</a>,
+	  <a href='http://sail.usc.edu/emo20q/questioner/questioner.cgi'>
+	Stable Demo
+	</a>,
+	  <a href='http://sail.usc.edu/~kazemzad/questioner/questioner.cgi'>
+	Experimental Demo
+	</a>
+	.
+	</div>
+	</li>
+
+	<li>
+	<div class='title'>
+	Determining Which Question To Ask, with the Help of Spectral Graph Theory
+	</div>
+	<div class='author'>
+	Abe Kazemzadeh, Sungbok Lee, Panayiotis Georgiou, and Shrikanth Narayanan.
+	</div>
+	<div class='location'>
+	In Proceedings of Interspeech, Florence, Italy. August, 2011.
+	</div>
+	<div class='url'>
+	  <a href='http://sail.usc.edu/~kazemzad/publications/determiningWhichQuestion.pdf'>
+	URL
+	</a>
+	.
+	</div>
+	</li>
+
+      </ul>
+
+</div>
+
+<div class="post" style="overflow: hidden">
+
+    <h2> People ... </h2> 
+
+    <ul>
+      <li> <a href='http://sail.usc.edu/~kazemzad'> Abe Kazemzadeh </a> (Project Manager, Natural Language Processing, Human-Computer Interaction, Dialog Agents, Experimental Design, Software Architecture) </li>
+      <li> <a href='https://sites.google.com/site/jimmygibsonhomepage'> James Gibson </a> (Graph and Linear Algebraic Methods, Probablistic Graphical Models) </li>
+      <li> <a href='http://sites.google.com/site/mohammadrezarajati/'> Mohammad Reza Rajati </a> (Fuzzy Logic) </li>
+      <li> Juanchen "JC" Li (Software engineering and user interface design) </li>
+      <li> <a href='http://sipi.usc.edu/~georgiou/public/Main.html'>Panayiotis Georgiou </a> (Faculty Advisor) </li>
+      <li> <a href='http://ee.usc.edu/faculty_staff/faculty_directory/lee.htm'> Sungbok Lee </a> (Faculty Advisor) </li>
+      <li> <a href='http://sail.usc.edu/shri.php'> Shrikanth Narayanan </a> (Faculty Advisor, Lab Director) </li>
+		    
+    </ul>
+
+</div>
+    
+    </div>
+    
+  </body>
+  
+</html>

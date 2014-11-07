@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"><graph edgedefault="undirected"><key id="name" for="node" attr.name="name" attr.type="string"/>
+<node id="1" >
+<data key="name">admire</data>
+</node>
+<node id="2" >
+<data key="name">adore</data>
+</node>
+<node id="3" >
+<data key="name">anger</data>
+</node>
+<node id="4" >
+<data key="name">awe</data>
+</node>
+<node id="5" >
+<data key="name">boredom</data>
+</node>
+<node id="6" >
+<data key="name">bravery</data>
+</node>
+<node id="7" >
+<data key="name">calm</data>
+</node>
+<node id="8" >
+<data key="name">confidence</data>
+</node>
+<node id="9" >
+<data key="name">confusion</data>
+</node>
+<node id="10" >
+<data key="name">contempt</data>
+</node>
+<node id="11" >
+<data key="name">disgust</data>
+</node>
+<node id="12" >
+<data key="name">enthusiasm</data>
+</node>
+<node id="13" >
+<data key="name">frustration</data>
+</node>
+<node id="14" >
+<data key="name">gratefulness</data>
+</node>
+<node id="15" >
+<data key="name">jealosy</data>
+</node>
+<node id="16" >
+<data key="name">love</data>
+</node>
+<node id="17" >
+<data key="name">proud</data>
+</node>
+<node id="18" >
+<data key="name">relief</data>
+</node>
+<node id="19" >
+<data key="name">serenity</data>
+</node>
+<node id="20" >
+<data key="name">shame</data>
+</node>
+<node id="21" >
+<data key="name">silly</data>
+</node>
+<node id="22" >
+<data key="name">surprised</data>
+</node>
+<node id="23" >
+<data key="name">thankful</data>
+</node>
+<node id="24" >
+<data key="name">adolescent.know(e)</data>
+</node>
+<node id="25" >
+<data key="name">aspiration(e)</data>
+</node>
+<node id="26" >
+<data key="name">behavior(e,crying)</data>
+</node>
+<node id="27" >
+<data key="name">behavior(e,shouting)</data>
+</node>
+<node id="28" >
+<data key="name">behavior(e,sighing)</data>
+</node>
+<node id="29" >
+<data key="name">cause(anotherPerson,e)</data>
+</node>
+<node id="30" >
+<data key="name">cause(e,benefit(otherPerson))</data>
+</node>
+<node id="31" >
+<data key="name">cause(e,communication)</data>
+</node>
+<node id="32" >
+<data key="name">cause(e,harmToOther)</data>
+</node>
+<node id="33" >
+<data key="name">cause(e,harmToSelf)</data>
+</node>
+<node id="34" >
+<data key="name">cause(e,inactivity)</data>
+</node>
+<node id="35" >
+<data key="name">cause(emptySet,e)</data>
+</node>
+<node id="36" >
+<data key="name">cause(e,self.feelGood)</data>
+</node>
+<node id="37" >
+<data key="name">cause(e,stress)</data>
+</node>
+<node id="38" >
+<data key="name">cause(event,e)</data>
+</node>
+<node id="39" >
+<data key="name">cause(e,wakeUp(chidren)*and*cry(children))</data>
+</node>
+<node id="40" >
+<data key="name">cause(otherPerson,e)</data>
+</node>
+<node id="41" >
+<data key="name">cause(something,e)</data>
+</node>
+<node id="42" >
+<data key="name">cause(unexpectedEvent,e)</data>
+</node>
+<node id="43" >
+<data key="name">common(e,most(children))</data>
+</node>
+<node id="44" >
+<data key="name">control(self,e)</data>
+</node>
+<node id="45" >
+<data key="name">depend(e.valence,e.degreeFelt)</data>
+</node>
+<node id="46" >
+<data key="name">depend(e.valence,e.situation)</data>
+</node>
+<node id="47" >
+<data key="name">directed(e,closeFriend)</data>
+</node>
+<node id="48" >
+<data key="name">directed(e,enemy)</data>
+</node>
+<node id="49" >
+<data key="name">directed(e,friend)</data>
+</node>
+<node id="50" >
+<data key="name">directed(e,futureEnvisionment)</data>
+</node>
+<node id="51" >
+<data key="name">directed(e,otherPerson)</data>
+</node>
+<node id="52" >
+<data key="name">directed(e,otherPerson||directed(e,something)</data>
+</node>
+<node id="53" >
+<data key="name">directed(e,self)</data>
+</node>
+<node id="54" >
+<data key="name">directed(e,stranger)</data>
+</node>
+<node id="55" >
+<data key="name">directed(e,superiorPerson)</data>
+</node>
+<node id="56" >
+<data key="name">e==absorbed</data>
+</node>
+<node id="57" >
+<data key="name">e==accomplished</data>
+</node>
+<node id="58" >
+<data key="name">e.activation*gt*dissapointment.activation</data>
+</node>
+<node id="59" >
+<data key="name">e.activation==high</data>
+</node>
+<node id="60" >
+<data key="name">e.activation==moderate</data>
+</node>
+<node id="61" >
+<data key="name">e.activation==positive</data>
+</node>
+<node id="62" >
+<data key="name">e.activation*lt*situation(e,sick(otherPerson))</data>
+</node>
+<node id="63" >
+<data key="name">e==admire</data>
+</node>
+<node id="64" >
+<data key="name">e==affection</data>
+</node>
+<node id="65" >
+<data key="name">e==aggressive</data>
+</node>
+<node id="66" >
+<data key="name">e==alert</data>
+</node>
+<node id="67" >
+<data key="name">e==amazed</data>
+</node>
+<node id="68" >
+<data key="name">e==amazement</data>
+</node>
+<node id="69" >
+<data key="name">e==amourous</data>
+</node>
+<node id="70" >
+<data key="name">e==amusement</data>
+</node>
+<node id="71" >
+<data key="name">e==anger</data>
+</node>
+<node id="72" >
+<data key="name">e==annoyance</data>
+</node>
+<node id="73" >
+<data key="name">e==astonished</data>
+</node>
+<node id="74" >
+<data key="name">e==astounded</data>
+</node>
+<node id="75" >
+<data key="name">e==aware</data>
+</node>
+<node id="76" >
+<data key="name">e==boredom</data>
+</node>
+<node id="77" >
+<data key="name">e==bravery</data>
+</node>
+<node id="78" >
+<data key="name">e==calm</data>
+</node>
+<node id="79" >
+<data key="name">e==confidence</data>
+</node>
+<node id="80" >
+<data key="name">e==confusion</data>
+</node>
+<node id="81" >
+<data key="name">e==contempt</data>
+</node>
+<node id="82" >
+<data key="name">e==content</data>
+</node>
+<node id="83" >
+<data key="name">e==contentment</data>
+</node>
+<node id="84" >
+<data key="name">e==crush</data>
+</node>
+<node id="85" >
+<data key="name">e==curiosity</data>
+</node>
+<node id="86" >
+<data key="name">e==delight</data>
+</node>
+<node id="87" >
+<data key="name">e==depression</data>
+</node>
+<node id="88" >
+<data key="name">e==desperate</data>
+</node>
+<node id="89" >
+<data key="name">e==determined</data>
+</node>
+<node id="90" >
+<data key="name">e==disgusted</data>
+</node>
+<node id="91" >
+<data key="name">e==dissapointment</data>
+</node>
+<node id="92" >
+<data key="name">e.duration==long</data>
+</node>
+<node id="93" >
+<data key="name">e.duration==short</data>
+</node>
+<node id="94" >
+<data key="name">e==eagerness</data>
+</node>
+<node id="95" >
+<data key="name">e==ecstacy</data>
+</node>
+<node id="96" >
+<data key="name">e==embarrassment</data>
+</node>
+<node id="97" >
+<data key="name">e==enlighted</data>
+</node>
+<node id="98" >
+<data key="name">e==enthralled</data>
+</node>
+<node id="99" >
+<data key="name">e==enthusiasm</data>
+</node>
+<node id="100" >
+<data key="name">e==euphoria</data>
+</node>
+<node id="101" >
+<data key="name">e==excited</data>
+</node>
+<node id="102" >
+<data key="name">e==excitement</data>
+</node>
+<node id="103" >
+<data key="name">e==flattered</data>
+</node>
+<node id="104" >
+<data key="name">e==flirtatious</data>
+</node>
+<node id="105" >
+<data key="name">e==focused</data>
+</node>
+<node id="106" >
+<data key="name">e.frequence==daily</data>
+</node>
+<node id="107" >
+<data key="name">e.frequency==daily</data>
+</node>
+<node id="108" >
+<data key="name">e==frustration</data>
+</node>
+<node id="109" >
+<data key="name">e==fulfilled</data>
+</node>
+<node id="110" >
+<data key="name">e==gratefulness</data>
+</node>
+<node id="111" >
+<data key="name">e==grief</data>
+</node>
+<node id="112" >
+<data key="name">e==guilt</data>
+</node>
+<node id="113" >
+<data key="name">e==happiness</data>
+</node>
+<node id="114" >
+<data key="name">e==happy</data>
+</node>
+<node id="115" >
+<data key="name">e==hatred</data>
+</node>
+<node id="116" >
+<data key="name">e==hope</data>
+</node>
+<node id="117" >
+<data key="name">e==horny</data>
+</node>
+<node id="118" >
+<data key="name">e==hospitality</data>
+</node>
+<node id="119" >
+<data key="name">e==humor</data>
+</node>
+<node id="120" >
+<data key="name">e==impressed</data>
+</node>
+<node id="121" >
+<data key="name">e==infatuated</data>
+</node>
+<node id="122" >
+<data key="name">e==interest</data>
+</node>
+<node id="123" >
+<data key="name">e==jealousy</data>
+</node>
+<node id="124" >
+<data key="name">e==joyful</data>
+</node>
+<node id="125" >
+<data key="name">e==keen</data>
+</node>
+<node id="126" >
+<data key="name">e==loneliness</data>
+</node>
+<node id="127" >
+<data key="name">e==love</data>
+</node>
+<node id="128" >
+<data key="name">e==optimism</data>
+</node>
+<node id="129" >
+<data key="name">e==overjoyed</data>
+</node>
+<node id="130" >
+<data key="name">e==passiveAggressive</data>
+</node>
+<node id="131" >
+<data key="name">e==perseverance</data>
+</node>
+<node id="132" >
+<data key="name">e==persistence</data>
+</node>
+<node id="133" >
+<data key="name">e==pity</data>
+</node>
+<node id="134" >
+<data key="name">e==playful</data>
+</node>
+<node id="135" >
+<data key="name">e==pleased</data>
+</node>
+<node id="136" >
+<data key="name">e==pride</data>
+</node>
+<node id="137" >
+<data key="name">e==proud</data>
+</node>
+<node id="138" >
+<data key="name">e==rage</data>
+</node>
+<node id="139" >
+<data key="name">e==receptive</data>
+</node>
+<node id="140" >
+<data key="name">e==regret</data>
+</node>
+<node id="141" >
+<data key="name">e==relaxed</data>
+</node>
+<node id="142" >
+<data key="name">e==relief</data>
+</node>
+<node id="143" >
+<data key="name">e==resentful</data>
+</node>
+<node id="144" >
+<data key="name">e==resolute</data>
+</node>
+<node id="145" >
+<data key="name">e==sadness</data>
+</node>
+<node id="146" >
+<data key="name">e==satisfaction</data>
+</node>
+<node id="147" >
+<data key="name">e==self.currentState</data>
+</node>
+<node id="148" >
+<data key="name">e==sensible</data>
+</node>
+<node id="149" >
+<data key="name">e==serenity</data>
+</node>
+<node id="150" >
+<data key="name">e==serentity</data>
+</node>
+<node id="151" >
+<data key="name">e==shame</data>
+</node>
+<node id="152" >
+<data key="name">e==silly</data>
+</node>
+<node id="153" >
+<data key="name">e==sorrow</data>
+</node>
+<node id="154" >
+<data key="name">e==stoned</data>
+</node>
+<node id="155" >
+<data key="name">e==surprise</data>
+</node>
+<node id="156" >
+<data key="name">e==thrill</data>
+</node>
+<node id="157" >
+<data key="name">e==tranquility</data>
+</node>
+<node id="158" >
+<data key="name">e.valence*gt*happiness.valence</data>
+</node>
+<node id="159" >
+<data key="name">e.valence==negative</data>
+</node>
+<node id="160" >
+<data key="name">e.valence*lt*passedScreening.valence</data>
+</node>
+<node id="161" >
+<data key="name">e.valence==positive</data>
+</node>
+<node id="162" >
+<data key="name">e==worry</data>
+</node>
+<node id="163" >
+<data key="name">experience(e,children)</data>
+</node>
+<node id="164" >
+<data key="name">hasExternalExpression(e)</data>
+</node>
+<node id="165" >
+<data key="name">hasInternalExpression(e)</data>
+</node>
+<node id="166" >
+<data key="name">mentalState(e)</data>
+</node>
+<node id="167" >
+<data key="name">necessarily(cause(otherPerson,e))</data>
+</node>
+<node id="168" >
+<data key="name">necessary(cause(otherPerson,e))</data>
+</node>
+<node id="169" >
+<data key="name">necessary(directed(e,otherPerson))</data>
+</node>
+<node id="170" >
+<data key="name">not(expected(e))</data>
+</node>
+<node id="171" >
+<data key="name">not(experienceWith(e,friends))</data>
+</node>
+<node id="172" >
+<data key="name">personalityTrait(e)</data>
+</node>
+<node id="173" >
+<data key="name">possible(good(e))</data>
+</node>
+<node id="174" >
+<data key="name">possible(verb(e))</data>
+</node>
+<node id="175" >
+<data key="name">related(e,understanding||learning)</data>
+</node>
+<node id="176" >
+<data key="name">self.situation(e,tired)</data>
+</node>
+<node id="177" >
+<data key="name">similar(e,admiration)</data>
+</node>
+<node id="178" >
+<data key="name">similar(e,admiring)</data>
+</node>
+<node id="179" >
+<data key="name">similar(e,ambition)</data>
+</node>
+<node id="180" >
+<data key="name">similar(e,amused)</data>
+</node>
+<node id="181" >
+<data key="name">similar(e,anger)</data>
+</node>
+<node id="182" >
+<data key="name">similar(e,curiosity)</data>
+</node>
+<node id="183" >
+<data key="name">similar(e,desire)</data>
+</node>
+<node id="184" >
+<data key="name">similar(e,desire)*gt*similar(e,curious)</data>
+</node>
+<node id="185" >
+<data key="name">similar(e,excited)</data>
+</node>
+<node id="186" >
+<data key="name">similar(e,excitement)</data>
+</node>
+<node id="187" >
+<data key="name">similar(e,faith)||similar(e,trust)</data>
+</node>
+<node id="188" >
+<data key="name">similar(e,happiness)</data>
+</node>
+<node id="189" >
+<data key="name">similar(e,happy)</data>
+</node>
+<node id="190" >
+<data key="name">similar(e,hostility)</data>
+</node>
+<node id="191" >
+<data key="name">similar(e,influencedByOther)||similar(e,inspiredByOther)</data>
+</node>
+<node id="192" >
+<data key="name">similar(e,informed)||similar(e,vigilant)</data>
+</node>
+<node id="193" >
+<data key="name">similar(e,jealous)*gt*similar(e,curious)</data>
+</node>
+<node id="194" >
+<data key="name">similar(e,joyful)</data>
+</node>
+<node id="195" >
+<data key="name">similar(e,love)</data>
+</node>
+<node id="196" >
+<data key="name">similar(e,obsession)</data>
+</node>
+<node id="197" >
+<data key="name">similar(e,pride)</data>
+</node>
+<node id="198" >
+<data key="name">similar(e,surprise)</data>
+</node>
+<node id="199" >
+<data key="name">situation(e,bad)</data>
+</node>
+<node id="200" >
+<data key="name">situation(e,badDay)</data>
+</node>
+<node id="201" >
+<data key="name">situation(e,beUnfairTo(otherPerson,self))</data>
+</node>
+<node id="202" >
+<data key="name">situation(e,birthday)</data>
+</node>
+<node id="203" >
+<data key="name">situation(e,boredWithOtherPerson)</data>
+</node>
+<node id="204" >
+<data key="name">situation(e,cutoffOnHighway)</data>
+</node>
+<node id="205" >
+<data key="name">situation(e,die(otherPerson))</data>
+</node>
+<node id="206" >
+<data key="name">situation(e,disappointedInSelf)</data>
+</node>
+<node id="207" >
+<data key="name">situation(e,disgustAboutOtherPerson)</data>
+</node>
+<node id="208" >
+<data key="name">situation(e,dislikingOtherPerson)</data>
+</node>
+<node id="209" >
+<data key="name">situation(e,dogDied)</data>
+</node>
+<node id="210" >
+<data key="name">situation(e,doingNiceAct)</data>
+</node>
+<node id="211" >
+<data key="name">situation(e,fightWithSomeone)</data>
+</node>
+<node id="212" >
+<data key="name">situation(e,followingOtherPersonsBehavior)</data>
+</node>
+<node id="213" >
+<data key="name">situation(e,friendDied)</data>
+</node>
+<node id="214" >
+<data key="name">situation(e,future(test)</data>
+</node>
+<node id="215" >
+<data key="name">situation(e,future(test))</data>
+</node>
+<node id="216" >
+<data key="name">situation(e,goalAttainment)</data>
+</node>
+<node id="217" >
+<data key="name">situation(e,goals)</data>
+</node>
+<node id="218" >
+<data key="name">situation(e,has(otherPerson,sthYouWant))</data>
+</node>
+<node id="219" >
+<data key="name">situation(e,has(something,otherPerson)*and*~has(something(self)))</data>
+</node>
+<node id="220" >
+<data key="name">situation(e,hateSelf)</data>
+</node>
+<node id="221" >
+<data key="name">situation(e,haveGrudge)</data>
+</node>
+<node id="222" >
+<data key="name">situation(e,helpless)</data>
+</node>
+<node id="223" >
+<data key="name">situation(e,loseKeys)</data>
+</node>
+<node id="224" >
+<data key="name">situation(e,passedScreening)</data>
+</node>
+<node id="225" >
+<data key="name">situation(e,punchedInFace)</data>
+</node>
+<node id="226" >
+<data key="name">situation(e,recieveSomethingDesired)</data>
+</node>
+<node id="227" >
+<data key="name">situation(e,revenge)</data>
+</node>
+<node id="228" >
+<data key="name">situation(e,sad)</data>
+</node>
+<node id="229" >
+<data key="name">situation(e,scared(children))</data>
+</node>
+<node id="230" >
+<data key="name">situation(e,seeGhost)</data>
+</node>
+<node id="231" >
+<data key="name">situation(e,self.doneSomethingBadTo(otherPerson))</data>
+</node>
+<node id="232" >
+<data key="name">situation(e,sick(otherPerson))</data>
+</node>
+<node id="233" >
+<data key="name">situation(e,stubbedToe)</data>
+</node>
+<node id="234" >
+<data key="name">situation(e,tryToBeSimilarToOtherPerson)</data>
+</node>
+<node id="235" >
+<data key="name">situation(e,tryToObtainSthFromOtherPerson)</data>
+</node>
+<node id="236" >
+<data key="name">spelling=~/^d/</data>
+</node>
+<node id="237" >
+<data key="name">subset(e,devotion)</data>
+</node>
+<node id="238" >
+<data key="name">subset(e,humorous)</data>
+</node>
+<node id="239" >
+<data key="name">subset(e,nightmare)</data>
+</node>
+<node id="240" >
+<data key="name">subset(e,shame)</data>
+</node>
+<node id="241" >
+<data key="name">subset(e,zenContentment)||similar(e,zenContentment)</data>
+</node>
+<node id="242" >
+<data key="name">try(adults,cause(adults,not(experience(e,children))))</data>
+</node>
+<node id="243" >
+<data key="name">unexpected(e)</data>
+</node>
+<edge source="15" target="51"></edge>
+<edge source="15" target="41"></edge>
+<edge source="15" target="123"></edge>
+<edge source="5" target="92"></edge>
+<edge source="5" target="37"></edge>
+<edge source="5" target="34"></edge>
+<edge source="5" target="171"></edge>
+<edge source="5" target="76"></edge>
+<edge source="17" target="59"></edge>
+<edge source="17" target="161"></edge>
+<edge source="17" target="197"></edge>
+<edge source="17" target="137"></edge>
+<edge source="22" target="31"></edge>
+<edge source="22" target="107"></edge>
+<edge source="22" target="59"></edge>
+<edge source="22" target="155"></edge>
+<edge source="21" target="170"></edge>
+<edge source="21" target="134"></edge>
+<edge source="21" target="152"></edge>
+<edge source="7" target="92"></edge>
+<edge source="7" target="25"></edge>
+<edge source="7" target="241"></edge>
+<edge source="7" target="24"></edge>
+<edge source="7" target="174"></edge>
+<edge source="7" target="78"></edge>
+<edge source="19" target="161"></edge>
+<edge source="19" target="113"></edge>
+<edge source="19" target="78"></edge>
+<edge source="19" target="150"></edge>
+<edge source="16" target="114"></edge>
+<edge source="16" target="51"></edge>
+<edge source="16" target="30"></edge>
+<edge source="16" target="195"></edge>
+<edge source="16" target="127"></edge>
+<edge source="2" target="51"></edge>
+<edge source="2" target="169"></edge>
+<edge source="2" target="161"></edge>
+<edge source="2" target="59"></edge>
+<edge source="3" target="51"></edge>
+<edge source="3" target="59"></edge>
+<edge source="3" target="71"></edge>
+<edge source="9" target="166"></edge>
+<edge source="9" target="53"></edge>
+<edge source="9" target="80"></edge>
+<edge source="6" target="161"></edge>
+<edge source="6" target="59"></edge>
+<edge source="6" target="175"></edge>
+<edge source="6" target="77"></edge>
+<edge source="13" target="181"></edge>
+<edge source="13" target="220"></edge>
+<edge source="13" target="108"></edge>
+<edge source="13" target="213"></edge>
+<edge source="13" target="223"></edge>
+<edge source="13" target="28"></edge>
+<edge source="13" target="108"></edge>
+<edge source="14" target="110"></edge>
+<edge source="11" target="208"></edge>
+<edge source="11" target="207"></edge>
+<edge source="11" target="90"></edge>
+<edge source="1" target="161"></edge>
+<edge source="1" target="52"></edge>
+<edge source="1" target="178"></edge>
+<edge source="1" target="63"></edge>
+<edge source="10" target="51"></edge>
+<edge source="10" target="159"></edge>
+<edge source="10" target="81"></edge>
+<edge source="4" target="51"></edge>
+<edge source="4" target="46"></edge>
+<edge source="4" target="191"></edge>
+<edge source="4" target="198"></edge>
+<edge source="20" target="199"></edge>
+<edge source="20" target="165"></edge>
+<edge source="20" target="151"></edge>
+<edge source="12" target="161"></edge>
+<edge source="12" target="59"></edge>
+<edge source="12" target="185"></edge>
+<edge source="8" target="61"></edge>
+<edge source="8" target="216"></edge>
+<edge source="8" target="79"></edge>
+<edge source="18" target="40"></edge>
+<edge source="18" target="59"></edge>
+<edge source="18" target="142"></edge>
+<edge source="3" target="233"></edge>
+<edge source="3" target="200"></edge>
+<edge source="9" target="33"></edge>
+<edge source="9" target="163"></edge>
+</graph>
+</graphml>

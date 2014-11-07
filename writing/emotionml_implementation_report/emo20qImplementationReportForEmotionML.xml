@@ -1,0 +1,160 @@
+<system-report name="emo20q">
+  <testimonial>
+    
+    Emotion twenty questions (EMO20Q) is a experimental framework for studying
+    how people describe emotions in language and how computers can simulate
+    this type of verbal behavior.  In EMO20Q, the familiar spoken parlor game
+    of twenty questions is restricted to words that players feel refers to
+    emotions.
+    
+    In this implementation report, we examine the case where a server-side
+    computer agent plays the role of the questioner and a human plays the
+    answerer via a web browser.
+    
+    The EMO20Q questioner agent can be decomposed into several components,
+    notably a **vocabulary**, **semantic knowledge**, an **episodic buffer**,
+    and a **belief state**.  The vocabulary is a list of 110 emotion words and
+    this vocabulary is expected to grow over time as more data is collected,
+    but remains constant during the agent's instantiation.  Semantic knowledge
+    is a large object that remains the same across different agent
+    instantiations and states, while the episodic buffer and belief state are
+    smaller objects that vary over time for each interactive session. Because
+    of the size of the semantic knowledge object, serialization of the agent
+    for each session is not possible.  Rather, the episodic buffer and belief
+    states are serialized while the semantic knowledge persists as a static
+    object in the server memory. The belief state is represented as a
+    probability vector indexed by items of the vocabulary.
+    
+    EmotionML is used to implement the questioner agent's vocabulary and
+    belief state. The agent's vocabulary is implemented using the EmotionML
+    ``vocabulary`` idiom and the agent's belief state is represented using the
+    ``emotion`` idiom with a ``category`` as a child and the ``value``
+    attribute to hold numerical probability values.  
+
+    The only thing that produced a failure to validate was having a space in
+    the name of a vocabulary item.
+    
+    -Abe Kazemzadeh, USC SAIL Lab
+  </testimonial>
+  
+  <assert id="100" res="pass">provided single word emotion names. Fails on multi word emotion names</assert>
+  <assert id="101" res="pass"></assert>
+  <assert id="102" res="pass"></assert>
+  <assert id="103" res="pass"></assert>
+  <assert id="104" res="pass"></assert>
+  <assert id="105" res="not-impl"></assert>
+  <assert id="110" res="pass"></assert>
+  <assert id="111" res="pass"></assert>
+  <assert id="112" res="pass"></assert>
+  <assert id="113" res="pass"></assert>
+  <assert id="114" res="pass"></assert>
+  <assert id="115" res="not-impl"></assert>
+  <assert id="116" res="not-impl"></assert>
+  <assert id="117" res="not-impl"></assert>
+  <assert id="118" res="not-impl"></assert>
+  <assert id="119" res="not-impl"></assert>
+  <assert id="120" res="not-impl"></assert>
+  <assert id="121" res="not-impl"></assert>
+  <assert id="122" res="not-impl"></assert>
+  <assert id="123" res="not-impl"></assert>
+  <assert id="124" res="not-impl"></assert>
+  <assert id="150" res="pass"></assert>
+  <assert id="151" res="not-impl"></assert>
+  <assert id="152" res="not-impl"></assert>
+  <assert id="153" res="not-impl"></assert>
+  <assert id="154" res="not-impl"></assert>
+  <assert id="155" res="not-impl"></assert>
+  <assert id="156" res="pass"></assert>
+  <assert id="157" res="pass"></assert>
+  <assert id="158" res="pass"></assert>
+  <assert id="159" res="not-impl"></assert>
+  <assert id="160" res="pass"></assert>
+  <assert id="161" res="pass"></assert>
+  <assert id="162" res="not-impl"></assert>
+  <assert id="163" res="not-impl"></assert>
+  <assert id="164" res="not-impl"></assert>
+  <assert id="165" res="not-impl"></assert>
+  <assert id="166" res="not-impl"></assert>
+  <assert id="167" res="not-impl"></assert>
+  <assert id="168" res="not-impl"></assert>
+  <assert id="169" res="not-impl"></assert>
+  <assert id="170" res="not-impl"></assert>
+  <assert id="171" res="pass"></assert>
+  <assert id="172" res="pass"></assert>
+  <assert id="173" res="not-impl"></assert>
+  <assert id="174" res="not-impl"></assert>
+  <assert id="175" res="not-impl"></assert>
+  <assert id="176" res="not-impl"></assert>
+  <assert id="177" res="not-impl"></assert>
+  <assert id="178" res="not-impl"></assert>
+  <assert id="179" res="not-impl"></assert>
+  <assert id="180" res="not-impl"></assert>
+  <assert id="181" res="not-impl"></assert>
+  <assert id="182" res="not-impl"></assert>
+  <assert id="210" res="pass"></assert>
+  <assert id="211" res="pass"></assert>
+  <assert id="212" res="pass"></assert>
+  <assert id="213" res="pass"></assert>
+  <assert id="214" res="pass"></assert>
+  <assert id="215" res="not-impl"></assert>
+  <assert id="216" res="pass"></assert>
+  <assert id="217" res="not-impl"></assert>
+  <assert id="220" res="not-impl"></assert>
+  <assert id="221" res="not-impl"></assert>
+  <assert id="222" res="not-impl"></assert>
+  <assert id="223" res="not-impl"></assert>
+  <assert id="224" res="not-impl"></assert>
+  <assert id="225" res="not-impl"></assert>
+  <assert id="230" res="not-impl"></assert>
+  <assert id="231" res="not-impl"></assert>
+  <assert id="232" res="not-impl"></assert>
+  <assert id="233" res="not-impl"></assert>
+  <assert id="234" res="not-impl"></assert>
+  <assert id="235" res="not-impl"></assert>
+  <assert id="236" res="not-impl"></assert>
+  <assert id="237" res="not-impl"></assert>
+  <assert id="240" res="not-impl"></assert>
+  <assert id="241" res="not-impl"></assert>
+  <assert id="242" res="not-impl"></assert>
+  <assert id="243" res="not-impl"></assert>
+  <assert id="244" res="not-impl"></assert>
+  <assert id="245" res="not-impl"></assert>
+  <assert id="246" res="not-impl"></assert>
+  <assert id="247" res="not-impl"></assert>
+  <assert id="300" res="not-impl"></assert>
+  <assert id="301" res="not-impl"></assert>
+  <assert id="302" res="not-impl"></assert>
+  <assert id="303" res="not-impl"></assert>
+  <assert id="304" res="not-impl"></assert>
+  <assert id="305" res="not-impl"></assert>
+  <assert id="306" res="not-impl"></assert>
+  <assert id="410" res="not-impl"></assert>
+  <assert id="411" res="not-impl"></assert>
+  <assert id="412" res="not-impl"></assert>
+  <assert id="413" res="not-impl"></assert>
+  <assert id="414" res="not-impl"></assert>
+  <assert id="415" res="not-impl"></assert>
+  <assert id="416" res="not-impl"></assert>
+  <assert id="417" res="not-impl"></assert>
+  <assert id="420" res="not-impl"></assert>
+  <assert id="421" res="not-impl"></assert>
+  <assert id="422" res="not-impl"></assert>
+  <assert id="423" res="not-impl"></assert>
+  <assert id="424" res="not-impl"></assert>
+  <assert id="425" res="not-impl"></assert>
+  <assert id="500" res="pass"></assert>
+  <assert id="501" res="not-impl"></assert>
+  <assert id="502" res="not-impl"></assert>
+  <assert id="503" res="not-impl"></assert>
+  <assert id="504" res="not-impl"></assert>
+  <assert id="600" res="pass"></assert>
+  <assert id="601" res="not-impl"></assert>
+  <assert id="602" res="pass"></assert>
+  <assert id="603" res="pass"></assert>
+  <assert id="604" res="pass"></assert>
+  <assert id="605" res="pass"></assert>
+  <assert id="606" res="not-impl"></assert>
+  <assert id="607" res="pass"></assert>
+  <assert id="608" res="pass"></assert>
+  <assert id="700" res="pass"></assert>
+</system-report>

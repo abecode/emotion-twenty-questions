@@ -1,0 +1,120 @@
+#valence related questions
+is it a positive emotion
+is it negative?
+is it negative valence
+is it low valence
+does it have negative polarity
+does it have high valence
+does it have positive valence
+is it a negative emotion
+does it make you feel good
+does it make you feel bad
+is it a feel-good emotion?
+is it pleasurable 
+does it cause displeasure
+is it an emotion that makes you feel good?
+is it an emotion that is bad
+
+#activation related questions
+is it a strong emotion?
+does it have strong activation
+does it have high arousal
+does it have low activation
+is it an excited emotion
+is it an energetic emotion
+is it a violent emotion
+is it passionate
+is it mellow
+is it laid-back
+is it laid back
+is it a weak emotion
+is it calm 
+is it dispassionate
+is it tranquil
+is it peaceful
+is it an emotion that makes you excited?
+is it an emotion that makes someone energetic
+is it a chilled out emotion?
+is it a calm emotion
+
+#dominance related questions
+is it an aggressive emotion
+is it an aggressive emotion?
+is it submissive
+is it fearful
+is it belligerent
+is it an accommodating emotion
+is it retreating
+is it domineering
+is it low dominance?
+is it an emotion with low aggession
+is it an emotion with high aggressivity?
+
+#behavior descriptions
+
+#positive valence
+does it make you smile
+does it make you laugh
+#does it make your eyes light up
+#could it make your eyes light up?
+does it make you want to hug someone
+does it make you kiss someone
+does it make you pat someone on the back
+does it make you grin
+does it put spring into your stride
+does it make you skip and jump
+
+#negative valence
+does it make you frown
+does it make you cry 
+does it make you grimmace
+does it make you look gloomy
+does it make you want to vomit
+could it make you puke
+does it make you scowl
+does it make you wrinkle your nose?
+
+#positive activation
+does it make you jump up and down
+does it make you jittery
+does it make you want to run fast
+does it make you energetic
+does it make you want to bang your head
+does it make you want to clap
+
+#low activation
+does it make you sigh
+does it make you want to lie down
+does it make you stretch out
+does it make you yawn
+does it make you twiddle your fingers
+does it make you pace back and forth
+does it make you want to kick back
+does it make your shoulders sag
+does it make you scratch your chin
+
+#high dominance
+does it make you want to attack
+does it make you want to fight
+is it an emotion that makes you pound your fists
+is it an emotion that makes you stomp your feed
+is it an emotion that makes you want to punch somebody
+is it an emotion that makes you want to kill 
+does it make you want to slap somebody upside the head
+does it make you shake your fist
+
+#low dominance
+does it make you want to run away
+does it make you want to hide
+does it make you scream
+does it make you retreat
+does it make you want to cover your eyes
+does it make you piss your pants
+can it make you shit your pants
+does it make you bite your nails
+does it make you gnash your teeth
+does it make you want to run away
+does it make you run and hide
+does it make you throw your hands up in the air
+
+#similarity related questions

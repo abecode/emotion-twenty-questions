@@ -1,0 +1,95 @@
+###################################################################
+file:"2011-02-18 abe.emo20q.r1@ark.usc.edu - jimmy@ark.usc.edu.log"
+###################################################################
+
+match:1, answerer:abe.emo20q.r1, questioner:jimmy, start:"2011-02-18 12:44:15"
+
+would i feel this if my dog died?
+-
+no
+
+would i feel this if it were my birthday?
+-
+nope
+gloss:{no}
+
+would i feel this if some one cut me off on the highway?
+-
+perhaps
+gloss:{possibly:yes,necessarily:no}
+
+would i feel this if i saw a ghost
+-
+no, not generally
+gloss:{generally:no}
+
+would i feel this if i got in a fight with someone?
+-
+maybe you could feel it
+gloss:{possibly:yes}
+
+would i feel it if some one received something i wanted?
+-
+nope
+gloss:{no}
+
+anger?
+-
+no
+
+is it similar to anger?
+-
+kind of similar
+gloss:{yes,hedge}
+
+would i feel this if someone punched me in the face?
+-
+not so much for getting punched in the face
+gloss:{no,hedge}
+
+would i feel this if i had a grudge against someone?
+-
+no, I wouldn't say that it's normally for grudges
+gloss:{no,clarification}
+
+would i possibly shout at someone?
+-
+yes, possibly, especially if you had this emotion long enough.
+gloss:{possibly:yes,clarification}
+
+is it resentful?
+-
+no
+
+is it passive aggresive
+-
+no.
+
+is it aggressive aggressive?
+-
+no, it's less necessarily directed at another person than your recent guesses
+gloss:{no,hint}
+
+would i feel this if i hated myself?
+-
+probably you would feel it, but it's not that strong
+gloss:{probably:yes}
+
+would i feel it if i were disapointed in myself?
+-
+yes 
+at least possibly
+gloss:{possibly:yes}
+
+is it regret?
+-
+no, it's not about blaming yourself but rather blaming someone else or some situation
+gloss:{no,hint}
+
+oh, is it frustrated?
+-
+aha!
+yep
+gloss:{yes,done}	
+
+end:"2011-02-18 13:08:01"

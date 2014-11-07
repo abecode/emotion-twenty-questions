@@ -1,0 +1,8568 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass elsarticle
+\begin_preamble
+%\usepackage[small,compact]{titlesec}
+%\renewcommand\floatpagefraction{.9}
+%\renewcommand\topfraction{.9}
+%\renewcommand\bottomfraction{.9}
+%\renewcommand\textfraction{.9}
+%\setcounter\totalnumber{50}
+%\setcounter\topnumber{50}
+%\setcounter\bottomnumber{50}
+%\usepackage{savetrees}
+%\renewcommand{\topfraction}{0.85}
+%\renewcommand{\text}{0.1}
+%\renewcommand{\floatpagefraction}{0.85}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{tabularx}
+\end_preamble
+\options 9.5pt
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_numerical
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A Socratic Epistemology for Verbal Emotional Intelligence
+\end_layout
+
+\begin_layout Author
+Abe Kazemzadeh, James Gibson, Panayiotis Georgiou, Sungbok Lee, Shrikanth
+ Narayanan,
+\end_layout
+
+\begin_layout Abstract
+In this paper we claim that question asking provides a natural framework
+ for acquiring representing knowledge about emotions.
+ Question asking has a well-founded theoretical basis that goes back to
+ ancient times.
+ We develop a framework for empirically observing human question-asking
+ behavior as a means for dealing with subjective information about emotions.
+ Dealing with linguistic knowledge in this way gives insight about how to
+ represent emotions for use in natural language technology.
+ First, we build a corpus of people playing emotion twenty questions (EMO20Q),
+ a game of twenty questions limited to words denoting emotion.
+ Then, we create a question-asking dialog agent that can deal with this
+ subjective information about emotions and test it experimentally with over
+ 100 players.
+ Our results show that the agent is perceived as human-like and can identify
+ a large set of non-prototypical emotions learned from observed human-human
+ data.
+ Even when the agent fails to correctly identify the subject's emotion,
+ it is still perceived as human-like, despite performing worse than humans
+ on the EMO20Q task.
+ We believe that the agent's behavior of searching for knowledge, and not
+ the agent's knowledge itself, is responsible for this subjective performance
+ rating.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+We also examine spectral graph theory as a model of verbal curiosity.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Or, A Socratic, Graph-based Epistemology of Emotions for Natural Language
+ Agents 
+\end_layout
+
+\begin_layout Plain Layout
+Or, Natural Language Descriptions of Emotions and the Emotion Twenty Questions
+ Game
+\end_layout
+
+\begin_layout Plain Layout
+add discussion of inductive behavior?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this paper, we describe a methodology that uses a natural language question-a
+sking approach inspired by the Socratic method to acquire knowledge and
+ shared beliefs regarding emotions.
+ This methodology allows us to study 
+\emph on
+natural language description of emotion
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kazemzadeh2011c"
+
+\end_inset
+
+.
+ Natural language descriptions of emotion are utterances that refer to emotions
+ directly.
+ They can be seen as a subset of the larger phenomenon of emotional language,
+ which also includes emotion or sentiment expressed towards some object,
+ vocal modulation due to emotion, and persuasion and pragmatics.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+In this sense, it is a change of focus from some of the prevalent trends
+ in researching natural language expressions of emotion and has more in
+ common with theoretical and representational issues in affective computing.
+ However, this approach differs from theoretical works in that we eschew
+ the notion of a fixed emotional vocabulary and in our approach, the theory
+ is generated by ordinary language users rather than scientists.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We maintain that studying question-asking dialogs about emotion shows the
+ capability of humans to use a large, rich, subjective vocabulary of emotion
+ words and provides a theory of emotion description that captures the shared
+ meaning of natural language.
+ The framework we present differs from other theories of emotion in that
+ it aims to study how people describe emotions, rather than how emotions
+ 
+\emph on
+should be
+\emph default
+ described.
+ As such, it can be seen as a descriptive, rather than prescriptive, theory,
+ and hence has commonalities with sociological studies of emotions 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Shaver2001,King1989,Mihalcea2006,Kazemzadeh2012"
+
+\end_inset
+
+.
+ Although there is a biological basis for emotions, the way that people
+ describe emotions in natural language varies over time from culture to
+ culture and person to person.
+ A descriptive theory of verbal description of emotion should reflect this
+ variation.
+ Thus, a particular instantiation of an emotional theory that is based on
+ natural language should be relative to a particular agent or set of agents
+ at a given time who hold similar beliefs and communicate using the same
+ language.
+ Rather than trying to establish a particular definition for emotion words,
+ we study how shared meaning can be established through verbal behavior
+ even when people may have different ways of describing emotions.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Mention De Obligationes?, on to modern logic, Peirce, Hittinka
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The key goals of this paper are to use question-asking to observe natural
+ language descriptions of emotion in a natural context and to computationally
+ model the social processes that support the referential link between language
+ and emotions.
+ In the next section, we will discuss the motivations and theory behind
+ our work.
+ Next, we discuss the data we collected of people playing emotion twenty
+ questions (EMO20Q).
+ The following section describes the computational model and algorithm we
+ used to create an EMO20Q questioner agent.
+ Finally we examine a computational model for curiosity for the agent.
+ 
+\end_layout
+
+\begin_layout Section
+Background
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Background"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A Socratic Epistemology of Emotions
+\end_layout
+
+\begin_layout Standard
+The precise point that humans began to use language to name and describe
+ emotions most likely predates writing.
+ However the early writings quoted below show that description of emotions
+ using language goes back to antiquity.
+ Similarly, attempts to precisely define this language can also be traced
+ back to distant times:
+\end_layout
+
+\begin_layout Quotation
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hangindent=
+\backslash
+parindent
+\end_layout
+
+\end_inset
+
+
+\series bold
+[Gorgias:]
+\series default
+ Just as different drugs draw forth different humors from the body – some
+ putting a stop to disease, others to life – so too with words: some cause
+ pain, others joy, some strike fear, some stir the audience to boldness,
+ some benumb and bewitch the soul with evil persuasion” (Gorgias, 
+\emph on
+Encomium of Helen
+\emph default
+, c.415 B.C.).
+\end_layout
+
+\begin_layout Quotation
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hangindent=
+\backslash
+parindent
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Socrates:
+\series default
+ You, Gorgias, like myself, have had great experience of disputations, and
+ you must have observed, I think, that they do not always terminate in mutual
+ edification, or in the definition by either party of the subjects which
+ they are discussing;
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ldots
+\end_layout
+
+\end_inset
+
+ Now if you are one of my sort, I should like to cross-examine you, but
+ if not I will let you alone.
+ And what is my sort? you will ask.
+ I am one of those who are very willing to be refuted if I say anything
+ which is not true, and very willing to refute any one else who says what
+ is not true, and quite as ready to be refuted as to refute.
+ (Plato, 
+\emph on
+Gorgias
+\emph default
+, Transl.
+ Benjamin Jowett, 380 B.C.) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ In the first quote above, Gorgias, a Sophist rhetorician, describes the
+ effects of words on a person's emotions.
+ Gorgias describes emotions both by using his rhetorical skills and by making
+ reference to the theory of physiological humors.
+ The conception of emotions has changed since the time of the ancients,
+ who believed that emotions were generated from bodily 
+\begin_inset Quotes eld
+\end_inset
+
+humors
+\begin_inset Quotes erd
+\end_inset
+
+, which in turn were derived from alchemical elements.
+ In the second quote, Socrates (as quoted by Plato) cross-examines Gorgias
+ to determine Gorgias' beliefs.
+ Socrates applied his method of inquiry to examine concepts that seem to
+ lack any concrete definition, in particular some of the moral concepts
+ of his time like 
+\begin_inset Quotes eld
+\end_inset
+
+justice
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+knowledge
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+piety
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+temperance
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+love
+\begin_inset Quotes erd
+\end_inset
+
+.
+ We claim that this method of inquiry can shed light on how people define
+ emotional concepts, which also seem to defy concrete definition.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kazemzadeh2011a"
+
+\end_inset
+
+ we described the construction of a person-specific theories of emotions
+ based on data from EMO20Q, inspired by the definition of a theory from
+ mathematical logic, where a theory is defined as the set of propositions
+ in some language that is true of a model.
+ In the view proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kazemzadeh2011a"
+
+\end_inset
+
+, a person's verbal intelligence was the model that determined whether natural
+ language statements about emotions as were true or false with respect to
+ a given emotion and particular person.
+ This view was inspired by the notion of a theory in mathematical logic,
+ which defines a theory as a set of statements that are true of a particular
+ model.
+ This person-specific theory can be thought of a representation of a person's
+ knowledge or beliefs.
+ Viewed in this way, a person specific theory of emotions is more appropriately
+ an issue of epistemology, rather than formal logic, because deals with
+ a theory of knowledge, belief, and justification.
+ Epistemology traditionally sees knowledge as true, justified belief.
+ As an example, one can belief in God, and God can actually exist, but without
+ justification, one cannot call this true belief 
+\begin_inset Quotes eld
+\end_inset
+
+knowledge
+\begin_inset Quotes erd
+\end_inset
+
+ unless it is justified in some way.
+ In this paper we shift our focus from truth of statements in a model to
+ the process of justification of beliefs.
+ The particular way in which we try to observe the knowlege that people
+ have about emotions is inspired by the Socratic method of asking questions,
+ which is why we call it a 
+\emph on
+Socratic epistemology
+\emph default
+.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+First we will discuss the importance of the question asking modality and
+ then describe the previous work of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kazemzadeh2011a"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Besides being seen as a method for eliciting language by crowd-sourcing,
+ the questioning asking process can be seen in deeper terms as central to
+ how people understand and describe the world.
+\end_layout
+
+\end_inset
+
+The question-asking process can be seen as central to how people understand
+ and describe the world.
+ Question asking allow people to learn about things without directly experiencin
+g them, and is hypothetically a mechanism that accounts for a child's learning
+ and language acquisition 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Frazier2009"
+
+\end_inset
+
+.
+ The logician Charles S.
+ Peirce identified three types of thought processes by which a person can
+ acquire knowledge: deduction, induction, and hypothesis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Peirce1868"
+
+\end_inset
+
+.
+ The third of these, also known as abduction 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Eco1988"
+
+\end_inset
+
+, has been compared with the Socratic method of questioning 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hintikka2007"
+
+\end_inset
+
+.
+ By examining the EMO20Q data in light of Socratic epistemology, we not
+ only aim to collect an increasing list of propositions that are true or
+ false of a given emotion for a particular person, but also we want to observe
+ the ordering of the questions shows a conceptual continuity that reflects
+ a person's train of thought and the relations of similarity and subsethood
+ between emotion concepts 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+[if accepted:
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kazemzadeh"
+
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+ for that person.
+ Moreover, while some questions are better than others and can be evaluated
+ on a per-question basis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kazemzadeh2011b"
+
+\end_inset
+
+, questioning can also be evaluated at the level of a policy 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Jedynak2012"
+
+\end_inset
+
+ or strategy.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+[copy and paste: rewrite]
+\end_layout
+
+\begin_layout Plain Layout
+Our method uses the definition of the term 
+\emph on
+theory
+\emph default
+ from mathematical logic which states that a theory 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is simply a set of sentences in some language 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ that is true of a model 
+\begin_inset Formula $M$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Enderton2001,Forster2003"
+
+\end_inset
+
+.
+ In the case of EMO20Q, 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is the set of questions that were answered with 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+ and negations of the questions that were answered with 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+ for a given emotion, 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is the language of propositional logic, and 
+\begin_inset Formula $M$
+\end_inset
+
+ is a mental model of emotions, which we assume is only accessible through
+ observation of communicative behavior.
+ In this view, each question in EMO20Q can be represented as a proposition
+ 
+\begin_inset Formula $p\in P$
+\end_inset
+
+ that can be judged true or false of a given emotion 
+\begin_inset Formula $\varepsilon\in E$
+\end_inset
+
+ by player 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ according to that player's mental model, 
+\begin_inset Formula $M_{\varepsilon,i}$
+\end_inset
+
+.
+ Assuming now that player 
+\begin_inset Formula $i$
+\end_inset
+
+ is the answerer who has just been asked question 
+\begin_inset Formula $p$
+\end_inset
+
+, we can say that 
+\begin_inset Formula $\models_{M_{\varepsilon,i}}p$
+\end_inset
+
+ if the player answers 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Formula $\models_{M_{\varepsilon,i}}\neg p$
+\end_inset
+
+ if the player answers 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The previous notation is read 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $p$
+\end_inset
+
+/
+\begin_inset Formula $\neg p$
+\end_inset
+
+ is satisfied by 
+\begin_inset Formula $M_{\varepsilon,i}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, or equivalently 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $M_{\varepsilon,i}$
+\end_inset
+
+ is a model of 
+\begin_inset Formula $p$
+\end_inset
+
+/
+\begin_inset Formula $\neg p$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+A theory for a specific emotion 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ and a specific player 
+\begin_inset Formula $i$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\Gamma_{\varepsilon,i}$
+\end_inset
+
+, is constructed as a Boolean vector of length 
+\begin_inset Formula $|P|$
+\end_inset
+
+, where 
+\begin_inset Formula $|P|$
+\end_inset
+
+ is the total number of questions.
+ For every question 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ asked of player 
+\begin_inset Formula $i$
+\end_inset
+
+, the 
+\begin_inset Formula $n$
+\end_inset
+
+-th position of the vector 
+\begin_inset Formula $\Gamma_{\varepsilon,i}$
+\end_inset
+
+ will be 
+\emph on
+true
+\emph default
+ or 
+\begin_inset Formula $1$
+\end_inset
+
+
+\emph on
+ 
+\emph default
+if the player has answered yes to 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ when the emotion in question was 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+ In this case we can say that 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ is a 
+\emph on
+theorem 
+\emph default
+of 
+\begin_inset Formula $\Gamma_{\varepsilon,i}$
+\end_inset
+
+.
+ Similarly, 
+\emph on
+false
+\emph default
+ or 
+\begin_inset Formula $0$
+\end_inset
+
+ is assigned to element 
+\begin_inset Formula $n$
+\end_inset
+
+ of 
+\begin_inset Formula $\Gamma{}_{\varepsilon,i}$
+\end_inset
+
+ if 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ received no as an answer while being questioned while 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ was the emotion in question.
+ In this case, 
+\begin_inset Formula $\neg p_{n}$
+\end_inset
+
+ is a theorem of 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+.
+ If a contradiction is reached, i.e., if both 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\neg p_{n}$
+\end_inset
+
+ are members of the set 
+\begin_inset Formula $\Gamma_{\varepsilon,i}$
+\end_inset
+
+, then both are removed.
+ In practice, this has not happened and we assume that it will not because
+ a player is consistent with him or herself in normal situations, so such
+ a contradiction would be a warning flag that a player may not be playing
+ consistently.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+One can proceed in a similar manner for a person-independent theory 
+\begin_inset Formula $\Gamma_{\varepsilon}$
+\end_inset
+
+ of a particular emotion 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+ In this case, the proposition 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ associated with a particular question is added to 
+\begin_inset Formula $\Gamma_{\varepsilon}$
+\end_inset
+
+ if any player has answered yes to 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ when questioned about emotion 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, and conversely for 
+\begin_inset Formula $\neg p_{n}$
+\end_inset
+
+ when any player has answered no.
+ In the case of a person-independent theory, in general one can expect some
+ contradictions and these  statement would signify when there is disagreement
+ about whether such a proposition is true or false of that particular emotion.
+ In this case, as before for the person-specific case, both propositions
+ should be removed from the theory to prevent contradictions.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+If a theory for a specific emotion can be seen as a long list of propositions
+ that are true of it, the theory of a set of emotions can be seen as an
+ matrix 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ indexed by the emotions in one dimension and the questions in the other
+ dimension.
+ If the theory 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ contains emotions 
+\begin_inset Formula $\varepsilon_{m}$
+\end_inset
+
+ for 
+\begin_inset Formula $1\leq m\leq|E|$
+\end_inset
+
+ and propositions 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ for 
+\begin_inset Formula $1\leq n\leq|P|$
+\end_inset
+
+, then 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ will be an 
+\begin_inset Formula $|E|\times|P|$
+\end_inset
+
+ matrix.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+[end copy and paste]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Natural Language Descriptions of Emotions
+\end_layout
+
+\begin_layout Standard
+Just as memory addresses, variables, and URLs refer to electronic resources
+ for computers, so to do words and descriptions identify objects, both physical
+ and conceptual, for humans.
+ When processing natural language by computer, it can help to draw upon
+ these similarities.
+ This is especially the case in the case of affective computing, when the
+ objects we wish to reference are abstract and subjective.
+\end_layout
+
+\begin_layout Standard
+In this paper we make a distinction between the emotion 
+\emph on
+expressed by
+\emph default
+ the speaker and the emotion 
+\emph on
+referred to
+\emph default
+ by the speaker.
+ Currently there has been a great degree of interest in automatically analyzing
+ the emotional content of language.
+ The language used as input to this kind of analysis can be a speech recording
+ or textual representation of language.
+ The goal of such analysis is to determine emotions 
+\emph on
+expressed by
+\emph default
+ the speaker or writer, i.e., the emotions that the speaker currently feels.
+ However, analyzing an utterance or document at a gross level, automatic
+ analysis can be confused when a speaker 
+\emph on
+refers to
+\emph default
+ emotions that are not his or her own current emotions.
+ Examples of this are quotations, storytelling/gossip, counterfactual reasoning,
+ 
+\emph on
+post facto
+\emph default
+ emotional self-report, and abstract references to emotions.
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+He said that he was mad.
+
+\emph default
+ (quotation)
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+Did you see how mad John was? 
+\emph default
+(gossip)
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+If you eat my ice cream, I will get mad.
+
+\emph default
+ (counterfactual reasoning)
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+I was mad when I found my car stolen last year.
+ 
+\emph default
+(self-report)
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+Anger is one of the seven sins.
+
+\emph default
+ (abstract references).
+\end_layout
+
+\begin_layout Standard
+In these examples, an automated system would detect anger, but in fact the
+ writer of these sentences is not actually feeling anger at the current
+ time.
+ In many cases, such a subtle distinction might not be pertinent, but the
+ study of natural language descriptions of emotions brings this distinction
+ into focus.
+ The ability to talk about things besides the here-and-now is an important
+ characteristic of language, which has been termed 
+\emph on
+displacement 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hockett1968"
+
+\end_inset
+
+
+\emph default
+.
+ With respect to emotion research, natural language descriptions of emotions
+ have been examined in ethnography, comparative linguistics, and cognitive
+ science 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "King1989,Zolt'anKovecses2000,Rolls2005,Kazemzadeh2012"
+
+\end_inset
+
+.
+ In the natural language processing (NLP) domain we present in this paper,
+ there is a need for analysis that is sensitive to such a distinction.
+ This game of EMO20Q is primarily about 
+\emph on
+referring to
+\emph default
+ emotions: the players pick hypothetical emotions--not necessarily the emotions
+ they feel--to use in a twenty questions-type game.
+ In the game, players also 
+\emph on
+express
+\emph default
+ emotions: they are happy or relieved when they correctly guess the emotion
+ and feel mild anguish if they cannot.
+ However, in this paper we focus on they behavior of the players when they
+ 
+\emph on
+refer to 
+\emph default
+emotions.
+ 
+\end_layout
+
+\begin_layout Standard
+The game of EMO20Q was primarily designed as a way to elicit natural language
+ descriptions of emotion: how people refer to emotions abstractly using
+ language.
+ While it is possible to communicate one's emotions to a first-hand observer
+ by facial expressions, vocal modulation, or lexical choice, in order to
+ communicate emotional information to others who are not first-hand observers
+ it is necessary to describe emotions abstractly rather than to simply express
+ or display the emotions.
+ At the most basic level, natural language descriptions of emotions include
+ words that name emotions, e.g.
+ 
+\emph on
+angry
+\emph default
+, 
+\emph on
+happiness
+\emph default
+, etc.
+ However, due to the productive, generative nature of natural language,
+ it is possible to refine and generalize emotion descriptions with longer
+ natural language phrases.
+ Furthermore, natural language descriptions of emotions can be related to
+ each other in a similar way that words are related to other words through
+ their dictionary definitions.
+ 
+\end_layout
+
+\begin_layout Standard
+In order to communicate using natural language descriptions of emotions,
+ people must be able to come to a shared understanding about the meaning
+ of these descriptions.
+ Russell 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Russell1905"
+
+\end_inset
+
+ introduced the notion of 
+\emph on
+definite descriptions
+\emph default
+, a logical device to used to model unique reference in the semantics of
+ languages, both formal and natural.
+ In this paper, we focus on the natural language definite descriptions.
+ Common examples of natural language definite descriptions are proper names
+ and noun phrases with the definite article 
+\begin_inset Quotes eld
+\end_inset
+
+the
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Mention Kripke's naming and necessity?
+\end_layout
+
+\end_inset
+
+.
+ Indefinite descriptions, on the contrary, are prefaced with indefinite
+ articles, such as 
+\begin_inset Quotes eld
+\end_inset
+
+a
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+some
+\begin_inset Quotes erd
+\end_inset
+
+, or 
+\begin_inset Quotes eld
+\end_inset
+
+every
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Considering natural language descriptions of emotions in this way begs
+ the question of whether natural language descriptions of emotions are definite
+ descriptions or not.
+ By considering terms that refer to emotions as definite descriptions, we
+ are trying to capture the intuition that people mean the same things when
+ they use the same emotion terms.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Barrett2006"
+
+\end_inset
+
+, the question is posed of whether emotions are natural kind terms, to which
+ the paper answered no, i.e., that different emotion terms represent non-unique
+ classes of human behavior rather than fundamentally distinct natural classes.
+ The question of whether emotion terms are definite descriptions can be
+ seen as a less stringent criterion than that of a natural kind.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+In this paper we formulate natural language descriptions of emotions in
+ terms of definite descriptions and we show how such references to emotions
+ are grounded in natural language dialogs using an adaptation of the mathematica
+l notion of convergence empirically grounded in observed natural language
+ dialogs.
+\end_layout
+
+\end_inset
+
+ In this paper, we apply the notion of definite descriptions to capture
+ the experimental data which indicates that there is a high degree of concensus
+ about how emotions are described when measured by EMO20Q.
+\end_layout
+
+\begin_layout Subsection
+EMO20Q, Crowd-Sourcing, and Experimental Design
+\end_layout
+
+\begin_layout Standard
+By relying on the wisdom of the masses, we can venture a simple answer to
+ the difficult question, 
+\begin_inset Quotes eld
+\end_inset
+
+what is emotion?
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The answer, according to crowd-sourcing, is that emotion is what most people
+ say it is.
+ Although this answer side-steps many important issues, such as physiological
+ and psychological descriptions of emotions, it does bring other issues
+ into sharper focus.
+ Currently, there is a movement toward studying non-prototypical emotional
+ data.
+ Non-prototypical emotional data is exemplified by disagreement among annotators
+ when assigning emotional labels to data.
+ We argue that a crowd-sourced description of emotions can effectively deal
+ with non-prototypical emotions.
+ To avoid falling into the 
+\emph on
+ad populem
+\emph default
+ logical fallacy, we formulate the answer to the question 
+\begin_inset Quotes eld
+\end_inset
+
+what is emotion?
+\begin_inset Quotes erd
+\end_inset
+
+ not as a question of truth, but a question of knowledge and belief, i.e.,
+ an issue of epistemology, in effect skirting the question of ground truth,
+ but asking another interesting question 
+\begin_inset Quotes eld
+\end_inset
+
+what do people believe about emotions and how do they express these beliefs
+ in language?
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+When considering people's beliefs about emotions from the point of view
+ of an annotation task, some of the disagreement between annotators with
+ respect to non-prototypical emotion data can actually be seen as an artifact
+ of being forced to choose from a set of 
+\begin_inset Quotes eld
+\end_inset
+
+basic
+\begin_inset Quotes erd
+\end_inset
+
+ emotions.
+ Moreover, annotation tasks typically ask annotators to assign natural language
+ descriptors to data without the context of natural language interaction,
+ i.e.
+ without the implied communicative goals that are shared with another interlocut
+or.
+ When the annotation task is set up as a forced choice between one of several
+ labels, it is obvious that any emotional data that does not fit into the
+ preassigned labels will be seen as non-prototypical.
+ However, more fundamentally, even when there is an open choice of emotion
+ labels, the task of annotation is divorced from the full context of natural
+ language interaction, so agreement is defined as a hit-or-miss event.
+ For this reason, many annotation methodologies use a manual or training
+ (e.g.
+ ADOS for autism diagnosis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Lord2000"
+
+\end_inset
+
+) to establish the context for the shared meaning of the annotation vocabulary.
+ However, in the case of annotating emotions, the technical vocabulary overlaps
+ with the natural language terms, so there is the potential for ambiguity
+ between the meaning established by the annotation standards and the meaning
+ of everyday language 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kazemzadeh2011a"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The game of EMO20Q addresses the issue of agreement about emotion descriptions
+ when the descriptive process is contextualized in natural language interaction.
+ EMO20Q is played like the traditional game of twenty questions, except
+ that one player, the 
+\emph on
+answerer
+\emph default
+, must choose an emotion term.
+ The other player, the 
+\emph on
+questioner
+\emph default
+, must try to guess the emotion that the answerer picked by posing a series
+ of twenty or fewer questions.
+ Importantly, we do not restrict the set of emotion terms that the players
+ can choose nor the questions they can ask: the set of emotion terms and
+ questions is not limited except by the players' judgment and cooperation.
+ 
+\end_layout
+
+\begin_layout Standard
+The EMO20Q game is an effective way to elicit language that people use to
+ state their beliefs about emotions.
+ In terms of the utility of EMO20Q as an experimental design, we distinguish
+ the human-human version of the game, which is played by two human players,
+ and the human-computer version of the game, in which one player is a computer.
+ In this paper we consider the case where the question-asker, or 
+\emph on
+questioner
+\emph default
+, is a computer.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Shri's comment (9/17/2012): There are several assumptions and claims made
+ in this section about the advantages and limitations of EMO20Q..
+ much of it is not directly substantiated (or justified)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In terms of experimental design, the human-human EMO20Q is a 
+\emph on
+quasi-experiment
+\emph default
+ or 
+\emph on
+natural experiment
+\emph default
+, as opposed to a 
+\emph on
+controlled
+\emph default
+ 
+\emph on
+experiment,
+\emph default
+ which means that there is not a manipulation of variables made by the experimen
+ters, but rather that the these variables are observed as they vary naturally
+ within the system.
+ Much past work 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Whissell1989,Osgood1957,Oudeyer2003,Russell1977,Kazemzadeh2008b,Kazemzadeh2010,Shaver2001"
+
+\end_inset
+
+ has focused on controlled experiments for studying emotional language,
+ usually eliciting responses from subjects who are presented with words
+ as stimuli.
+ However, the stimuli are predetermined and the responses are constrained,
+ often as a Likert scale or prescribed set of emotion categories.
+ In EMO20Q, potentially any word can be chosen as an emotion word and any
+ question can be asked of it; it is only limited by the game's rules, the
+ subjects' good-faith sportsmanship and the extent to which that one player's
+ model of emotions overlaps with the other player's model.
+ Thus, in contrast with purely elicited experiments, EMO20Q can be presumed
+ to have higher experimental validity and less experimental bias.
+ The player/subjects of EMO20Q are less constrained by the elicitation methodolo
+gy and, all other factors being equal, we can assume that their honesty
+ and cooperation is comparable to elicitation experiments, or perhaps improved
+ due to the presence of the other player and the players' shared communicative
+ goals.
+ Thus we can assume EMO20Q to have less experimental effects than in experiments
+ with guided/elicited responses.
+ There is the possibility of experimental effects due to interactions between
+ players, which we consider in the analysis of our results.
+ 
+\end_layout
+
+\begin_layout Standard
+One drawback of this approach is that it is hard to quantify reliability
+ in the unconstrained interactions of EMO20Q.
+ Reliability can be measured in the amount of agreement between subjects,
+ but this can be difficult because we do not force subjects to pick any
+ particular words, so the words that are in common between users are determined
+ by chance and hence sparse.
+ Determining an appropriate sample size as well as methods to deal with
+ sparsity are important characteristics of this methodology which we discuss
+ later.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Because of this, an alternative way to measure reliability could be done
+ in offline question-answering of specific question-emotion pairs, which
+ could be repeated across subjects
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another advantage of the EMO20Q methodology is the potential to provide
+ more experimental sensitivity.
+ Receiving stimuli and giving responses using the same modality, natural
+ language, has the potential to be much more sensitive than Likert scales
+ or restricting user input to fixed choices.
+ This is because we can assume that natural language has the capabilities
+ of expressing most, if not all, of the nuanced distinctions between emotions.
+ Even in cases where one is literally 
+\begin_inset Quotes eld
+\end_inset
+
+at a loss for words
+\begin_inset Quotes erd
+\end_inset
+
+, there are natural language descriptions, like the quoted phrase, that
+ people use to approximate such an emotion.
+ One exception where the natural language modality could be less sensitive
+ is in the case of children and non-native speakers.
+ In this case, we can imagine less fluent subjects who have conceptual distincti
+ons in their beliefs about emotions that they are not able to verbally express
+ without the aid of elicitation.
+ Detangling the variability in cognitive and verbal capabilities is a challenge
+ for the EMO20Q methodology though we could hypothesize that a verbal limitation
+ would be observable in subjects requiring more questions, while cognitive
+ limitations would be observable in subjects failing to guess correctly.
+\end_layout
+
+\begin_layout Standard
+The methodological utility of the natural language modality in EMO20Q can
+ be seen in the productivity, ubiquity, and social aspects of language,
+ as well as the relation to engineering solutions, such as natural language
+ processing.
+ From the perspective of natural language processing, the EMO20Q game experiment
+ can be seen as a 
+\emph on
+Wizard of Oz
+\emph default
+ experiment that can be used to collect human behavior that can be used
+ to inform an automated agent.
+ Games like EMO20Q can be seen as 
+\emph on
+games with a purpose
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ahn2004"
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
+whose purpose is 
+\emph on
+crowd-sourcing
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Howe2006"
+
+\end_inset
+
+ the collective knowledge and beliefs of the players 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kazemzadeh2011a"
+
+\end_inset
+
+.
+ The phenomenon of crowd-sourcing is closely tied to the emergent properties
+ of online social communities 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhong2000"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The human-computer version of EMO20Q offers more possibilities for experimental
+ control.
+ We examine whether it is possible to control the EMO20Q game using a computer
+ questioner agent and explore different possible ways of controlling such
+ an agent.
+\end_layout
+
+\begin_layout Section
+Human-Human EMO20Q
+\end_layout
+
+\begin_layout Standard
+The EMO20Q experiments we conducted can be partitioned into human-human
+ and human-computer experiments.
+ This section will examine the human-human experiments and the next will
+ focus on using these results for the human-computer experiments.
+ 
+\end_layout
+
+\begin_layout Subsection
+Data and Methodology
+\end_layout
+
+\begin_layout Standard
+We collected a total of 110 matches from 25 players in the human-human EMO20Q
+ experiments.
+ On average this is about 8 matches per player.
+ However, we had two main types of subject: volunteers and paid participants.
+ Most volunteers played two matches per player, one match per role, so two
+ matches per subject was the median.
+ The paid participants were part of a longitudinal experiment that aimed
+ to see the effect of playing the game with each other over a longer period
+ of time, which resulted in a maximum of 57 matches for the two longitudinal
+ experiments.
+ The EMO20Q experiment was is implemented as an online chat application
+ using the Extensible Messaging and Presence Protocol (XMPP) so that the
+ games can be easily recorded and studied.
+ 
+\end_layout
+
+\begin_layout Standard
+Early in our pilot studies, we realized that it was difficult to successfully
+ terminate the game when the questioner guessed words that were synonyms
+ of the word the answerer picked.
+ This led us to treat the phenomenon of synonyms with an additional rule
+ that allowed the game to terminate if the answerer could not verbally explain
+ any difference between the two words.
+ In this case, we considered the game to terminate successfully, but we
+ flagged these matches and kept track of both words.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the surface forms of the questions vary widely, we used manual preprocessi
+ng to standardize the questions to a logical form that is invariant to wording.
+ This logical form converted the surface forms to a pseudo-code language
+ with a controlled vocabulary by converting the emotion names to nouns if
+ possible, standardizing attributes of emotions and the relations of emotions
+ to situations and events.
+ Examples of the standardized questions are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Question-Standardization"
+
+\end_inset
+
+.
+ After this semantic standardization, there were a total of 727 question
+ types.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+In future work, we aim to use natural language processing to automate this
+ stage.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Examples of question standardization.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Question-Standardization"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{.20
+\backslash
+columnwidth} p{.69
+\backslash
+columnwidth}} 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf Standardized Question} & {
+\backslash
+bf Examples} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline %
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cause(emptySet,e) & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{can you feel the emotion without any external events that cause it?}
+ 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is it an emotion that just pops up spontaneously (vs being triggered
+ by something)?} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cause(otherPerson,e) & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is it caused by the person that it's directed at?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{Do you need someone to pull this emotion out of you or evoke it? if
+ so, who is it?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+e.valence==negative & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is it considered a negative thing to feel?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{2) so is it a negative emotion?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+situation(e,birthday) & 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{would you feel this if it was your birthday?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is it a socially acceptable emotion, say, at a birthday party?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+e==frustration &
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{oh, is it frustrated?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{frustration?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+After the manual normalization we found that there were 37 questions types
+ that had been asked at least twice, eight questions types that were asked
+ three times, four that were asked at least four times (a total of 90 question
+ tokens were repeated at least twice).
+ Examining the normalized questions revealed interesting patterns of question
+ reuse through the social interactions of the players, though more longitudinal
+ data will be needed to rigorously characterize these interactions.
+ Approximately half of the questions were emotion identity questions.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To get a better idea of the relative frequencies of general types of questions,
+ we made the following high level characterization of the questions using
+ the following broad categories: 
+\emph on
+identity questions 
+\emph default
+(guessing an emotion), 
+\emph on
+attribute questions
+\emph default
+ (asking about dimensional attribute like valence or activation), 
+\emph on
+similarity/subsethood questions 
+\emph default
+(asking if the emotion in question is similar to or a type of another emotion),
+ 
+\emph on
+situational questions
+\emph default
+ (questions that ask about specific situations associated with the emotion
+ in question), 
+\emph on
+behavior questions 
+\emph default
+(questions that are asked about the behavior associated with the emotion
+ in question), 
+\emph on
+causal questions
+\emph default
+ (questions about the cause, effect, or dependency of the emotion in question),
+ 
+\emph on
+social questions
+\emph default
+ (questions asking about other parties involved in the emotion--this overlaps
+ somewhat with causal questions and situational questions), 
+\emph on
+miscellaneous questions 
+\emph default
+(questions that defied classification or had categories with too few examples).
+ Some examples of these categories are given in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Question-Categories"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Examples of question categories.
+ NOTE: UPDATE
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Question-Categories"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{p{.20
+\backslash
+columnwidth} p{.69
+\backslash
+columnwidth}} 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf Question Categories} & {
+\backslash
+bf Examples} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline %
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+identity 
+\end_layout
+
+\begin_layout Plain Layout
+
+(42
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is it angry?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{guilt?} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+attribute (13
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is it something one feels for long periods of time?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is it a strong emotion?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+similarity/
+\backslash
+newline subsethood (10
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is the emotion a type of or related to content or zen contentment (is
+ that a word?
+\backslash
+_)} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{so it's similar to excited?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+situational (14
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{is the emotion more likely to occur when you are tired?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{would i feel this if my dog died?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline %
+\backslash
+hline  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+behavior (3
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{you can express it in an obvious way by sighing? } 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{do adults usually try to discourage children from feeling this?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+causal (7
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{yes.
+  mynext question is can it harm anyone besides the feeler?} 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{I think I know, but I'll ask one more question...does it ever cause children
+ to wake up and cry?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+social (8
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{are you less likely to experience the emotion when around good firiends?}
+ 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{13)would you feel that towards someone who is superior to you?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+miscelaneous (3
+\backslash
+%)
+\end_layout
+
+\begin_layout Plain Layout
+
+&
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{i dont' know if this is a valid question, but does it start with the
+ letter D? } 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{or an aspirational emotion?}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{does the word function or can be conjugated as anything eles? i.e.
+ can it be a verb too? }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tabularnewline
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Section
+Analysis
+\end_layout
+
+\begin_layout Subsection
+Spectral Graph
+\end_layout
+
+\begin_layout Plain Layout
+[BEGIN copy and paste]
+\end_layout
+
+\begin_layout Plain Layout
+Converting the theory 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ to the graph 
+\begin_inset Formula $A$
+\end_inset
+
+, as described above, allows us to use methods from collaborative filtering,
+ social network analysis, and spectral graph theory 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kunegis2009,Hou2005"
+
+\end_inset
+
+.
+ In this paper, we use the number of zero eigenvalues of the Laplacian of
+ the graph 
+\begin_inset Formula $A$
+\end_inset
+
+ to determine the number of connected components of the graph.
+ This can be seen as a measure of the sparsity of our data and can be used
+ to identify the questions that must be asked of certain emotions in order
+ to connect the graph components.
+ The Laplacian 
+\begin_inset Formula $L$
+\end_inset
+
+ of a signed graph is calculated by subtracting the absolute adjacency matrix
+ 
+\begin_inset Formula $|A|$
+\end_inset
+
+ from the diagonal absolute degree matrix 
+\begin_inset Formula $\bar{D}_{ii}=\sum_{j}|A_{ij}|$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+L=\bar{D}-|A|
+\]
+
+\end_inset
+
+From the matrix 
+\begin_inset Formula $L$
+\end_inset
+
+ we can tell the number of connected components of 
+\begin_inset Formula $A$
+\end_inset
+
+ by counting the number of zero eigenvalues.
+ Thus, if there are three eigenvalues that equal zero, the graph is composed
+ of three separate connected components.
+ A graph Laplacian with one zero eigenvalue is a single connected graph.
+\end_layout
+
+\begin_layout Plain Layout
+If an agent has identified that it has unconnected knowledge, how can it
+ then plan questions to address the knowledge goal of connecting the components
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+? To answer this, we must define the notion of a 
+\emph on
+walk
+\emph default
+ on a graph.
+ A walk of length 
+\begin_inset Formula $l$
+\end_inset
+
+ on graph 
+\begin_inset Formula $A$
+\end_inset
+
+ that joins vertices 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ is a sequence of vertices 
+\begin_inset Formula $u_{0}\ldots u_{l}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ such that 
+\begin_inset Formula $v_{i}=u_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{j}=u_{l}$
+\end_inset
+
+, and 
+\begin_inset Formula $u_{t-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{t}$
+\end_inset
+
+ are adjacent for 
+\begin_inset Formula $1\le t\le l$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+According to 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Lemma 2.5"
+key "Biggs1974"
+
+\end_inset
+
+, the number of walks of length 
+\begin_inset Formula $l$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+ that join 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ is the entry in cell 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ of the matrix 
+\begin_inset Formula $A^{l}$
+\end_inset
+
+.
+ Thus, by taking repeated powers of the absolute adjacency matrix 
+\begin_inset Formula $|A|$
+\end_inset
+
+, we can determine if nodes 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ are connected by walks of length 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ Since the graph is bipartite, the walks from question nodes to other question
+ nodes or from object nodes to other object nodes will always be even length,
+ and conversely, walks between question and object nodes will be odd length.
+ This behavior is undesirable because we wish to preserve connectedness
+ properties across repeated powers of 
+\begin_inset Formula $A^{l}.$
+\end_inset
+
+ To remedy this undesirable behavior we can augment the adjacency matrix
+ 
+\begin_inset Formula $|A|$
+\end_inset
+
+ by adding the identity matrix 
+\begin_inset Formula $I$
+\end_inset
+
+ to it.
+ At this point, we can say that vertices 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ are connected by a walk of length 
+\begin_inset Formula $l$
+\end_inset
+
+ 
+\emph on
+or less
+\emph default
+ if the entry 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ of 
+\begin_inset Formula $(A+I)^{l}$
+\end_inset
+
+ is non-zero.
+ The proof of this, by contradiction, is that that if we imagine that vertices
+ 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ are connected by some walk of length 
+\begin_inset Formula $k<l$
+\end_inset
+
+, but not of length 
+\begin_inset Formula $l$
+\end_inset
+
+, then there must not be self-loop from 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ to itself after the walk of length 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ However, since we added the identity 
+\begin_inset Formula $I$
+\end_inset
+
+ matrix to 
+\begin_inset Formula $A$
+\end_inset
+
+ we know that there are in fact self-loops on all of the vertices.
+\end_layout
+
+\begin_layout Plain Layout
+The preceding fact allows us to state an alternative test for connectedness
+ and also allows us to identify the question-object pairs that need to be
+ asked to complete the agent's knowledge.
+ This test can be stated as follows: the graph 
+\begin_inset Formula $A$
+\end_inset
+
+ is connected if and only if 
+\begin_inset Formula 
+\[
+(|A|+I)^{M+N-1}
+\]
+
+\end_inset
+
+ has no zero entries.
+ This is because the length of a walk with distinct steps, a 
+\emph on
+path
+\emph default
+, is at most one less than the number of vertices in the graph, i.e., 
+\begin_inset Formula $M+N-1$
+\end_inset
+
+, which would be the case if the graph were a linked list.
+ The question-object pairs that correspond to zero entries in this matrix
+ are precisely the set of candidate questions that need to be asked to connect
+ the agent's knowledge.
+\end_layout
+
+\begin_layout Plain Layout
+The reader may wonder what is the purpose of using the graph Laplacian method
+ to determine whether the graph is connected when this can be accomplished
+ using the method of taking powers of 
+\begin_inset Formula $(A+I)$
+\end_inset
+
+.
+ While it is true that the latter method can accomplish the same objective
+ of determining whether the graph is complete, the Laplacian eigenvalue
+ method tell 
+\emph on
+how many
+\emph default
+ connected components there are.
+ This information is useful because it can tell us how many questions need
+ to be asked.
+ For example, if zero is an eigenvalue of the graph Laplacian, as described
+ in Section , and this eigenvalue has multiplicity 
+\begin_inset Formula $m$
+\end_inset
+
+ (i.e., there are 
+\begin_inset Formula $m$
+\end_inset
+
+ eigenvalues equal to zero), the minimum number of questions that need to
+ be asked is the number of edges to create a spanning tree on 
+\begin_inset Formula $m$
+\end_inset
+
+ nodes.
+ In this paper, we do not consider any type of weighting on the added edges,
+ so any minimal set of questions that connect the disconnected components
+ of the graph are satisfactory for the purposes of this paper.
+ This minimal set of edges is simply any tree that connects the 
+\begin_inset Formula $m$
+\end_inset
+
+ disconnected components.
+ Thus 
+\begin_inset Formula $m-1$
+\end_inset
+
+ questions must be asked since there are 
+\begin_inset Formula $m-1$
+\end_inset
+
+ edges in a tree of 
+\begin_inset Formula $m$
+\end_inset
+
+ nodes.
+ One could imagine additional constraints that further identify a 
+\begin_inset Quotes eld
+\end_inset
+
+best
+\begin_inset Quotes erd
+\end_inset
+
+ set of question-object pairs, for example, the set of questions whose added
+ edges minimizes the diameter of the resulting graph.
+\end_layout
+
+\begin_layout Plain Layout
+[END copy and paste]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Results
+\end_layout
+
+\begin_layout Subsubsection
+Successful Game Outcome Rate
+\end_layout
+
+\begin_layout Standard
+Of the 110 matches played between the 25 human players, 94 -- approximately
+ 85% -- terminated successfully with the questioner correctly identifying
+ the emotion that the answerer picked or a word that the answerer felt was
+ a synonym.
+ The mean and median number of questions asked per game was 12.0 and 10,
+ respectively, when failures to correctly guess the emotion were averaged
+ in as 20 questions.
+ 
+\end_layout
+
+\begin_layout Standard
+Of the 94 successfully terminated matches, 22 terminated with synonyms.
+ The 16 unsuccessfully terminated matches that were considered failures
+ consisted of several distinct cases.
+ The questioner player could give up early if they had no clue (5/16), they
+ could give up at twenty questions (1/16), or they could pass twenty questions
+ due to losing count or as a matter of pride (6/16).
+ The four remaining cases were considered failures because the answerer
+ inadvertently gave away the answer due to a typing error or giving an unnecessa
+rily generous hint.
+ These four cases were all in the longitudinal experiment.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Emotions
+\end_layout
+
+\begin_layout Standard
+There were 71 unique words that players chose in the human-human games,
+ 61 of which were correctly identified.
+ These are listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Emotion-words"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement !t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Emotion words from human-human EMO20Q matches.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Emotion-words"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centerline{
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="37" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row endhead="true">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+emotions (synonyms)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+count
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+# correct
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+emotions (synonyms)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+count
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+# correct
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+admiration
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+guilt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+adoration
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+happiness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+affection (love)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+helplessness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+amusement
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+hope (feeling lucky)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+anger
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+insecurity (shyness)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+annoyance (irritated)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+jealousy (envy)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+anxiety
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+joy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+apathy (uninterested)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+loneliness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+awe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+love
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+boredom
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+madness (anger)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bravery
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+melancholy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+calm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pity (sympathy)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cheerfulness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pride
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+confidence
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+proud
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+confusion
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+regret
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+contempt
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+relief
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+contentment (calm)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sadness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+depression (misery)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+satisfaction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+devastation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+serenity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+disappointment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shame
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+disgust
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shock
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+dread (hopelessness)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shyness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+eagerness (determination)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+silly
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+embarrassment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+soberness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+enthusiasm (eagerness)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sorrow (sadness)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+envy (jealousy)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+stress
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+exasperation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+suffering
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+excitement
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+surprise
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+exhilaration (thrill)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tense (uncomfortable)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+exhaustion
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+terror
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fear (distress,scared)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+thankful
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+frustration
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+thrill (entrancement)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+fury
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tiredness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+glee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+wariness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gratefulness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+worry (anxiety, scared)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+grumpiness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+total
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+110
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+94
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Questions
+\end_layout
+
+\begin_layout Standard
+There was a total of 1228 question-asking events.
+ Of the questions, 1102 are unique (1054 after normalizing the questions
+ for punctuation and case).
+ In Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Questions"
+
+\end_inset
+
+ we list some of the questions that occurred more than once.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement tbh
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Examples of some of the questions that occurred multiple times (disregarding
+ case and punctuation).
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Questions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centerline{
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="33" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row endhead="true">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+question
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+count
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it positive?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ok is it a positive emotion?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it a positive emotion?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it intense?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ok is it positive?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it a strong emotion?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it like sadness?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it sadness?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it pride?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it neutral?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it like anger?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it surprise?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it an emotion that makes you feel good?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+thrilled?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+regret?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pleased?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it very intense?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it love?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it kinda like anger?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it associated with sadness?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ok is it a negative emotion?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ok is it a good emotion?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+okay is it a strong emotion?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it highly activated?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it directed towards another person?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it directed at another person?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it associated with satisfaction?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it associated with optimism?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it associated with disappointment?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it an emotion that lasts a long time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+does it vary in intensity?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+The spectral analysis of the question-emotion graph showed us that there
+ were four separate subgraphs, meaning that we have not collected enough
+ data to produce a single connected theory that will allow us to compare
+ individual differences and commonalities.
+ This result is useful in that it provided a criteria for determining how
+ much data is needed to produce a connected graph.
+ Indeed, we will need to collect more data and perhaps ask targeted questions
+ to connect the graph off-line.
+\end_layout
+
+\begin_layout Plain Layout
+TO DO: apply spectral graph analysis to new data
+\end_layout
+
+\begin_layout Plain Layout
+TO DO: analyze question reuse
+\end_layout
+
+\begin_layout Plain Layout
+TO DO: Does time between chat responses predict game success? 
+\end_layout
+
+\begin_layout Plain Layout
+TO DO: how does human-computer performance differ from human-human results
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Human-Computer EMO20Q
+\end_layout
+
+\begin_layout Standard
+Using the human-human data described in the previous section, we built a
+ computer agent to play the questioner in human-computer games.
+\end_layout
+
+\begin_layout Subsection
+Data and Methodology
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+[copy-and-paste: rewrite]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Add info about mechanical Turk
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The model we use for the agent is a sequential Bayesian belief update algorithm
+ that starts with a conditional probability distribution estimated from
+ a corpus of human-human and human-computer EMO20Q.
+ The human-human data was described in the previous section and the human-comput
+er data was derived from earlier versions of the agent 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kazemzadeh2011d"
+
+\end_inset
+
+.
+ In this data, there was a set of 105 emotion words that were observed.
+ Let 
+\begin_inset Formula $E$
+\end_inset
+
+ be this set of 105 emotion words and let 
+\begin_inset Formula $\varepsilon\in E$
+\end_inset
+
+ be a categorical, Bayesian (i.e., unobserved) random variable distributed
+ over this set.
+ Each question-answer pair from the match of EMO20Q is considered as an
+ observed feature of the emotion being predicted.
+ Thus if 
+\begin_inset Formula $Q$
+\end_inset
+
+ is the set of questions and 
+\begin_inset Formula $A$
+\end_inset
+
+ is the set of answers, then a question 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+ and an answer 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ together compose the feature 
+\begin_inset Formula $f=(q,a)$
+\end_inset
+
+, where 
+\begin_inset Formula $f\in Q\times A$
+\end_inset
+
+.
+ The conditional probability distribution, 
+\begin_inset Formula $P(f|\varepsilon)$
+\end_inset
+
+, is estimated from the training data using a smoothing factor of 0.5 to
+ deal with sparsity.
+\end_layout
+
+\begin_layout Standard
+In our model we stipulate that the set of answers 
+\begin_inset Formula $A$
+\end_inset
+
+ are four discrete cases: 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+other
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+none
+\begin_inset Quotes erd
+\end_inset
+
+.
+ When the answer either contains 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+, it is labeled accordingly.
+ Otherwise it is labeled 
+\begin_inset Quotes eld
+\end_inset
+
+other
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The feature value 
+\begin_inset Quotes eld
+\end_inset
+
+none
+\begin_inset Quotes erd
+\end_inset
+
+ is assigned to all the questions that were not asked in a given dialog.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+None
+\begin_inset Quotes erd
+\end_inset
+
+ can be seen as a missing feature when the absence of a feature may be important.
+ For example, the fact that a certain question was not asked about a particular
+ emotion may be due to the fact that that question was not relevant at a
+ given point in a dialog.
+\end_layout
+
+\begin_layout Standard
+Similarly, we stipulate that the questions can be classified into some discrete
+ class that is specified through a semantic expression as described in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kazemzadeh2011a"
+
+\end_inset
+
+.
+ For example, the question 
+\begin_inset Quotes eld
+\end_inset
+
+is it a positive emotion?
+\begin_inset Quotes erd
+\end_inset
+
+ is represented as the semantic expression 
+\begin_inset Quotes eld
+\end_inset
+
+e.valence==positive
+\begin_inset Quotes erd
+\end_inset
+
+.
+ If the answer to this question was 
+\begin_inset Quotes eld
+\end_inset
+
+maybe
+\begin_inset Quotes erd
+\end_inset
+
+, the resulting feature would be represented as 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+small 
+\backslash
+verb#(`e.valence==positive',`other')#}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Using Bayes rule and the independence assumption of the na
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"{i}
+\end_layout
+
+\end_inset
+
+ve Bayes model, we can formulate the agent's belief about the emotion vector
+ 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ after observing features 
+\begin_inset Formula $f_{1}...f_{t}$
+\end_inset
+
+ as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{split}P(\varepsilon|f_{1},...,f_{t})= & \frac{\prod_{i=1}^{t}\left[P(f_{i}|\varepsilon)\right]P(\varepsilon)}{\prod_{i=1}^{t}P(f_{i})}\end{split}
+.\label{eq:naivebayes}
+\end{equation}
+
+\end_inset
+
+ When the game begins the agent can start with a uniform prior on its belief
+ of which emotion is likely or it can use information obtained in previously
+ played games.
+ In the experiment of this paper, we use a uniform prior, 
+\begin_inset Formula $P(\varepsilon=e_{k})=1/|E|,\thickspace\forall k=1...|E|$
+\end_inset
+
+.
+ We chose to use the uniform prior to start with because our training data
+ contains many single count training instances and because we want to examine
+ how the system performs with less constraints.
+ 
+\end_layout
+
+\begin_layout Standard
+In Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:naivebayes"
+
+\end_inset
+
+, the posterior belief of the agent of emotion 
+\begin_inset Formula $e_{k}$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $P(\varepsilon=e_{k}|f_{1},...,f_{t})$
+\end_inset
+
+ is computed only after the agent has asked the 
+\begin_inset Formula $t$
+\end_inset
+
+ questions.
+ In contrast the formulation we use is dynamic in that the agent updates
+ its belief at each time point based on the posterior probability of the
+ previous step, i.e., at time 
+\begin_inset Formula $t$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+P(\varepsilon|f_{1},...,f_{t}) & = & \frac{P(f_{t}|\varepsilon)P(\varepsilon|f_{1},...,f_{t-1})}{P(f_{t})}
+\end{eqnarray*}
+
+\end_inset
+
+We introduce a new variable 
+\begin_inset Formula $\beta_{t,k}=P(\varepsilon=e_{k}|f_{1},...,f_{t})$
+\end_inset
+
+ for the agent's belief about emotion 
+\begin_inset Formula $k$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+ and postulate that the agent's current prior belief is the posterior belief
+ of the previous step.
+ Then, the agent's belief unfolds according to the formula:
+\begin_inset Formula 
+\begin{eqnarray}
+\beta_{0,k} & = & P(\varepsilon=e_{k})=1/|E|\nonumber \\
+\beta_{1,k} & = & \frac{P(f_{1}|\varepsilon=e_{k})}{P(f_{1})}\beta_{0,k}\nonumber \\
+\beta_{t,k} & = & \frac{P(f_{t}|\varepsilon=e_{k})}{P(f_{t})}\beta_{t-1,k}\label{eq:adaptive}
+\end{eqnarray}
+
+\end_inset
+
+Decomposing the computation of the posterior belief allows the agent to
+ choose the best question to ask the user at each turn, rather than having
+ a fixed battery of questions.
+ In this case, we define 
+\begin_inset Quotes eld
+\end_inset
+
+best
+\begin_inset Quotes erd
+\end_inset
+
+ as the question that is most likely to have a 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+ answer given 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+ This criterion indicates how often the question was observed in the training
+ data in the context of emotions as they are currently weighted by 
+\begin_inset Formula $P(\varepsilon|f_{1},...,f_{t-1})$
+\end_inset
+
+.
+ The agent asks the best question and takes the user's response as input.
+ It then parses the input to classify it into one of {
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+other
+\begin_inset Quotes erd
+\end_inset
+
+}.
+ This information is then used to update the agent's belief as to which
+ emotion in 
+\begin_inset Formula $E$
+\end_inset
+
+ in most likely.
+ 
+\end_layout
+
+\begin_layout Standard
+Identity questions are a special type of question where the agent makes
+ a guess about the emotion.
+ An affirmative answer to an identity question (e.g., 
+\begin_inset Quotes eld
+\end_inset
+
+is it happy?
+\begin_inset Quotes erd
+\end_inset
+
+) means that the agent successfully identified the user's chosen emotion.
+ Any other answer to an identity question will set the posterior probability
+ of that emotion to zero because the agent can be sure it is not the emotion
+ of interest.
+ Also, because it is playing a twenty questions game, 
+\begin_inset Formula $d$
+\end_inset
+
+ is set to 20, but this could be changed for the agent to generalize to
+ different question-asking tasks.
+ The pseudo-code for the main loop of the adaptive Bayesian agent is shown
+ in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:agent"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithm}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{adaptive Bayesian emo20q agent}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:agent}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}         
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE {
+\backslash
+bfseries Input:} $F=Q 
+\backslash
+times A$, $
+\backslash
+textsl{E}$, and $P(f|
+\backslash
+varepsilon)$           
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $
+\backslash
+beta_{0,k} 
+\backslash
+leftarrow 1/|E|$, $
+\backslash
+forall k=1...|E|$          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+FOR{$i=1$ {
+\backslash
+bfseries to} $d$}          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $q^{(i)} = 
+\backslash
+underset{q 
+\backslash
+in Q}{
+\backslash
+operatorname{argmax}}  P((q, 
+\backslash
+text{`yes'}) |
+\backslash
+varepsilon)$          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Print $q^{(i)}$          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $a^{(i)} 
+\backslash
+leftarrow$ user's input answer          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $f_i 
+\backslash
+leftarrow (q^{(i)},a^{(i)}) $           
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE  $
+\backslash
+beta_{i,k} 
+\backslash
+leftarrow 
+\backslash
+beta_{i-1,k} 
+\backslash
+cdot P(f_i|
+\backslash
+varepsilon=e_k) / P(f_i)$, $
+\backslash
+forall k=1...|E|$           
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+IF{ ($q^{(i)} 
+\backslash
+text{ is identity question for } e_k  
+\backslash
+land  a^{(i)}=
+\backslash
+text{`yes'}$ ) }          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE {
+\backslash
+bfseries Return:} $e^* = e_k$          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDIF          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+IF{ ($q^{(i)} 
+\backslash
+text{ is identity question for } e_k 
+\backslash
+land a^{(i)} = 
+\backslash
+text{`no'}$) }           
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $
+\backslash
+beta_{i,k}
+\backslash
+leftarrow 0$  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDIF          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDFOR
+\backslash
+
+\backslash
+          
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $k^*  
+\backslash
+leftarrow 
+\backslash
+underset{k 
+\backslash
+in 1...|E|}{
+\backslash
+operatorname{argmax}} [ 
+\backslash
+beta_{i,k} ]$          
+\backslash
+STATE $e^* 
+\backslash
+leftarrow e_{k^*}$       
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE {
+\backslash
+bfseries Return:}  most likely emotion given observations: $e^*$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithm} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using this model and algorithm we made an agent that could play EMO20Q.
+ For more details about the implementation, see 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kazemzadeh2012"
+
+\end_inset
+
+.
+ We collected experimental data of fifteen subjects each playing three EMO20Q
+ matches.
+ The subjects were asked to pick 3 emotion words, one easy word, one medium
+ word, and one difficult one, based on how difficult they thought it would
+ be to guess.
+ They were also asked to rate the naturalness of the agent on a 0-10 scale,
+ and were given an opportunity for open-ended comments.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Put an example here per Sungbok's suggestion.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example dialog from EMO20Q questioner agent where the human interlocutor
+ has chosen 
+\begin_inset Quotes eld
+\end_inset
+
+relaxation
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="23" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Speaker/Event
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Utterance/Content
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Let me know when you are ready...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ok
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Belief update
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(Uniform distribution)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Is it very intense?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Belief update
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+relaxation:0.027, hope:0.027, boredom:0.027, ..., anger:0.0024
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it positive?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+yes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Belief update
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+hope:0.15, relaxation:0.12, cheerfulness:0.091, ...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it an emotion that just pops up spontaneously (vs being triggered by
+ something)? 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+depends
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Belief update
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+hope:0.33, relaxation:0.23, cheerfulness:0.15, ...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+is it caused by something in particular?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+well, yes, you do need the right conditions
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Belief update
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+relaxation:0.50, hope:0.29, cheerfulness:0.097, ...
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Is it relaxation?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+so did I get it right?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes, you got it
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Awesome! Would you like to play again?
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+User
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No, thanks.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Agent
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Thank you for playing
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Results
+\end_layout
+
+\begin_layout Standard
+The results of our usability experiments on fifteen subjects are summarized
+ in Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tab:experimental-results}
+\end_layout
+
+\end_inset
+
+.
+ To compare the agent's performance with human performance, we used two
+ objective measures and one subjective measure.
+ The success rate, shown in column two Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tab:experimental-results}
+\end_layout
+
+\end_inset
+
+, is an objective measure of how often the EMO20Q matches ended with the
+ agent successfully guessing the user's emotion.
+ The number of turns it took for the agent to guess the emotion is the other
+ objective measure.
+ The last column, naturalness, is a subjective measure where users rated
+ how human-like the agent was, on a 0-10 scale.
+\end_layout
+
+\begin_layout Standard
+The emotion words chosen by the subjects as 
+\begin_inset Quotes eld
+\end_inset
+
+easy
+\begin_inset Quotes erd
+\end_inset
+
+ were recognized by the agent with similar success rate and number of required
+ turns as human-human matches.
+ Some examples of 
+\begin_inset Quotes eld
+\end_inset
+
+easy
+\begin_inset Quotes erd
+\end_inset
+
+ emotions are anger, happiness, and sadness.
+ However, successful outcomes were fewer in emotions chosen as 
+\begin_inset Quotes eld
+\end_inset
+
+medium
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+difficult
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Some examples of 
+\begin_inset Quotes eld
+\end_inset
+
+medium
+\begin_inset Quotes erd
+\end_inset
+
+ emotions are contentment, curiosity, love, and tiredness.
+ Pride, frustration, vindication, and zealousness are examples of 
+\begin_inset Quotes eld
+\end_inset
+
+difficult
+\begin_inset Quotes erd
+\end_inset
+
+ emotions.
+ The different classes of words were not disjoint: some words like anger,
+ disgust, and confusion spanned several categories.
+ A complete listing of the words chosen by the subjects of the experiment
+ is given in Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tab:words}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The results in terms of successful outcomes and number of turns required
+ to guess the emotion word are roughly reflected in the percent of words
+ that are in vocabulary.
+ Despite the low performance on emotion words deemed 
+\begin_inset Quotes eld
+\end_inset
+
+medium
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+difficult
+\begin_inset Quotes erd
+\end_inset
+
+, there was not a corresponding decrease in the perceived naturalness of
+ the questioner agent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{table}[t] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{tab:experimental-results} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Experimental results.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+%{
+\backslash
+footnotesize 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabular}{|l|l|l|l|l|} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{difficulty} & 
+\backslash
+hspace{-3pt} 
+\backslash
+textbf{
+\backslash
+% success}  & 
+\backslash
+hspace{-3pt}
+\backslash
+textbf{avg.
+ turns} & 
+\backslash
+hspace{-3pt}
+\backslash
+textbf{
+\backslash
+% in vocab.} & 
+\backslash
+hspace{-3pt}
+\backslash
+textbf{naturalness} 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noalign{
+\backslash
+hrule height 1pt} 
+\end_layout
+
+\begin_layout Plain Layout
+
+easy       & 73
+\backslash
+%       & 11.4       & 100
+\backslash
+%        & 6.9 
+\backslash
+
+\backslash
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+medium     & 46
+\backslash
+%       & 17.3       & 93
+\backslash
+%         & 5.5 
+\backslash
+
+\backslash
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+difficult  & 13
+\backslash
+%       & 18.2       & 60
+\backslash
+%         & 5.8 
+\backslash
+
+\backslash
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+total      & 44
+\backslash
+%     & 15.6  & 84
+\backslash
+%  & 6.1 
+\backslash
+
+\backslash
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabular} 
+\end_layout
+
+\begin_layout Plain Layout
+
+%} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{table} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{table} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{tab:words} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Observed emotion words by difficulty.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tabularx}{
+\backslash
+columnwidth}{ |l|X| }   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textbf{difficulty} & 
+\backslash
+textbf{examples}  
+\backslash
+
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noalign{
+\backslash
+hrule height 1pt}   easy & happiness, anger, sadness, calm, confusion  
+\backslash
+
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline    
+\end_layout
+
+\begin_layout Plain Layout
+
+medium  & anger, confusion, contentment, curiosity, depression, disgust,
+ excitement, fear, hate, irritation, love, melancholy, sorrow, surprise,
+ tiredness  
+\backslash
+
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline   
+\end_layout
+
+\begin_layout Plain Layout
+
+difficult  & devastation, disgust, ecstasy, ennui, frustration, guilt, hope,
+ irritation, jealousy, morose, proud, remorse, vindication, zealousness
+  
+\backslash
+
+\backslash
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tabularx} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+A Computational Model of Curiosity
+\end_layout
+
+\begin_layout Standard
+The previous result, in which the subjects rated the agent as being relatively
+ human-like even in cases when the EMO20Q task performance was low, seems
+ to indicate that there is something human-like in the search for knowledge,
+ rather than having a complete representation of emotions that would allow
+ it to guess correctly and win at EMO20Q more often.
+ In an earlier paper 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Kazemzadeh2011b"
+
+\end_inset
+
+, we proposed a model for verbally exploring a sparse graphical representation
+ of an agent's knowledge.
+ 
+\end_layout
+
+\begin_layout Standard
+Representing the agent's knowledge as an adjacency graph 
+\begin_inset Formula $A$
+\end_inset
+
+, allows us to use methods from collaborative filtering, social network
+ analysis, and spectral graph theory 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kunegis2009,Hou2005"
+
+\end_inset
+
+.
+ In this paper, we use the number of zero eigenvalues of the Laplacian of
+ the graph 
+\begin_inset Formula $A$
+\end_inset
+
+ to determine the number of connected components of the graph.
+ This can be seen as a measure of the sparsity of our data and can be used
+ to identify the questions that must be asked of certain emotions in order
+ to connect the graph components.
+ In this way, we can have a rudimentary representation of curiosity in terms
+ of the agent's exploration of this graph.
+ To construct this graph we built a graph in the following way: questions
+ and answers are nodes in the graph which are linked by edges labeled 
+\begin_inset Formula $1$
+\end_inset
+
+ if the question is answered 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+ of that emotion and 
+\begin_inset Formula $-1$
+\end_inset
+
+ if the question is answered 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+ of the emotion.
+ Thus the graph 
+\begin_inset Formula $A$
+\end_inset
+
+ is bipartite in that emotion nodes are connected to question nodes, but
+ there are no edges between any two emotion nodes or between any two question
+ nodes.
+ 
+\end_layout
+
+\begin_layout Standard
+We used the Laplacian 
+\begin_inset Formula $L$
+\end_inset
+
+ of this graph to calculate the connectivity and to identify which nodes
+ were unconnected.
+ The Laplacian 
+\begin_inset Formula $L$
+\end_inset
+
+ of a signed graph is calculated by subtracting the absolute adjacency matrix
+ 
+\begin_inset Formula $|A|$
+\end_inset
+
+ from the diagonal absolute degree matrix 
+\begin_inset Formula $\bar{D}_{ii}=\sum_{j}|A_{ij}|$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L=\bar{D}-|A|
+\]
+
+\end_inset
+
+From the matrix 
+\begin_inset Formula $L$
+\end_inset
+
+ we can tell the number of connected components of 
+\begin_inset Formula $A$
+\end_inset
+
+ by counting the number of zero eigenvalues.
+ Thus, if there are three eigenvalues that equal zero, the graph is composed
+ of three separate connected components.
+ A graph Laplacian with one zero eigenvalue is a single connected graph.
+ Moreover, the lowest 
+\begin_inset Formula $n$
+\end_inset
+
+ non-zero eigenvalues can be used to project nodes in the graph into an
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional space (this is similar to principal components analysis (PCA)
+ except that in PCA instances are projected to be farther apart, whereas
+ in the graph projection, connected nodes ought to be projected close by).
+\end_layout
+
+\begin_layout Standard
+If an agent has identified that it has unconnected knowledge, how can it
+ then plan questions to address the knowledge goal of connecting the components
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+? To answer this, we must define the notion of a 
+\emph on
+walk
+\emph default
+ on a graph.
+ A walk of length 
+\begin_inset Formula $l$
+\end_inset
+
+ on graph 
+\begin_inset Formula $A$
+\end_inset
+
+ that joins vertices 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ is a sequence of vertices 
+\begin_inset Formula $u_{0}\ldots u_{l}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ such that 
+\begin_inset Formula $v_{i}=u_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{j}=u_{l}$
+\end_inset
+
+, and 
+\begin_inset Formula $u_{t-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{t}$
+\end_inset
+
+ are adjacent for 
+\begin_inset Formula $1\le t\le l$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+According to 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Lemma 2.5"
+key "Biggs1974"
+
+\end_inset
+
+, the number of walks of length 
+\begin_inset Formula $l$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+ that join 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ is the entry in cell 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ of the matrix 
+\begin_inset Formula $A^{l}$
+\end_inset
+
+.
+ Thus, by taking repeated powers of the absolute adjacency matrix 
+\begin_inset Formula $|A|$
+\end_inset
+
+, we can determine if nodes 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ are connected by walks of length 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ Since the graph is bipartite, the walks from question nodes to other question
+ nodes or from object nodes to other object nodes will always be even length,
+ and conversely, walks between question and object nodes will be odd length.
+ This behavior is undesirable because we wish to preserve connectedness
+ properties across repeated powers of 
+\begin_inset Formula $A^{l}.$
+\end_inset
+
+ To remedy this undesirable behavior we can augment the adjacency matrix
+ 
+\begin_inset Formula $|A|$
+\end_inset
+
+ by adding the identity matrix 
+\begin_inset Formula $I$
+\end_inset
+
+ to it.
+ At this point, we can say that vertices 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ are connected by a walk of length 
+\begin_inset Formula $l$
+\end_inset
+
+ 
+\emph on
+or less
+\emph default
+ if the entry 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ of 
+\begin_inset Formula $(A+I)^{l}$
+\end_inset
+
+ is non-zero.
+ The proof of this, by contradiction, is that if we imagine that vertices
+ 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ are connected by some walk of length 
+\begin_inset Formula $k<l$
+\end_inset
+
+, but not of length 
+\begin_inset Formula $l$
+\end_inset
+
+, then there must not be self-loop from 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ to itself after the walk of length 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ However, since we added the identity 
+\begin_inset Formula $I$
+\end_inset
+
+ matrix to 
+\begin_inset Formula $A$
+\end_inset
+
+ we know that there are in fact self-loops on all of the vertices.
+\end_layout
+
+\begin_layout Standard
+The preceding fact allows us to state an alternative test for connectedness
+ and also allows us to identify the question-object pairs that need to be
+ asked to complete the agent's knowledge.
+ This test can be stated as follows: the graph 
+\begin_inset Formula $A$
+\end_inset
+
+ is connected if and only if 
+\begin_inset Formula 
+\[
+(|A|+I)^{M+N-1}
+\]
+
+\end_inset
+
+ has no zero entries, where 
+\begin_inset Formula $M$
+\end_inset
+
+ is the number of emotions and 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of questions.
+ This is because the length of a walk with distinct steps, a 
+\emph on
+path
+\emph default
+, is at most one less than the number of vertices in the graph, i.e., 
+\begin_inset Formula $M+N-1$
+\end_inset
+
+, which would be the case if the graph were a linked list.
+ The question-object pairs that correspond to zero entries in this matrix
+ are precisely the set of candidate questions that need to be asked to connect
+ the agent's knowledge and choosing which one to ask can be determined by
+ using 
+\begin_inset Formula $L$
+\end_inset
+
+ to project the current state of the dialog into the graph's space.
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+The reader may ask what use is it to study the variety of ways that emotion
+ can be described in natural language.
+ For example, what use is it to know that for some people, the words 
+\begin_inset Quotes eld
+\end_inset
+
+pride
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+proud
+\begin_inset Quotes erd
+\end_inset
+
+ may have different connotations?
+\end_layout
+
+\begin_layout Quotation
+[regarding 
+\begin_inset Quotes eld
+\end_inset
+
+proud
+\begin_inset Quotes erd
+\end_inset
+
+ vs.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+pride
+\begin_inset Quotes erd
+\end_inset
+
+] because my intuition was that they're different...
+ you know pride sometimes has a negative connotation
+\end_layout
+
+\begin_layout Standard
+or that 
+\begin_inset Quotes eld
+\end_inset
+
+anger
+\begin_inset Quotes erd
+\end_inset
+
+ is might not always described as 
+\begin_inset Quotes eld
+\end_inset
+
+negative
+\begin_inset Quotes erd
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Quotation
+[questioner:] so is it a negative emotion? 
+\end_layout
+
+\begin_layout Quotation
+[answerer:] sort of, but it can be righteous
+\end_layout
+
+\begin_layout Standard
+For some purposes it might be sufficient to consider 
+\begin_inset Quotes eld
+\end_inset
+
+anger
+\begin_inset Quotes erd
+\end_inset
+
+ to be simply a negative emotion, or that the words 
+\begin_inset Quotes eld
+\end_inset
+
+pride
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+proud
+\begin_inset Quotes erd
+\end_inset
+
+ to refer to the same emotion.
+ However, from nearly every line of EMO20Q data we can see that the ways
+ that humans describe emotions are much more nuanced.
+ One of the main results of this study is that when asking questions about
+ emotions at this level of detail, we can, in Socrates' words, reach mutual
+ edification.
+ Precisely, among humans playing EMO20Q mutual edification happens about
+ 85% of the time after about 12 dialog turns.
+ This represents a high amount of agreement for an emotional classification
+ task, especially considering that the set of emotional classes was unbounded.
+ Although analyzing this level of detail is beyond the scope of many current
+ systems, we have shown that it is a task that humans can do with success
+ rates that beat agreement rates on emotional annotations at a much coarser
+ level, such as labeling data with nine basic emotion labels 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Busso2008"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Natural language presents many difficulties for describing emotions: synonymy,
+ ambiguity, subjectivity, and data sparsity, among others.
+ We feel that the additional complexity of using natural language as a way
+ of describing emotions in computational frameworks will be challenging,
+ but will offer insight into problems that continue to vex the field of
+ affective computing as well as other tasks where descriptions are subjective
+ and established through language, such as deriving behavioral analytics
+ for clinical assessment.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Shri 9/17/2012: give some examples
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ground truth issue involved in annotating recorded data with descriptive
+ labels is a challenge that the Socratic epistemology can shed light on.
+ The traditional annotation task seeks to have human annotators assign one
+ of a number of labels to data.
+ In the case of emotion research, usually the labels are a controlled vocabulary
+ of several emotion descriptors, like 
+\begin_inset Quotes eld
+\end_inset
+
+angry
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+happy
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+sad
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+disgusted
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+fearful
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+surprised
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+neutral
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The problem with this approach is that these labels have a linguistic meaning
+ in addition to their meaning in a controlled vocabulary.
+ The linguistic meaning is not part of a closed set of alternatives, but
+ rather an iterative process of communication.
+ In affective computing the issue of non-prototypical emotions 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Mower2009"
+
+\end_inset
+
+, observed data that does not fit into the controlled vocabulary of emotional
+ descriptors, is due to the artificial nature of annotation tasks that only
+ have a fixed set of options.
+ By allowing an open set of natural language descriptions, the problem of
+ non-prototypical emotions is traded for more complexity in analyzing natural
+ language descriptions.
+ We have proposed the Socratic epistemology as a way of dealing with this
+ new challenge.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+In our data, automatic analysis of emotion content must distinguish emotion
+ expression and reference to emotion.
+ However, in the data there is usually a clear distinction between gameplay
+ turns and other chatting, which effectively isolates the two types of emotional
+ language.
+\end_layout
+
+\begin_layout Plain Layout
+Conversational entrainment, a long term (dialog-level) phenomena, shows
+ that (hopefully) this type of emotional expression is correlated with the
+ efficacy of emotion description, i.e.
+ coming to shared understanding as measured by success in the game.
+\end_layout
+
+\begin_layout Plain Layout
+Emotional lexicon/vocabulary.
+\end_layout
+
+\begin_layout Plain Layout
+Even though the EMO20Q experiment was designed to focus on when people refer
+ to emotions, this is not to say that EMO20Q does not elicit emotional responses
+: in fact, it does cause players to feel and express emotions.
+ One of the emotions it elicits is frustration and mild anguish when a player
+ cannot guess a word, similar to the feeling when a word is on the 
+\begin_inset Quotes eld
+\end_inset
+
+tip of one's tongue
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Also, guessing in EMO20Q often elicits joy or relief.
+ Similarly, other affective behaviors can be seen in EMO20Q, for example
+ rapport and entrainment between players is reflected in the game outcome.
+\end_layout
+
+\begin_layout Plain Layout
+add 20q patent citation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The main goals of this paper were to use question-asking to observe natural
+ language descriptions of emotion in a natural context and to computationally
+ model the social processes that support the referential link between language
+ and emotions.
+ We presented the emotion twenty questions (EMO20Q) game and showed that
+ the level of human performance was high despite not limiting the players
+ to any specific emotion vocabulary.
+ We also presented two computational models for automated players of EMO20Q.
+ First, we showed that a sequential Bayesian belief update algorithm could
+ model the question asking player's belief state over time.
+ Second, we showed a graphical model can represent the connectivity of an
+ agent's knowledge which can be used to choose questions that represent
+ unknown states as a way to model curiosity.
+ This framework was inspired by a method of question-asking that was proposed
+ by the ancient philosopher Socrates.
+\end_layout
+
+\begin_layout Standard
+We deem that future advances in affective computing can come from studying
+ emotions at a finer grain, as they are described in natural language.
+ We plan to continue studying this phenomena in several ways.
+ First, we hope to see the effect of modality on how people describe emotions
+ in natural language.
+ The current work was limited to text-based chat, so paralinguistic information
+ that may help to convey emotional data was minimized.
+ Including audio and video data may allow greater convergence of the players
+ to agree upon the unknown emotion.
+ Another area of future research will be to examine the answerer role.
+ The current research focused on the questioner role, but the answerer role
+ will offer additional challenges and insights.
+ In particular, automating the answerer role will require more robust natural
+ language understanding and it will allow a closed loop simulation where
+ both roles of EMO20Q are played by computer.
+ 
+\end_layout
+
+\begin_layout Standard
+We have provided an anonymized version of data we gathered from EMO20Q,
+ source code for the experiments, demos, and other resources at http://sail.usc.ed
+u/emo20q .
+\end_layout
+
+\begin_layout Section
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+players,Prof.
+ Mendel, Prof.
+ Hovy, Ben Alderson-Day, Prof.
+ Tony David Sampson?, Prof.
+ Whissell?, ACII and Interspeech reviewers, Nassos, Prof.
+ Thomas E.
+ Forster, Prof.
+ Andrew Gordon, Funding..., Ozan, Juanchen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "/home/abe/thesis/AbesBigBibliography"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

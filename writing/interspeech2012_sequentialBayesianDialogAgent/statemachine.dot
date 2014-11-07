@@ -1,0 +1,13 @@
+digraph g {
+#        node [shape=plaintext] 
+  start -> welcome 
+  welcome -> asking [label="ready?"]
+  asking -> asking  [label="ask question, update belief"]
+  asking -> confirming [label="make guess"]
+  confirming -> "between matches" [label="a=='yes',success"]
+  "between matches" -> end        [label=quit]
+  asking -> "between matches" [label=">20 questions,fail"]
+  confirming -> asking         [label="a=='no',keep asking"]
+  "between matches" -> asking  [label="start new game"]
+     
+}

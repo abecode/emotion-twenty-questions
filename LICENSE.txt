@@ -1,0 +1,9 @@
+The Emotion Twenty Questions Project, SAIL Lab, and University of Southern
+California hereby license the code of this project under the GPLv3 and the
+data under Creative Commons CC-BY-SA (attribution + share-alike: please cite
+"Emotion Twenty Questions: Toward a Crowd-Sourced Theory of Emotions" by Abe
+Kazemzadeh, Sungbok Lee, Panayiotis Georgiou, and Shrikanth Narayanan,
+Proceedings of Affective Computing and Intelligent Interaction
+Conference(ACII'11), 2011), or one of the subsequent papers if more
+appropriate.
+

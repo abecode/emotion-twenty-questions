@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\documentclass[runningheads,a4paper]{llncs}
+\documentclass[a4paper]{llncs}
+
+\usepackage{amssymb,amsmath}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx,array}
+
+\usepackage{url}
+\urldef{\mailsa}\path|{alfred.hofmann, ursula.barth, ingrid.haas, frank.holzwarth,|
+\urldef{\mailsb}\path|anna.kramer, leonie.kunz, christine.reiss, nicole.sator,|
+\urldef{\mailsc}\path|erika.siebert-cole, peter.strasser, lncs}@springer.com|    
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{EMO20Q Questioner Agent}
+
+
+
+
+\author{Abe Kazemzadeh \and James Gibson \and \\ Panayiotis Georgiou \and Sungbok Lee  \and Shrikanth Narayanan 
+\thanks {This work was supported in part by the NSF, DARPA, and the USC Annenberg Graduate Fellowship Program.}
+}
+\authorrunning { A. Kazemzadeh \and J. Gibson \and P. Georgiou \and S. Lee \and S. Narayanan}
+
+\institute{Signal Analysis and Interpretation Lab,\\University of Southern California,\\
+\url{http://sail.usc.edu}}
+
+
+\addtolength{\itemsep}{-0.05in}
+\addtolength{\topsep}{-0.07in}
+\addtolength{\textfloatsep}{-0.05in}
+\addtolength{\intextsep}{-0.05in}
+\addtolength{\partopsep}{-0.03in}
+\addtolength{\parskip}{-0.02in}
+
+\maketitle
+
+
+\begin{abstract}
+In this demonstration, we present an implementation of an emotion twenty
+questions (EMO20Q) questioner agent.  
+%%
+%% Natural language is an ideal medium to
+%% provide an emotional human-computer interface for human users because people
+%% require no special training or education to understand and describe emotions
+%% in natural language, that is, such an interface is easily accessible to
+%% laypeople.  
+%% 
+The ubiquitous twenty questions game is a suitable format to study how
+people describe emotions and designing a computer agent to learn and reason
+about abstract emotion concepts can provide further theoretical insights.
+While natural language poses many challenges for the computer in
+human-computer interaction, the accessibility of natural language has made it
+possible to acquire data of many players reasoning about emotions in
+human-human games.  These data are used to automate a computer questioner
+agent that asks the user questions and, based on that user's answers, attempts
+to guess the emotion that the user has in mind.  \keywords{dialog agents,
+  emotions}
+\end{abstract}
+
+
+\section{Proposed System}
+
+Emotion Twenty Questions (EMO20Q) is a variation on the traditional twenty
+questions game where emotions are the objects that must be guessed, instead of
+any arbitrary objects.  It is an asymmetrical game whose players take one of
+two roles, questioner or answerer. For a complete discussion of the rules and
+intricacies of the \emph{Emotion Twenty Questions} game please see
+\cite{Kazemzadeh2011a}, also presented at ACII.  Although, with respect to
+the general twenty questions game, the search space of objects in EMO20Q is
+limited, emotions add a level of subjectivity to the game that makes it
+challenging for human and computer players alike.
+
+Our objective is to study the human capabilities of describing emotions using
+natural language.  EMO20Q provides an experimental method to observe this in a
+loosely controlled way \cite{Kazemzadeh2011a}.  We view computational
+modeling and simulation as an extention of our observational analysis.  To
+this end, we use observational data derived from human-human EMO20Q games to
+inform the abilities of an automated agent which, in this case, plays the
+questioner role.  The key issues that we aim to observe and model are: natural
+language descriptions of emotions, cooperative and competitive dialog
+interaction, intersubjectivity, inference with incomplete knowledge, and
+representations of uncertainty.
+
+\section{Technical Content}
+
+The natural language data obtained from human-human emotion twenty
+question games can be viewed as a bipartite graph in which questions and
+answers are connected by positive and negative edges, where $+1$ corresponds
+to a ``yes'' answer, $-1$ to a ``no'' answer, and 0 for indefinite or unseen
+answers to question/emotion pairs.  In this formulation there are a number of
+possible ways that an agent could ask the questions and consequently attempt
+to guess the contemplated emotion.
+
+Firstly, appropriate questions must be asked.  In terms of an agent, this
+requires that the observed questions are ranked in some way such that they are
+able to help traverse the graph and discover the desired emotion.  There are
+many way the problem of choosing appropriate questions could be approached:
+choosing at random, using spectral graph theory, using an information
+theoretic approach (e.g., choose the questions that provide maximal mutual
+information).  Clearly a reasonable automated agent should do better than
+choosing at random.  Of the latter two options mentioned, maximizing the mutual
+information between question was chosen in order to rank the questions such
+that the ones asked by the agent provide valuable information about the most
+emotions while also not offering redundant information.  
+
+Secondly, when information is obtained from the human user, in the form of
+answers to the questions the agent must use this information to ascertain the
+concealed emotion.  Because of the sparse nature of this dataset (currently we
+have 42 emotions, 431 question types, and 644 question asking events), it is
+crucial that the agent is able to do some inference based upon the answers it
+receives and it's prior knowledge.
+
+%% Currently, our questioner agent is implemented as text-based interaction using
+%% web-based, http communication.  Based on the observed distributions of
+%% questions and the users' responses, the agent ranks the questions based on a
+%% maximum entropy measure.  Then after asking each question it re-ranks the
+%% questions.  Empirically we determined that after ten questions, there was
+%% enough evidence to make guesses.
+
+\section{Evaluation}
+
+We are in the process of collecting data that will help characterize the agent's
+performance.  Our initial experiments show that such an agent is feasible.
+The method we employ to choose the questions uses actual user input, so
+individual questions are very realistic, but the ordering of the questions is
+less natural. Our next efforts will be to try graph-based models of inference,
+which we think may be more human-like.
+
+\section{Resources}
+
+Our demo can be accessed at
+http://sail.usc.edu/emo20q/questioner/questioner.cgi. We endeavor to make our data
+and methodologies accessible to the community.  These can be found at
+http://sail.usc.edu/emo20q/repos.html.
+
+%\section{Acknowledgements}
+
+
+\bibliographystyle{IEEEbib}
+\bibliography{AbesBigBibliography}
+\end{document}

@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>EMO20Q Questioner Demo</title>
+<link rel="icon" href="favicon.ico"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+
+<!--
+<script src="../jquery.terminal/js/jquery.mousewheel-min.js"></script>
+<script src="../jquery.terminal/js/jquery.terminal-0.4.14.min.js"></script> 
+<script src="../jquery.terminal/js/jquery.terminal-0.4.14.js"></script>
+<link href="../jquery.terminal/css/jquery.terminal.css" rel="stylesheet"/>
+-->
+
+<script src="http://sail.usc.edu/~kazemzad/emo20q/web/jquery.terminal/js/jquery.mousewheel-min.js"></script>
+<!-- <script src="http://sail.usc.edu/~kazemzad/emo20q/web/jquery.terminal/js/jquery.terminal-0.4.14.min.js"></script> -->
+<script src="http://sail.usc.edu/~kazemzad/emo20q/web/jquery.terminal/js/jquery.terminal-0.4.14.js"></script>
+<link href="http://sail.usc.edu/~kazemzad/emo20q/web/jquery.terminal/css/jquery.terminal.css" rel="stylesheet" type="text/css"/>
+
+
+<script src="http://ark.usc.edu:5984/_utils/script/jquery.couch.js?0.11.0"></script>
+
+<script src="questioner.js"></script>
+
+<script>
+  $(document).ready(function() {
+    //$.couch.db("")
+    $( "#tabs" ).tabs();
+    //$("#term").terminal(function(command, terminal) {
+    //  terminal.echo('you type command "' + command + '"');
+    //});
+
+    $('#term').terminal(function(command, term) {
+      if (command !== '') {
+         //var result = window.eval("(" + command + ")");
+         var result = questioner.repl(command);
+            if (result !== undefined) {
+                term.echo(String(result));
+            }
+         } else {
+            term.echo('');
+         }
+     }, {  greetings: 'Welcome to Emotion Twenty Questions (EMO20Q)\nPlease pick an emotion and let me know when you are ready',
+           name: 'emo20q_questioner_demo',
+           height: 200,
+           prompt: 'input>',
+           tabcompletion: true});
+
+  });
+
+
+String.prototype.strip = function(char) {
+    return this.replace(new RegExp("^" + char + "*"), '').
+        replace(new RegExp(char + "*$"), '');
+}
+
+
+$.extend_if_has = function(desc, source, array) {
+    for (var i=array.length;i--;) {
+        if (typeof source[array[i]] != 'undefined') {
+            desc[array[i]] = source[array[i]];
+        }
+    }
+    return desc;
+};
+
+
+
+</script>
+
+
+</head>
+<body>
+<h1> <img src="http://sail.usc.edu/emo20q/emo20q.gif"/> Emotion Twenty Questions (EMO20Q) Questioner Demo </h1>
+<div id="emo20qzone">
+<div id="tabs">
+  <ul>
+    <li><a href="#info">Information</a></li>
+    <li><a href="#help">Help/Instruction</a></li>
+    <li><a href="#play">Play</a></li>
+    <li><a href="#quit">Quit</a></li>
+    <li><a href="#comment">Comments</a></li>
+    </ul>
+  <div id="info">
+    <p> This is a game about emotions designed by researchers at USC's
+    SAIL lab. The goal is to provide a fun way to collect information
+    about how people understand and talk about their emotions. </p>
+  </div>
+  <div id="help">
+    <p> To play, you will choose an emotion (not necessarily how you
+    feel right now--you can choose any emotion), then I (the EMO20Q
+    computer algorithm) will try to guess the emotion you've
+    picked. </p>
+    <p> Please communicate wiht me as you would a real-life person,
+    for example if we were chatting online. Answer the questions to
+    the best of your ability, and I will use my emotional intelligence
+    to try to guess the emotion you have chosen. </p>
+    <p> If I gues an emotion that is an exact synonym of the emotion
+    you picked, you may accept it if you feel it is close enough (a
+    good rule of thumb is that two words are exact synonyms if you
+    can't verbally express any difference between the two words).</p>
+    <p> At the end of the game, I'll ask you for the correct emotion
+    and you'll have a chance to leave any private comments (public
+    comments can be made using the tab above).</p>
+    <p> Each game will take approximately 5 minutes and you are
+    welcome to play as many times as you like </p>
+  </div>
+  <div id="play">
+    <div id="term"></div>
+  </div>
+  <div id="quit">
+    <p>Thanks for playing.  If you have any comments please use the tab above.</p>
+  </div>
+  <div id="comment">
+    <p>Sorry, this is not implemented.</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

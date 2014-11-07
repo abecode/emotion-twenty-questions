@@ -1,0 +1,1228 @@
+Is it a positive emotion? 	e.valence==positive
+Is it directed at another person? 	directed(e,otherPerson)
+is it angry? 	e==anger
+is it something one feels for long periods of time? 	e.duration==long
+is it similar to anger? 	similar(e,anger)
+Is the emotion usually caused by certain situations (as opposed to just popping up in your mind)? 	cause(something,e)
+is it regret? 	e==regret
+guilt? 	e==guilt
+fustration 	e==frustration
+Jealousy? 	e==jealousy
+is it a positive emotion? 	e.valence==positive
+does the emotion last for a long time, generally speaking? 	e.duration==long
+would you say the emotion results in higher stress levels? dunno if that makes sense 	cause(e,stress)
+does it result in inactivity? 	cause(e,inactivity)
+is it depression? 	e==depression
+is it sadness? 	e==sadness
+is it something that is directed towards someone? 	directed(e,otherPerson)
+is it grief? 	e==grief
+loneliness? 	e==loneliness
+are you less likely to experience the emotion when around good firiends? 	not(experienceWith(e,friends))
+is it boredome? 	e==boredom
+is it a strong emotion? 	e.activation==high
+is it a positive emotion? 	e.valence==positive
+is it necessarily directed at another person? 	necessary(directed(e,otherPerson))
+is it similar to happy? 	similar(e,happy)
+can you feel the emotion without any external events that cause it? 	cause(emptySet,e)
+is it curious? 	e==curiosity
+pride? 	e==pride
+Excited? 	e==excitement
+so it's similar to excited? 	similar(e,excitement)
+similar to pride? 	similar(e,pride)
+proud? ;) 	e==proud
+is it a positive emotion? 	e.valence==positive
+is the emotion directed towards another person? 	directed(e,otherPerson)
+is communication with another person likely to occur as a result of the emotion? 	cause(e,communication)
+is the emotion more likely to occur when you are tired? 	self.situation(e,tired)
+is it an emotion that you feel at least once every one or two days? 	e.frequency==regularly
+is it interest? / interested? 	e==interest
+is it a powerful emotion? 	e.activation==high
+is it surprise? 	e==surprise
+so, is it an emotion that makes you feel good? 	cause(e,self.feelGood)
+is it caused by some event, (instead of just occurring spontaneously)? 	cause(event,e)
+is it unexpected? 	not(expected(e))
+is it surprise? 	e==surprise
+hmm.. is it  happy/happiness? 	e==happiness
+interest? 	e==interest
+love :) 	e==love
+playful? 	e==playfulness
+let's see... curiosity 	e==curiosity
+excitement? 	e==excitement
+amusement? 	e==amusement
+humor? 	e==humor
+is it goofy? 	e==humor
+silly! 	e==silly
+is it your current emotional state? 	e==self.currentState
+is it a long sustaining emotion then? 	e.duration==long
+or an aspirational emotion? 	aspiration(e)
+Do you need someone to pull this emotion out of you or evoke it? if so, who is it? 	necessary(cause(otherPerson,e))
+is the emotion a type of or related to content or zen contentment (is that a word?_) 	subset(e,zenContentment)||similar(e,zenContentment)
+is it a word that an eighth grader would know? 	adolescent.know(e)
+serene? 	e==serenity
+stoned? :D 	e==stoned
+does the word function or can be conjugated as anything eles? i.e. can it be a verb too? 	possible(verb(e))
+relaxed 	e==relaxed
+relieved? relief 	e==relief
+did we already say calm? 	e==calm
+lets see... is it a positive emotion? 	e.valence==positive
+okay, #2: is it a strong emotion? 	e.activation==high
+3: is it an emotion that is directed at another person? 	directed(e,otherPerson)
+is it an emotion that just pops up spontaneously (vs being triggered by something)? 	cause(emptySet,e)
+#5, is it triggered by something unexpected? 	unexpected(e)
+is it happy? 	e==happiness
+is it stronger than happy? 	e.valence>happiness.valence
+is it calm? 	e==calm
+tranquil/tranquility? 	e==tranquility
+serene/serenity? 	e==serenity
+is it happy? 	e==happy
+is it an emotion that is directed at another person 	directed(e,otherPerson)
+does that other person gain anything from it? 	cause(e,benefit(otherPerson))
+does it has anything to do with love? 	similar(e,love)
+is it love? 	e==love
+is it an emotion that can be directed at another person? 	directed(e,otherPerson)
+is it necessarily directed at someone? 	necessary(directed(e,otherPerson))
+is it a positive emotion? 	e.valence==positive
+is it an emotion that lasts a long time, generally? 4 	e.duration==long
+is it caused by the person that it's directed at? 	cause(otherPerson,e)
+is it a strong emotion? 	e.activation==high
+is it usually caused by something in particular (as opposed to being spontaneously popping up)? 	cause(something,e)
+is it ... hmm lets see having a crush on someone? 	e==crush
+infatuated? 	e==infatuation
+is it flirtatious? 	e==flirtatiousness
+is it amourous 	e==amourous
+horny? 	e==horniness
+okay: is it a positive emotion? 	e.valence==positive
+is it an emotion that's directed at another person? 	directed(e,otherPerson)
+is it a strong emotion? 	e.activation==high
+is the emotion "angry/anger"?  	e==anger
+is it humorous one? 	subset(e,humorous)
+kind of a nightmare? 	subset(e,nightmare)
+do you feel it in a sad mood? 	situation(e,sad)
+do you feel it when you are helpless? 	situation(e,helpless)
+desperate 	e==despair
+devotion kind? 	subset(e,devotion)
+okay is it a positive emotion? 	e.valence==positive
+can it be a mental state? (number 2) 	mentalState(e)
+can this emotion be caused by another person? 	cause(anotherPerson,e)
+can the emotion be directed at another person? 	directed(e,otherPerson)
+is the emotion "depressed" or "depression" 	e==depression
+would you say that the emotion is a strong emotion? 	e.activation==high
+is the emotion "bored" or "boredom"? 	e==boredom
+is the emotion "sad"? 	e==sadness
+Is the emotion directed at one's self? 	directed(e,self)
+confused? 	e==confusion
+is it positive? 	e.valence==positive
+is it directed at some other person? 	directed(e,otherPerson)
+is it highly activated? 	e.activation==high
+is it caused by sth unexpected? 	cause(unexpectedEvent,e)
+it is a synonum to happiness, joy etc? 	similar(e,happiness)
+is it related to the understanding of a situation, realizing or learning sth? 	related(e,understanding||learning)
+is it sth like informed or vigilant? 	similar(e,informed)||similar(e,vigilant)
+aware? 	e==aware
+receptive? 	e==receptive
+alert? 	e==alert
+sensible? 	e==sensible
+enlightened? 	e==enlighted
+focused? 	e==focused
+absorbed? 	e==absorbed
+oh is it determined? 	e==determined
+keen? 	e==keen
+perseverance? 	e==perseverance
+persistence? resolute? 	e==persistence
+resolute? 	e==resolute
+bravery? 	e==bravery
+would i feel this if my dog died? 	situation(e,dogDied)
+would i feel this if it were my birthday? 	situation(e,birthday)
+would i feel this if some one cut me off on the highway? 	situation(e,cutoffOnHighway)
+would i feel this if i saw a ghost 	situation(e,seeGhost)
+would i feel this if i got in a fight with someone? 	situation(e,fightWithSomeone)
+would i feel it if some one received something i wanted? 	situation(e,recieveSomethingDesired)
+anger? 	e==anger
+is it similar to anger? 	similar(e,anger)
+would i feel this if someone punched me in the face? 	situation(e,punchedInFace)
+would i feel this if i had a grudge against someone? 	situation(e,haveGrudge)
+would i possibly shout at someone? 	behavior(e,shouting)
+is it resentful? 	e==resentment
+is it passive aggresive 	e==passiveAggressive
+is it aggressive aggressive? 	e==aggressive
+would i feel this if i hated myself? 	situation(e,hateSelf)
+would i feel it if i were disapointed in myself? 	situation(e,disappointedInSelf)
+is it regret? 	e==regret
+oh, is it frustrated? 	e==frustration
+would you feel this if your best friend died? 	situation(e,friendDied)
+sadness? 	e==sadness
+grief? 	e==grief
+would you cry if you felt this? 	behavior(e,crying)
+sorrow? 	e==sorrow
+would you feel this if you lost your keys? 	situation(e,loseKeys)
+would you feel it if you had an exam the next day? 	situation(e,futureTest)
+worry? 	e==worry
+shame? 	e==shame
+regret? 	e==regret
+you can express it in an obvious way by sighing? 	behavior(e,sighing)
+frustration? 	e==frustration
+would you feel it if you passed the screenings? 	situation(e,passedScreening)
+would you feel it in a less joyful situation? 	e.valence<passedScreening.valence
+content? 	e==contentment
+would you feel it if you do a nice act? 	situation(e,doingNiceAct)
+satisfaction? 	e==satisfaction
+wait! I think I get it! gratefulness? 	e==gratefulness
+1)is it positive? 	e.valence==positive
+2)is it highly activated? 	e.activation==high
+3) is it directed towards another person? 	directed(e,otherPerson)
+it is related to disliking somebody? 	situation(e,dislikingOtherPerson)
+is it annoyance? 	e==annoyance
+6)is it sth that you would feel if you want to take revenge at sb? 	situation(e,revenge)
+7)is it sth you feel when you are bored with someone? 	situation(e,boredWithOtherPerson)
+8)is it related to disgust about sth that that person does (e.g he is dirty etc) 	situation(e,disgustAboutOtherPerson)
+9)is it disgusted? 	e==disgusted
+is it positive emotino? 	e.valence==positive
+directed to someone or something? 	directed(e,otherPerson||directed(e,something)
+is it something imagining the future? 	directed(e,futureEnvisionment)
+is it sth (something) about the other has, not you? 	situation(e,has(something,otherPerson)&&~has(something(self)))
+is it close to jeoulous than curious? 	similar(e,jealous)>similar(e,curious)
+is it close to desire than curious? 	similar(e,desire)>similar(e,curious)
+can it be related loving the other? 	similar(e,love)
+is it affection? 	e==affection
+is it close to hostility? 	similar(e,hostility)
+oh sorry. hospitaility, i meant 	e==hospitality
+is it close to joyful? 	similar(e,joy)
+is it close to admiring? 	similar(e,admiring)
+is it admire? hehe 	e==admire
+would you feel this if it was your birthday? 	situation(e,birthday)
+would you feel it if your friend died? 	situation(e,friendDied)
+is it something you feel towards someone else? 	directed(e,otherPerson)
+is it something you would feel towards a friend? 	directed(e,friend)
+is it considered a negative thing to feel? 	e.valence==negative
+hatred? 	e==hatred
+would you feel it if someone else had something you wanted? 	situation(e,has(otherPerson,sthYouWant))
+would you feel this towards an enemy? 	directed(e,enemy)
+would you most likely feel this towards someone you don't know? 	directed(e,stranger)
+pity? 	e==pity
+contempt? 	e==contempt
+it is a positive emotion? 	e.valence==positive
+is it towards some other person 	directed(e,otherPerson)
+3) does it have to do with trying to obtain something that the othe person has? 	situation(e,tryToObtainSthFromOtherPerson)
+4)does it have to do with trying to be similar to some other person 	situation(e,tryToBeSimilarToOtherPerson)
+is it similar to ambitious? 	similar(e,ambition)
+is it similar to admiration? 	similar(e,admiration)
+7)is it similar to having faith/trust in someone? 	similar(e,faith)||similar(e,trust)
+8)is it similar to desire? 	similar(e,desire)
+is it similar to obsession? 	similar(e,obsession)
+10)whether it is positive or negative does it depend on the degree that you feel it? 	depend(e.valence,e.degreeFelt)
+11)then whether it is positive or negative does it depend on the situation in which you feel it? 	depend(e.valence,e.situation)
+is it similar to curiosity towards some person? 	similar(e,curiosity)
+13)would you feel that towards someone who is superior to you? 	directed(e,superiorPerson)
+14)would you feel that towards some close friend, with whom you feel comfortable? 	directed(e,closeFriend)
+15)it is similar to being influenced, inspired by someone? 	similar(e,influencedByOther)||similar(e,inspiredByOther)
+16) is it something related with following someone's behavior/example? 	situation(e,followingOtherPersonsBehavior)
+17)is it similar to surprised? 	similar(e,surprise)
+18)is it surprised? 	e==surprise
+18)is it astonished? 	e==astonishment
+19)amazed? 	e==amazement
+20)astounded? 	e==astounded
+would you feel it in a bad situation? 	situation(e,bad)
+would you feel it if someonw got sick? 	situation(e,sick(otherPerson))
+is it less intense than that? 	e.activation<situation(e,sick(otherPerson))
+would you feel it if someone was unfair to you? 	situation(e,beUnfairTo(otherPerson,self))
+would you feel it if someone died? 	situation(e,otherPersonDied)
+can you express it in an obvious way? 	hasExternalExpression(e)
+can you feel it internally? 	hasInternalExpression(e)
+do you feel it if you have done something bad to someone? 	situation(e,self.doneSomethingBadTo(otherPerson))
+is it highly intense? 	e.activation==high
+is it moderate? 	e.activation==moderate
+would you feel it if you had a test the next day? 	situation(e,futureTest)
+dissapointed? 	e==disappointment
+is it more intense than that? 	e.activation>disappointment.activation
+embarrassment? 	e==embarrassment
+shame? 	e==shame
+positive? 	e.valence==positive
+is it a feeling toward yourself? 	directed(e,self)
+highly activated? 	e.activation==high
+close to excited? 	similar(e,excited)
+excited? 	e==excited
+happy? 	e==happiness
+close to surprised? 	similar(e,surprise)
+joyful? 	e==joy
+flatterred? 	e==flattered
+oh amazement? 	e==amazement
+umm optimism? 	e==optimism
+hope? 	e==hopeful
+enthralled? 	e==enthralled
+thrilled? 	e==thrill
+delighted? 	e==delight
+overjoyed? 	e==overjoyed
+satisfaction? 	e==satisfaction
+euphoria? 	e==euphoria
+ecstasy? 	e==ecstacy
+pleased? 	e==pleased
+is it positive? 	e.activation==positive
+is it active? 	e.activation==high
+is it content? 	e==contentment
+is it pleased? 	e==pleased
+is it amused? 	e==amusement
+is it pride? 	e==pride
+I have no idea... I am terrible at these games... does it have anything to do with the attainment of goals? 	situation(e,goalAttainment)
+is it satisfied? 	e==satisfaction
+is it hope? 	e==hope
+optimism? 	e==optimism
+eagerness? 	e==eagerness
+Enthusiasm 	e==enthusiasm
+excitement? 	e==excitement
+accomplished? 	e==accomplished
+fulfilled? 	e==fulfillment
+confident? 	e==confidence
+do you feel this spontaneously? as opposed to being caused by something external.. 	cause(emptySet,e)
+can it be caused by another person? 	cause(otherPerson,e)
+is it necessarily caused by another person? 	necessarily(cause(otherPerson,e))
+is it positive? 	e.valence==positive
+can it be directed at another person? 	directed(e,otherPerson)
+is the emotion short in duration? 	e.duration==short
+pleased? 	e==pleased
+amused? 	e==amusement
+is it close to amused? 	similar(e,amused)
+is it a strong emotion? 	e.activation==high
+surprised? 	e==surprise
+impressed? 	e==impressed
+doh, I'm not confident any more ... is it related to goals? 	situation(e,goals)
+hmmm relieved? 	e==relief
+1) does the emotion have positive connotations? 	e.valence==positive
+2) so is it a negative emotion? 	e.valence==negative
+3) is it an everyday occurring emotion? 	e.frequency==regularly
+4) is it associated with being sad? 	situation(e,sad)
+5) is it a personality attribute, as in you could describe someone with this word? 	personalityTrait(e)
+6) would i feel this emotion if i stubbed my toe? 	situation(e,stubbedToe)
+7) is it associated with having a bad day? 	situation(e,badDay)
+actually I feel fairly confident I know what it is.... is it anger? 	e==anger
+is it a positive emtion? 	e.valence==positive
+Is it often felt in the course of a day? 	e.frequency>daily
+is it ever agood emotion? 	possible(good(e))
+can it be harmful to the person feeling it? 	cause(e,harmToSelf)
+yes.  mynext question is can it harm anyone besides the feeler? 	cause(e,harmToOther)
+i dont' know if this is a valid question, but does it start with the letter D? 	spelling=~/^d/
+damn.  does the person have any control over this emotion? 	control(self,e)
+do children feel this emotion? 	experience(e,children)
+do adults usually try to discourage children from feeling this? 	try(adults,cause(adults,not(experience(e,children))))
+is it common in most children? 	common(e,most(children))
+I think I know, but I'll ask one more question...does it ever cause children to wake up and cry? 	cause(e,wakeUp(chidren)&&cry(children))
+Are they scared when they feel it? 	situation(e,scared(children))
+is it a socially acceptable emotion, say, at a birthday party? 	situation(e,birthday)
+I guess hatred 	e==hatred
+is it a shameful feeling? 	subset(e,shame)
+I didn't see that answer.  is it rage? 	e==rage
+is it frustration? 	e==frustration
+ok. Q1. Is it a hot emotion? 	e.temperature==hot
+Q2. Is it neutral 	e==neutral
+Q3. Is it a happy emotion? 	subset(e,happy)
+Q4. Is it a sad emotion? 	subset(e,sad)
+Q5. Does this emotion involve a verbal outburst or utterance? 	behavior(e,verbal)
+Q6. Is this emotion remorseful? 	e==remorse
+7. Is this emotion sadness? 	e==sadness
+lets see... is it similar to happiness? 	similar(e,happiness)
+is it happiness? 	e==happiness
+okay... 3) is it a strong emotion? 	e.activation==high
+is it long lasting? 	e.duration==long
+is it humor? 	e==humor
+6) is it joy? 	e==joy
+7) is it directed at another person? 	directed(e,otherPerson)
+is it something that you feel often? 8 	e.frequency==regularly
+extatic? 	e==extatic
+9) excited 	e==excited
+is it something unexpected? 	unexpected(e)
+11) is it going to be difficult to guess? 	difficult(e)
+glad? 	e==gladness
+13) overjoyed? 	e==overjoyed
+14) jubilant? 	e==jubilant
+15) Euphoric? 	e==euphoria
+16 thrilled? 	e==thrill
+delight? 	e==delight
+lets see... silly? 	e==silly
+hyper? 	e==hyper
+surprise? 	e==surprise
+sexy? 	e==sexy
+enthusiastic? 	e==enthusiasm
+1) does the emotion have negative connotations? 	e.valence==negative
+2) is it a common, everyday emotion to experience? 	e.frequency==regularly
+3) is it a positive emotion? 	e.valence==positive
+3) is one more likely to experience it on a sunny day? 	situation(e,sunnyDay)
+5) are people experiencing this emotion pleasant to be around? 	pleasant(experiencer(e))
+6) is it associated with optimism? 	associated(e,optimism)
+7) is it synonymous with joy? 	synonym(e,joy)
+8) are some people more predisposed to feel it? for example, is it more of a personality trait? 	personalityTrait(e)
+okay, then I'll take a crack at it: is it happiness? 	e==happiness
+10) does one feel this after accomplishing something successfully? 	after(e,accomplishingSomethingSuccessfully)
+11) is it directed toward another person? 	directed(e,otherPerson)
+12) is it a euphoric feeling? 	euphoric(e)
+is it "excitement"? 	e==excitement
+2)do you feel it if you have done poorly at an exam? 	situation(e,doPoorlyOnExam)
+3) is it a strong emotion? 	e.activation==high
+4) would you feel it if someone close to you had died? 	situation(e,someoneCloseDied)
+5) would you feel it if your car was stolen? 	situation(e,carStolen)
+6)angry? 	e==anger
+7) would you feel it if you were in a bad neighborhood during the night? 	situation(e,badNeighborhoodAtNight)
+8)scared? 	e==scared
+is it a positive emotion? 	e.valence==positive
+does your heat beating fast when experiencing such an emotion? 	behavior(e,heartBeatingFast)
+is it a common emotion that people would feel on a fairly regular basis? 	e.frequency==regularly
+is it expressed more verbally (like laughing) (instead of nonverbally like smiling)? 	behavior(e,verbal)
+is it ecstatic? 	e==ecstasy
+is it closer to amazed than excited? 	similarity(e,amazed)>similarity(e,excited)
+is it something like "this is wonderful" 	similar(e,thisIsWonderful)
+is it awesome? haha.. 	e==awesome,joke
+it is phenomenal? is it* 	e==phenomenal
+is it closer to "awesome" than to "excited"? 	similarity(e,awesome)>similarity(e,excited)
+is it something like eager? 	similar(e,eager)
+do you experience it more because of some other things happen not relating to you directly (meaning compared to when you do something for yourself and then you feel that way) 	cause(externalThings,e)
+is it like energetic? 	similar(e,energetic)
+the reason that you say "no" is it because "energetic" is not "positive" enough(compared to not "activated") 	meta-question-head-explodes
+is it usually more activated than "excited"? 	usually(e.activation>excited.activation)
+ok i'll just do random guess remarkable? 	e==remarkable
+spectacular 	e==spectacular
+terrific 	e==terrific
+is it a positive emotion? 	e.valence==positive
+if you had to say the emotion was a colour, would you say it is more like red than blue? 	similarity(e,red)>similarity(e,blue)
+is a person who experiences this emotion less likely to spring into action to do something about this emotion? (weird question0 	behavior(e,action)
+yeah i was trying to reformulate it... something like is a person experiencing this emotion less likely to get off there but and take measures to improve their condition there -> their but -> butt 	behavior(e,actionToImproveCondition)
+is a long lasting emotion? is it a ... 	e.duration==long
+if you had to choose, would you say it is more of a calm emotion than a violent emotion? 	e.activation==low
+is it depressed? 	e==depressed
+is it bored? 	e==boredom
+is it missing a person? 	e==missingSomeone
+i can rephrase, i think: longing is it longing? 	e==longing
+is the emotion felt in relation to another person? 	assocated(e,otherPerson)
+i feel like i need to narrow it down just a little bit more... is it an emotion that is usually hidden from others? (vs. usually expressed to others) 	usually(hiddenFromOthers(e))
+is it sadness? 	e==sadness
+is it worry i.e. being worried? 	e==worry
+is it being homesick? 	e==homesick
+is it an emotion people experience every day? 	e.frequency==regularly
+is it melancholic? 	e==melancholy
+yeah? what is it? 	non-yes-no,giveup
+is it negative? 	e.valence==negative
+does it include active body movement? 	behavior(e,bodyMovement)
+is it initiated from other people? can someone else cause that emotion? 	can(cause(otherPerson,e))
+can that emotion arise without any initiation (or happenings)? 	can(cause(emptySet,e))
+is it a feeling that if someone intentionally hit you? 	situation(e,somebodyHitYou)
+is it a feeling that you ate something bad? 	situation(e,ateSomethingBad)
+Would I feel the emotion when I got F in the exam? 	situation(e,getFOnExam)
+is it sad? 	e==sadness
+is it frustrated? 	e==frustration
+is it angry? 	e==anger
+is it something related to unsatisfaction? 	associated(e,unsatisfaction)
+is it toward people? 	directed(e,otherPeople)
+is it anxiety? 	e==anxiety
+is it worry? 	e==worry
+would i feel this if my best friend died? 	situation(e,bestFriendDied)
+is it sadness? 	e==sadness
+remorse? 	e==remorse
+would i feel this if i failed an exam? 	situation(e,failExam)
+would someone cry if they felt this? 	behavior(e,crying)
+grief? 	e==grief
+sympathy ? 	e==sympathy
+3)is it directed towards another person? 	directed(e,otherPerson)
+4)is it more about how one feels about himself? 	directed(e,self)
+5)id it related to sth disappointing? *is 	associated(e,disappointment)
+is it related to being in physical pain? 	associated(e,physicalPain)
+7)mentally tired or confused? (i have no idea about your verb...:-() 	associated(e,mentallyTiredConfused)
+8)is it similar to frustration? 	similar(e,frustration)
+in the sense that you would feel that of you were frustrated i guess... if you would feel that i mean... 	non-yes-no,clarification
+9)is it similar to distracted? 	similar(e,distracted)
+10)similar to disappointed? 	similar(e,disappointment)
+11)similar to bored? 	similar(e,boredom)
+12)so would you feel like that after a long and difficult day at work 	situation(e,after(longDifficultDayAtWork))
+13)then how about depressed? 	e==depressed
+14) is it less severe that depressed, sth like melancholic (i hope that word exists in english) 	e==melancholy
+1) Is it a positive emotion? 	e.valence==positive
+2) Is it a strong emotion? 	e.activation==high
+3) Do you feel it when your team scores a goal? 	situation(e,yourTeamScores)
+4) Do you feel it when you get your phd? 	situation(e,getPhd)
+5) Do you feel it when you get married (or at least you are supposed to feel it :P ) ? (when one gets married ... ) ( :P ) 	situation(e,getMarried)
+6) Is it enthusiastic? 	e==enthusiastic
+7) Is it cheerful? 	e==cheerfulness
+8) So, would you feel it if you are on drugs, e.g., LSD ? (if you were) 	situation(e,onDrugs)
+9) Is it euphoria? 	e==euphoria
+10) Do you feel that when you get the drug "Exstasis" ? "Ecstasis" I meant ... 	situation(e,ecstasyDrug)
+11) Is it ecstatic? ( :P ) 	e==ecstasy
+11) Is it ecstatic? ( :P ) gloss:{e==ecstasy} - no ( :P ) 	e==ecstasy
+Is it "exhilarated" ? 12) Is is exhilarated? "it 	e==exhilaration
+13) So is it closer to surprise? 	similar(e,surprise)
+14) Is it delirious? 	e==delirium
+15) Is it entranced? (I cannot think of sth related to this sudden thing you mentioned ... ) 	e==entrancement
+is it positive emotion 	e.valence==positive
+is it associated with high energy and excitement 	associated(e,highEnergy&&excitement)
+do people feel that when they are helpless 	situation(e,helpless)
+is it generally associated with a drooped down face and looking down :D 	behavior(e,droopedFaceAndLookingDown)
+is it being sad ? 	e==sadness
+do people preparing for screening feel that at times ? 	situation(e,prepareForScreening)
+depression ?? 	e==depression
+1. is it positive emotion? 	e.valence==positive
+2. would u feel this emotion when you broke up in relationship?  	situation(e,brokeUpRelationship)
+3. oh. then it is not salient emotion, is it? 	not(salent(e))
+4. is it rather stationary emotional state than fluctuating? 	stationary(e)
+umm. is it close to sadness? 5 	similar(e,sadness)
+6. would u in this emotional state when you have concern? 	associated(e,haveConcern)
+anxiety? 	e==anxiety
+is it positive ? 	e.valence==positive
+can it lead to negative emotion 	cause(e,negativeEmotion)
+is it realted to outcome of some result 	associated(e,outcomeOfResult)
+is it high energy 	e.activation==high
+is it very obviouson the face when someone has it obvious on 	e.readabilty==obvious
+did u feel that just before the screeing results were out 	e&&pEvent(beforeScreeningResults)
+do you feel it after some results ? or can one feel it after such results ? 	(e&&pEvent(afterScreeningResults))||situation(e,afterScreeningResults)
+8 is it related to being determined or taking some sort of promise 	associated(e,beingDeterminedOrTakingPromise)
+9 is it close to being disappointed 	similar(e,disappointment)
+is it more close to being scared 	similar(e,scared)
+is ti close to being concerned 	similar(e,concerned)
+12 is it close to being embarrassed 	similar(e,embarrassment)
+13 is it connected to jealously jealousy  	associated(e,jealously)
+dislike for the other person ? 	e==dislikeForOtherPerson
+envy? :D (15) 	e==envy
+do you feel this way when you're frustrated? 	cooccur(e,frustration)
+2. do you feel this way when you you do things you enjoy? 	situation(e,doThingsYouEnjoy)
+3. do you associate this emotion with femininity? 	associated(e,femininity)
+4. do you feel this way when you're sad? 	cooccur(e,sadness)
+5. is this an emotion which is perceived positively in American society? 	positivePerceptionInAmericanSociety(e)
+6. is this an emotion which some people seem to be incapapble of feeling? 	forSome(p)(p.incapableOfFeeling(e))
+7. is this emotion associated with self esteem? 	associated(e,selfEsteem)
+8. is this emotion associated with the ability to concentrate? 	associated(e,abilityToConcentrate)
+9. is this emotion associated with distraction? 	associated(e,distraction)
+10. is this emotion associated with level of interest in an activity? 	associated(e,levelOfInterestInAnActivity)
+11. is this emotion associated with thoughtfulness? 	associated(e,thoughtfulness)
+12. is this emotion associated with anticipation? 	associated(e,anticipation)
+13. focused? 	e==focused
+reflective? 	e==reflective
+obsessive? 	e==obsessive
+15. begins with a consonant? 	beginsWith(e.spelling,consonant)
+ends with ful? 	endsWith(e.spelling,ful)
+17. ends with ive? 	endsWith(e.spelling,ive)
+18. ends with ness? 	endsWith(e.spelling,ness)
+deliberateness? 	e==deliberateness
+drunkeness? 	e==drunkeness
+Do you feel like this when you are at Disneyland? 	situation(e,atDisney)
+Do you feel like this when you run over a dog with your car? 	situation(e,runOverADog)
+Do you feel like this when someone cuts you in line? 	situation(e,someoneCutsInLine)
+is it remorse? 	e==remorse
+Do you feel like this when someone close to you dies? 	situation(e,someoneCloseDied)
+When you steal something from a friend (like when a kid steals a friends toy) do you feel like this? 	situation(e,stealSomethingFromAFriend)
+How about when a friend gets a brand new car that is much better than yours? 	situation(e,friendGetsANewCarThatIsBetterThanYours)
+When you do an enjoyable activity do you feel like this at any point before, during or after? 	situation(e,enjoyableActivity)
+Do you feel like this when someone gives you a gift you were not expecting? 	situation(e,receiveUnexpectedGift)
+There is a sound that does not let you sleep at night at your apartment do you feel like this in reaction to this noise? 	situation(e,soundAtNight)
+is the feeling annoyed? 	e==annoyance
+does waiting in line make you feel like this? 	situation(e,waitingInLine)
+Something happens (a plate breaks) and there is nothing you can do about it do you feel like this in reaction to the situation? 	situation(e,plateBreaks)
+You are walking through South Central very late with your very expensive laptop and you see a stranger quickly moving towards you, do you feel like this when that happens/ ? if* 	situation(e,inSouthCentralAtNightCarryingLaptopEncounterStranger)
+fear? 	e==fear
+you are about to find out if you got into USC you have the envelope in your hand do you feel like this right before you open the envelope? 	situation(e,openingCollegeApplicationResultLetter)
+nervousness ? 	e==nervousness
+Do you feel like this when there is a big event coming up and you "cant wait" for it to happen 	situation(e,bigEventComingUpYouCantWait)
+how about anxious? is it the feeling? 	e==anxiety
+is it an emotion that makes you feel good? 	cause(e,feelGood)
+would you feel this emotion if you did something stupid? 	situation(e,doSomethingStupid)
+is it regret? 	e==regret
+Okay, would you feel this emotion if you did something stupid? 	situation(e,doSomethingStupid)
+is this an emotion associated with good karma? 	associated(e,goodKarma)
+is it associated with bad karma? 	associated(e,badKarma)
+if you had to give the emotion a color from red to blue, would it be closer to red? 	similarity(e,red)>similarity(e,blue)
+hmmm.... would you feel this at disneyland? 	situation(e,atDisney)
+How about standing in line at the grocery store? 	situation(e,waitingInLine)
+Then when something goes well? 	situation(e,somethingGoesWell)
+is it like satisfaction? (Am i allowed to ask that?) 	similar(e,satisfaction)
+ok, do you feel it when you've made a great accomplishment? 	situation(e,greatAccomplishment)
+how about when something good happens, just by chance 	situation(e,somethingGoodHappensByChance)
+is it happiness? 	e==happiness
+is it an emotion that makes you feel good? 	cause(e,feelGood)
+Do you feel it when something goes wrong? 	situation(e,somethingGoesWrong)
+Is the something that goes wrong related to another person? 	e&&assocated(somethingGoesWrong,otherPerson)
+So, when you feel this emotion, do you direct the feelings at yourself? 	directed(e,self)
+is it embarrassment? 	e==embarrassment
+how about guilt? 	e==guilt
+is it depression? 	e==depression
+is it an emotion that lasts a long time? 	e.duration==long
+can it also be directed at another person? 	directed(e,otherPerson)
+frustration? 	e==frustration
+sadness? 	e==sadness
+would you say it's a strong emotion? 	e.activation==high
+is it stronger than being stressed out? 	e.activation>stressedOut.activation
+is it close to being stressed out? 	similar(e,stressedOut)
+is it "stressed out" ? 	e==stressedOut
+(I think that's number 16  =-O ) anxious? 	e==anxiety
+ok, is it a good feeling? 	e.valence==positive
+can it be caused by other people disappointing you? 	cause(e,disappointmentByOtherPeople)
+can it also be caused by disappointment in yourself? 	cause(e,disappointmentInSelf)
+when you feel this emotion, is it associated with blame on others or yourself? 	associated(e,blame)
+is it anger? 	e==anger
+is it sadness? 	e==sadness
+on a scale of red to blue, would the emotion be red? (if that makes sense to you...) 	similarity(e,red)>similarity(e,blue)
+is it an emotion that you feel regularly? 	e.frequency==regularly
+is it a negative emotion? 	e.valence==negative
+hmm, is it confused? 	e==confusion
+is it an emotion that can just pop up spontaneously (as opposed to being caused by something)? 	cause(emptySet,e)
+is it shy? 	e==shyness
+bored? 	e==boredom
+restless? 	e==restless
+is it an emotion that you can feel for long durations? 	e.duration==long
+surprise? 	e==surprise
+ok, is it a neutral emotion? 	e.valence==neutral
+is an intense emotion? 	e.activation==high
+is it a positive emotion? 	e.valence==positive
+can it be spontaneous? 	cause(emptySet,e)
+can it be caused by a great accomplishment? 	cause(greatAccomplishment,e)
+can be caused only by another person 	only(cause(otherPerson,e))
+is it pride? 	e==pride
+when you feel this emotion, can other emotions be felt too? 	assocated(e,otherEmotions)
+can happiness be associated with this emotion? 	associated(e,happiness)
+is it enthusiastic? 	e==enthusiasm
+is it relief? 	e==relief
+is it excitement? 	e==excitement
+is it anticipation? 	e==anticipation
+is it eager? 	e==eagerness
+hmmm, is it more intense than eager? 	e.activation>eager.activation
+is it hopeful? 	e==hope
+ok, is it a positive emotion? 	e.valence==positive
+is it a neutral emotion? 	e.valence==neutral
+can the emotion be associated with happiness? 	associated(e,happiness)
+does the emotion happen after something good happens? 	situation(e,afterSomethingGoodHappens)
+is it like being stressed out? 	similar(e,stressedOut)
+is it nervous? 	e==nervousness
+Is it apprehensive? 	e==apprehension
+Is the emotion more intense than nervous? 	e.activation>nervousness.activation
+is it scared? 	e==scared
+I see, is it overwhelmed? 	e==overwhelmed
+is it frustrated? 	e==frustration
+hmmm how about resentful 	e==resentment
+is it worried? 	e==worry
+ok, 13 so far is it more intense than annoyed? 	e.activation>annoyance.activation
+is it like being fed up? or is it exasperated? 	e==exasperation
+Ok is it a good emotion 	e.valence==positive
+is it something relating another perso n like an emotion that you would feel towards another perso n 	associated(e,otherPerson)
+only for people? like only humans? 	only(associated(e,people))
+is it love? 	e==love
+could it be neutral? 	possible(e.valence==neutral)
+do you feel like this when you are done with a project and feel like you did a good job on it ? 	situation(e,doneGoodJobOnProject)
+Ok is this an emotion that comes up when you apply for a job and you really want to get it you wish to get it? 	situation(e,applyForDesirableJob)
+is it hopeful 	e==hope
+ok, is it a positive emotion? 	e.valence==positive
+is it an intense emotion? 	e.activation==high
+can it vary between intense and mild? 	intense>e.activation>mild
+ok, can it be associated with relief? 	associated(e,relief)
+can it be associated with happiness? 	associated(e,happiness)
+do you feel it after you've had a great accomplishment? 	situation(e,afterGreatAccomplishment)
+do you feel it while working on a great accomplishment? 	situation(e,whileWorkingOnGreatAccomplishment)
+do you feel it after a fun surprise? 	situation(e,afterFunSurprise)
+do you feel it when you're content? 	associated(e,contentment)
+is it like exhilarated? 	e==exhilaration
+is it pleased? 	e==pleased
+is it more intense than pleased? 	e.activation>pleased.activation
+is it cheerful? 	e==cheerfulness
+would you feel it after an awesome concert? 	situation(e,afterAwesomeConcert)
+would you feel it during a funny movie? 	situation(e,duringFunnyMovie)
+would you feel it during a thriller action movie? 	situation(e,duringThrillerMovie)
+is it like being entertained? 	similar(e,entertained)
+does it always include laughing? 	necessarily(behavior(e,laughing))
+is it amused? 	e==amusement
+Uhmm is it a positive emotion? 	e.valence==positive
+is it very intense? 	e.activation==high
+is it something you feel when you are doing something that is not very exciting? 	situation(e,doingSomethingNotVeryExciting)
+is it bored? 	e==boredom
+is it a positive emotion? 	e.valence==positive
+is neutral? 	e.valence==neutral
+do you feel it when you're in a competition? 	situation(e,inCompetition)
+do you feel it after something bad has happened? 	situation(e,afterSomethingBadHappens)
+do you feel it before something big is happening? 	situation(e,beforeSomethingBigHappens)
+can you feel it towards yourself? 	possibly(directed(e,self))
+is it like being apprehensive? 	similar(e,apprehension)
+is it more intense than anxious? 	e.activation>anxiety.activation
+is it more intense than overwhelmed? 	e.activation>overwhelmed.activation
+is it like defeated? 	similar(e,defeated)
+is like shame? 	similar(e,shame)
+is it like furious? 	similar(e,fury)
+is it like revenge? 	similar(e,revenge)
+is it violent? 	e==violent
+is it like vicious? 	similar(e,vicious)
+is it a bigger version of furious? 	e.activation>fury.activation
+is it different by including another emotion? 	e-fury==anotherEmotion
+is it ferocious? 	e==ferocious
+hmmm yea, I give up 	non-yes-no,giveUp
+all right, is it a positive emotion? 	e.valence==positive
+is it neutral? 	e.valence==neutral
+is it associated with sadness 	associated(e,sadness)
+can it be associated with anger? 	associated(e,anger)
+ok, does it happen when you've failed at something? 	situation(e,failAtSomething)
+does it happen when you blame yourself 	situation(e,blameYourself)
+ok, can it associated with embarrasment? 	associated(e,embarrassment)
+ok is it a positive emotion? 	e.valence==positive
+do you feel like this when you have done something right? 	situation(e,youHaveDoneSomethingRight)
+is it a pretty intense emotion? 	e.activation==high
+is it closely assimilated with being calm? 	associated(e,calm)
+is this an emotion you feel whe you are doing something you like to do? 	situation(e,doingSomethingYouLike)
+is it pleasure? 	e==pleasure
+do you feel the two simultaneously? 	cooccur(e,pleasure)
+is it the opposite of sadness? 	opposite(e,sadness)
+happiness is it ? 	e==happiness
+is it similar to being satisfied? 	similar(e,satisfaction)
+is it similar to being entertained? 	similar(e,entertainment)
+would this be an emotion you would feel when readying a book? reading 	situation(e,readingABook)
+determined? 	e==determination
+if someone is scared of doing something but they are determined to do it would they feel this way? 	situation(e,scaredButDeterminedToDoSomething)
+when you are doing something and feel like you are doing a good job would you feel like this? 	situation(e,feelingThatYouAreDoingAGoodJobAtSomething)
+is it pride? 	e==pride
+is this an emotion you feel when you have a positive outlook for something you are doing?> 	situation(e,positiveOutlookForSomethingYouAreDoing)
+is it similar to hope? 	similar(e,hope)
+is it closer to being delighted? 	similar(e,delight)
+optimistic? 	e==optimism
+cheerful? 	e==cheerfulness
+Hahah I think I give up yea 	giveUp,non-yes-no
+is it a positive emotion? 	e.valence==positive
+is it neutral? 	e.valence==neutral
+is it associated with anger? 	associated(e,anger)
+is it associated with sadness? 	associated(e,sadness)
+can you feel it when you fail at something? 	situation(e,failAtSomething)
+can you feel it when you get a terrible surprise? 	situation(e,terribleSurprise)
+if you feel it after you've failed, do you feel it when you know you're failing and dreading to see the end result that proves you've failed? 	situation(e,dreadingImmanentFailure)
+is it dissappointment? 	e==disappointment
+ok, so more often, it's after some thing bad? 	situation(e,afterSomethingBad)
+can blame be associated with it? 	associated(e,blame)
+is it like guilty? 	similar(e,guilt)
+ok is it a positive emotion? 	e.valence==positive
+is it an extreme emotion? 	e.activation==high
+If someone has a much nicer car than you but you know he did not work to get it but his parents gave it to him do you feel like this? 	situation(e,enviousOfCarAndRichParents)
+can you feel this emotion when someone is doing something that bothers you 	situation(e,someoneDoesSomethingToBotherYou)
+do you feel like this when someone does something you did not expect them too to ? 	situation(e,someoneDoesSomethingUnexpected)
+disappointment  ? 	e==disappointment
+is it similar from pain? 	similar(e,pain)
+is it sometimes described as "being lost" 	describedAs(e,beingLost)
+is it closely assimilated with dismay?  	associated(e,dismay)
+is it appalled  ? 	e==appalled
+does it happen when someone is lonely ? 	situation(e,someoneIsLonely)
+cool, is it a negative emotion? 	e.valence==negative
+is it neutral? 	e.valence==neutral
+so it's more on the positive side thna the negative side? 	e.valence==positive
+is it like being content? 	similar(e,contentment)
+can it happen when something goes your way and you're pleased? 	situation(e,pleasedWhenSomethingGoesYourWay)
+is it relieved or relaxed? 	e==relief||e==relaxed
+ok is it negative? 	e.valence==negative
+is it intense 	e.activation==high
+then usually not intense? 	usually(e.valence!=high))
+is it kinda like anger? 	similar(e,anger)
+can it be mixed with sadness? 	mixable(e,sadness)
+would you say anger is more associated with it than sadness? 	similarity(e,anger)>similarity(e,sadness)
+does it happen when youve failed? 	situation(e,youveFailed)
+is it kinda like fear? 	similar(e,fear)
+is it associated with embarrassment? 	associated(e,embarrassment)
+does it happen after nasty surprise? 	situation(e,afterNastySurprise)
+if it there were a nasty surprise, would the emotion be mild? 	if(nastySurprise)then(e.activation==low)
+would it intense in that situation? 	if(nastySurprise)then(e.activation==high)
+then how about the nasty surprise is a friend betrays you, would it be mild then? 	if(friendBetraysYou)then(e.activation==low)
+then how about something trivial, like...finding out vegetables you were going to use had gone bad? 	situation(e,findingThatVegatablesHadGoneBad)
+is it kinda like regret? 	similar(e,regret)
+felt during betrayal? 	situation(e,betrayal)
+it like a kind of pain? 	subset(e,pain)
+would you say the emotion has a lot of energy? 	e.activation==high
+oh right, you said there's a wide range, right? 	e.activation==variable
+so, if you were stranded in the middle of the desert, and pretty much doomed bc your friend ditched you there, would you feel this emotion 	situation(e,ditchedByFriendInDesert)
+haha, jealousy? 	e==jealousy
+ok is it a positive emotion'? 	e.valence==positive
+is it mildly negative? 	e.valence==mildlyNegative
+is it associated with being embarassed? embarrassed 	associated(e.embarrassment)
+do you feel like this when you are going to perform in front of a very big audience? 	situation(e,goingToPerformInFrontOfAudience)
+can it be associated with worrying? 	associated(e,worrying)
+can it be associated with anxiety? 	associated(e,anxiety)
+is it the opposite of being calm 	opposite(e,calm)
+is it worrying? 	e==worry
+but its not anxiety? 	e==anxiety
+distress? 	e==distress
+ok is it positive? 	e.valence==positive
+is it neutral? 	e.valence==neutral
+does it vary in intensity? 	e.activation==variable
+is it kinda like anger? 	similar(e,anger)
+is it more likely to have anger than sadness? 	similarity(e,anger)>similarity(e,sadness)
+but it's not exactly anger right? 	e==anger
+do you feel under high pressure? 	situation(e,feelUnderHighPressure)
+how about when betrayed? 	situation(e,betrayal)
+maybe vengeful? 	e==vengeful
+is "determination" associated? 	associated(e,determination)
+are there other situations when you'd feel this emotions besides betrayal? 	exist(s)(situation(e,s)&&s!=betrayal)
+then maybe when you're fighting for your life? 	situation(e,fightingForYourLife)
+how about kinda like panic? 	similar(e,panic)
+how about pain? 	similar(e,pain)
+can you feel it if you have physical pain? 	situation(e,physicalPain)
+what if it's accidental pain? 	situation(e,accidentalPain)
+would you feel it more it you did something stupid and caused the pain on yourself? 	situation(e,doSomethingStupidAndCausePainOnYourself)
+is it kinda like shame? 	similar(e,shame)
+or like blame? 	similar(e,blame)
+is it linked to annoyance? 	associated(e,annoyance)
+ok is it a positive emotion? 	e.valence==positive
+is it associated with fear? 	associated(e,fear)
+you are lost in the woods do you feel this emotion? 	situation(e,lostInTheWoods)
+you are talking to someone you like do you feel this emotion? 	situation(e,talkingToSomeoneYouLike)
+you are talking to someone very boring do you feel this emotion? 	situation(e,talkingToSomeoneVeryBoring)
+do you feel like this when you arent very confident? 	situation(e,youArentConfident)
+is it closely associated with being insecure? 	associated(e,insecurity)
+so you get this emotion and then insecurity 	precedes(e,insecurity)
+someone leaves you out of their plans do you feel like this? 	situation(e,someoneLeavesYouOutOfTheirPlans)
+regret? 	e==regret
+all right, is it positive? 	e.valence==positive
+is it pretty intense? 	e.activation==high
+does it happen after soemthing awesome happens? 	situation(e,afterSomethingAwesomeHappens)
+does it happen while youre working toards a big accomplishment? *towards 	situation(e,workingTowardABigAccomplishment)
+is it associated with pride? 	associated(e,pride)
+ok is it a positive emotion? 	e.valence==positive
+is in an intense emotion';? 	e.activation==high
+when someone tells you a big lie and then you find out do you feel like this? 	situation(e,someoneTellsYouALieAndYouFindOut)
+Ok is it associated with anger at all? 	associated(e,anger)
+is this emotion always related to another persons influence? 	associated(e,otherPerson)
+do you feel this emotion if you let someone you love down? 	situation(e,youLetSomeoneYouLoveDown)
+is it associated to shame? 	associated(e,shame)
+is it associated with being tired ? 	associated(e,beingTired)
+is it positive? 	e.valence==positive
+do you show a lot of physical signs when you have the emotion? 	hasExternalExpression(e)
+do you laugh? 	behavior(e,laughing)
+do you smile? 	behavior(e,smiling)
+is it intense? 	e.activation==high
+ok, would it be the most intense after completing a phd program? 	if(situation(completeAPhdProgram))then(e.activation==high)
+is it like hopeful? 	similar(e,hope)
+is it like being content? 	similar(e,contentment)
+is it like confidence? 	similar(e,confidence)
+is like being in love? 	similar(e,love)
+ok is it a positive emotion'? 	e.valence==positive
+do you feel it toward another person 	directed(e,otherPerson)
+so if you are at disney would you feel this emotion? 	situation(e,atDisney)
+is it associated with excitement ?? 	associated(e,excitement)
+there is a big project coming up for  you and you feel positively about it would you feel this emotion? 	situation(e,bigProjectComingUpAndYouFeelPositivelyAboutIt)
+is it calm? 	e==calm
+is it positive? 	e==positive
+is it intense? 	e.activation==high
+is it like exhilaration? 	similar(e,exhilaration)
+is it different from exhilaration becuase of intensity? like too much happiness? 	e.activation!=exhilaration.activation
+oh i thought you said positive is it like fury then? 	similar(e,fury)
+can some sadness be mixed in? 	mixable(e,sadness)
+is it more sadness than anger? 	e.sadness>e.anger
+is it like depression? 	similar(e,depression)
+is despair too similar? 	similar(e,despair)
+stronger thanoverwhelmed? 	e.activation>overwhelmed.activation
+like doomed? or giving up? 	e==doomed
+incompetent or worthless? 	e==incompetence||e==worthlessness
+would be blaming yourself? *would you be 	situation(e,blameYourself)
+would you be more likely blaming somebody else? or doesnt really matter? 	situation(e,blamingSomeoneElse)
+kinda like feeling stupid? 	similar(e,feelingStupid)
+which word that ive said is closest to it? 	non-yes-no,askHint
+in a sequence of events, would feel despair first, then the emotion, then give up? 	sequenceOfEvents([despair,e,giveUp])
+and it would have the same intensity as despair? 	e.activation==despair.activation
+maybe hopelessness? 	e==hopelessness
+or desperate? 	e==desperate
+resign? 	e==resignation
+OK is it a positive emotion'? 	e.valence==positive
+is it associated with anger ? 	associated(e,anger)
+so its more of a sad emotion? 	sad(e)
+is it an emotion toward someone else? 	directed(e,otherPerson)
+if you are planning on going to the beach but there is apossibility it might rain would you feel like this ? 	situation(e,goingToBeachButThereIsAPossibilityOfRain)
+if you are upset at someone would you feel this emotion? 	situation(e,upsetAtSomeone)
+so its a pretty intense emotion? 	e.activation==high
+you expected someone to open the door for you but they didnt do you feel this emotion? 	situation(e,youExpectedSomeoneToOpenTheDoorButTheyDidnt)
+so you accidentally run over a cute bunny with your car would you feel like this? 	situation(e,accidentallyRunOverACuteBunny)
+is it associated with being embarassed? embarrassed ? 	associated(e,embarrassment)
+is it associated with being shy? 	associated(e,shyness)
+is it associated with being impatient? 	associated(e,impatience)
+is it assimilated to being tierd? tired 	e==tired
+ok is it positive? 	e.valence==positive
+is it usually intense? 	e.activation==high
+when its intense do you laugh? 	behavior(e,laughing)
+is it kinda like being optmistic? 	similar(e,optimism)
+maybe kinda like being proud? 	similar(e,pride)
+how about being plain happy? 	similar(e,happiness)
+does it happen when you're chilling watching your favorite tv show? 	situation(e,watchingFavoriteTvShow)
+maybe when youre at a great concert? 	situation(e,atAGreatConcert)
+hmm how about when youre looking foward to something 	situation(e,lookingForwardToSomething)
+maybe exhilaration ? 	e==exhilaration
+maybe relief? 	e==relief
+ok is it a negative emotion? 	e.valence==negative
+is it very intense? 	e.activation==high
+is it kinda like being sad? 	similar(e,sadness)
+is it like misery? 	e==misery
+so a bit like suffering? 	e==suffering
+is it anguish? 	e==anguish
+is it associated with gilt? 	associated(e,guilt)
+if you think someone is lying do you feel this emotion? 	situation(e,someoneIsLying)
+so you cheated on a test would you feel this emotion? 	situation(e,youCheatedOnATest)
+embarrassed? 	e==embarrassed
+ok is it positive? 	e.valence==positive
+neutral? 	e.valence==neutral
+ls it intense? 	e.activation==high
+is it more linked to anger than sadness? 	similarity(e,anger)>similarity(e,sadness)
+is it kinda like sadness but mixed with another emotion? 	e==mix(sadness,anotherEmotion)
+is it different because there's shame? 	e-sadness==shame
+is the situation possibly losing in an important match? 	situation(e,losingAnImportantMatch)
+is it more likely when you've disappointed somebody? 	situation(e,youveDisappointedSomebody)
+is it helpless? 	e==helplessness
+is it a positive emotion 	e.valence==positive
+is it similar to love? 	similar(e,love)
+if you want love? 	situation(e,youWantLove)
+so its kinda like being excited? 	similar(e,excitement)
+is it like desiring something ? 	similar(e,disire)
+longing? 	e==longing
+Eagerness? 	e==eagerness
+is it positive? 	e.valence==positive
+is it like sadness? 	similar(e,sadness)
+like desperation? 	similar(e,desperation)
+fear? 	e==fear
+anxiety?  	e==anxiety
+ummm terror! 	e==terror
+ok, is it positive? 	e.valence==positive
+is it intense? 	e.activation==high
+does it happen after a great accomplishment? 	situation(e,afterGreatAccomplishment)
+is like pridr/ *pride 	similar(e,pride)
+does it happen when youre surprised? 	coocur(e,surprise)
+pleased? 	e==pleased
+content? 	e==contentment
+glad or grateful? 	e==gladness||e==gratefulness
+relief? spirited? ecstatic? 	e==relief||e==spirited||e==ecstacy
+thrilled? 	e==thrill
+would you really only feel it when you're really really happy? 	coocur(e,extremeHappiness)
+Ok is it a positive emotion? 	e.valence==positive
+is it associated with being surprised 	associated(e,beingSurprised)
+if you were doing yoga would you feel like this? 	situation(e,doingYoga)
+so its an excited happy emotion? 	excited(e)&&happy(e)
+if you are getting a massage would you feel this emotion?' 	situation(e,gettingAMassage)
+if you just finished a very long paper and you think it turned out well would you feel this emotion ? 	situation(e,youFinishedALongPaperAndYouThinkItTurnedOutWell)
+You are with the person you love would you feel this emotion? 	situation(e,withSomeoneYouLove)
+is it attraction? 	e==attraction
+love? 	e==love
+ok is it (+)? 	e.valence==positive
+is it neurtral? 8neutral 	e.valence==neutral
+is more like sadness? 	similar(e,sadness)
+very extreme emotion like despair? or anguish? 	e.activation==high
+maybe defiance or suffering? 	e==defiance||e==suffering
+maybe doomed or tortured? 	e==doomed||e==tortured
+hopeless or powerless? 	e==hopelessness
+Is it a positive moment? emotion haha sorry 	e.valence==positive
+is it associated with being irritated? 	associated(e,irritation)
+would you feel like this after your girlfriend breaks up with you 	situation(e,breakup)
+is it like anger? 	similar(e,anger)
+is it associated with depression? 	associated(e,depression)
+how about with aggravation? 	associated(e,aggravation)
+is it associated with suffering? 	associated(e,suffering)
+so if you are doing homework but you are very tired would you feel this emotion? 	situation(e,doingHomeworkAndFeelingTired)
+is it like being shy? 	e==shyness
+is it positive? 	e.valence==positive
+is it intense? 	e.activation==high
+do you feel it when you earned 100 on a test? 	situation(e,doWellOnTest)
+maybe relief? 	e==relief
+ok is it a negative emotion? 	e.valence==negative
+are you in control when you feel this emotion ? 	associated(e,control)
+is it like anger? 	similar(e,anger)
+you buy a very expensive car but it breaks would you feel this emotion toward the brand? 	situation(e,youBuyExpensiveCarButItBreaks)
+is it associated with loneliness? 	associated(e,loneliness)
+you screw up a group presentation for a class would you feel like this?' 	situation(e,youScrewUpGroupPresentation)
+is it shame? 	e==shame
+is it like misery? 	similar(e,misery)
+is it positive? 	e.valence==positive
+a bit likt sadness? 	similar(e,sadness)
+morelike anger? 	similar(e,anger)
+maybe more low key like annoyed? 	similar(e,annoyance)
+maybe frustration? or too similar? 	e==frustration
+exasperated? 	e==exasperated
+like when there is an awkward situation like unvomfortable? 	situation(e,awkwardSituation)
+umm nervous? 	e==nervousness
+maybe apprehensive? 	e==apprehension
+self conscious? 	e==selfConscious
+ok is it positive 	e.valence==positive
+is it close to happiness? 	similar(e,happiness)
+is it like love 	similar(e,love)
+is it like pleasure? 	similar(e,pleasure)
+ok, is it a positive emotion? 	e.valence==positive
+does it relate to how you feel about other people? 	associated(e,otherPerson)
+does it relate to love? 	associated(e,love)
+is it anger? 	e==anger
+does the emotion tend to quickly dissapate? 	e.duration==short
+thanks, do you feel the emotion towards strangers? 	directed(e,stranger)
+oh, yeah, haha, is it more powerful than anger? 	e.activation>anger.activation
+wow, is it hatred? 	e==hatred
+hmm hah can it lead to physical harm? 	cause(e,physicalHarm)
+i see, is it frustration? 	e==frustration
+oh, is it furious? 	e==fury
+okay, is it an emotion that you anticipate feeling today? 	situation(e,today)
+does it relate to how you feel about other people? 	associated(e,otherPeople)
+are you more likely to experience this emotion in the company of friends? 	experienceWith(e,friends)
+Does the emotion make you want to take some action? 	cause(e,action)
+is it a strong emotion? 	e.activation==high
+is it an emotion that you can tell by looking at a person whether they are feeling the emotion or not? 	hasExternalExpression(e)
+is it an emotion that makes you feel good? 	cause(e,feelGood)
+is it similar to frustrated? 	similar(e,frustrated)
+confused? 	e==confused
+is it similar to sad? 	similar(e,sadness)
+depressed? 	e==depression
+nostalgia? 	e==nostalgia
+missing someone? 	e==missingSomeone
+is it caused by something in particular (as opposed to just popping up)? 	cause(something,e)
+regret? 	e==regret
+is it positive? 	e.valence==positive
+is it neutral? 	e.valence==neutral
+does it vary in intensity 	e.activation==variable
+is it kinda like sadness? 	similar(e,sadness)
+does it happen after you failed a test? 	situation(e,afterYouFailATest)
+would you feel it after you see someone bully your little sister? 	situation(e,afterYouSeeSomeoneBullyYourLittleSister)
+would it be like rage? 	similar(e,rage)
+would you feel it after dealing with somebody annoying? 	situation(e,afterDealingWithSomebodyAnnoying)
+is it a combination of anger and another emotion? 	e==anger+otherEmotion
+is it more like being wary? 	similar(e,beingWary)
+is it more extreme, like being paranoid? 	similar(e,paranoia)
+would you feel it if you saw a documentary about the meat industry and then you feel skeptical about ordering a hamburger? 	situation(e,afterSeeingADocumentaryAboutTheMeatIndustry)
+how about more when you see the news about a serial killer in your enighborhood and you're walking home late at night? 	situation(e,seeNewsAboutSerialKillerAndWalkHomeLateAtNight)
+is it like being skeptical? 	similar(e,skepticism)
+maybe shock or disgust? 	e==shock||e==disgust
+is it positive? 	e.valence==positive
+is it intense 	e.activation==high
+is it like being sad? 	similar(e,sadness)
+is it like envy? 	similar(e,envy)
+so would this be an emotion that might be assimilated to depression 	associated(e,depression)
+so if you just lost a pet would you feel like this ? 	situation(e,youJustLostAPet)
+is it like exasperation? 	similar(e,exasperation)
+would you feel like this if you were lost in the woods? 	situation(e,lostInTheWoods)
+is it like scared? 	similar(e,scared)
+misery? 	e==misery
+despair? 	e==despair
+glumness? 	e==glumness
+fear anxiety 	e==fear||e==anxiety
+yep! is it positive? 	e.valence==positive
+is it like anger? 	similar(e,anger)
+is it more like sadness? 	similar(e,sadness)
+do you feel it when someone dear has passed away? 	situation(e,someoneCloseDied)
+is it like guilt? 	e==guilt
+is it a negative emotion? 	e.valence==negative
+is it intense? 	e.activation==high
+can you get it in a situation where you are scareD? 	situation(e,scared)
+how about when you win the lottery? 	situation(e,winLottery)
+is it surprise? 	e==surprise
+is it positive? 	e.valence==positive
+is it intense? 	e.activation==high
+do you feel it after you get 100 on a midterm? 	situation(e,afterYouGet100OnAMidterm)
+is it pride? 	e==pride
+is it relief? 	e==relief
+ok is it positive? 	e.valence==positive
+ok is it intense? 	e.activation==high
+is it sad like sad 	similar(e,sadness)
+so closer to rage? 	similar(e,rage)
+do you feel like this when you lose your favorite sweater? 	situation(e,loseYourFavoriteSweater)
+is it associated with irritation? 	associated(e,irritation)
+ok is it positive? 	e.valence==positive
+is it intense? 	e.activation==high
+is it like anger? 	similar(e,anger)
+does it happen when somebody takes the thing you want? 	situation(e,someoneTakesTheThingYouWant)
+how about when your tennis doubles' partner keeps messing up and you have a match tomorrow? 	situation(e,tennisDoublesPartnerKeepsMessingUp)
+pessimistic? or bitter? 	e==bitter
+maybe resentful? 	e==resentment
+kinda like sullen? or grumpy? 	e==grumpy
+is it a positive emotion? 	e.valence==positive
+is it like being happy? 	similar(e,happiness)
+do you get this emotion at disneyland? 	situation(e,atDisney)
+would you feel this when u are pleasantly surprised? 	situation(e,pleasantlySurprised)
+is it associated with optimism?  	associated(e,optimism)
+is it hope? 	e==hope
+eagerness 	e==eagerness
+is it posiitive? 	e.valence==positive
+is it like sadness? 	similar(e,sadness)
+is it intense like depression? 	similar(e,depression)
+is it different from plain sadness? 	different(e,sadness)
+does it happen when someone betrays you? 	situation(e,betrayal)
+is it like a painful emotion, like feeling betrayed? 	painful(e)
+is betrayal the most common situation when this emotion happens? or are there other situations? 	exist(s)(situation(e,s)&&s!=betrayal)
+like shock? 	similar(e,shock)
+well i'm thinking being let down, so maybe disappointed? 	e==disappointment
+ok is it a positive emotion 	e.valence==positive
+is it extreme? 	e.activation==high
+is it like sadness? 	similar(e,sadness)
+do you feel this emotion when your friend gets a prettier girlfriend than you? 	situation(e,friendGetsPrettierGirlfriendThanYou)
+would you feel like this before you get a cold vaccine? 	situation(e,beforeYouGetAColdVaccine)
+is it associated with worry ? 	associated(e,worry)
+anxious? 	e==anxiety
+helplessness 	e==helplessness
+stress? despair? haha I give up 	giveUp
+haha ok, is it positive? 	e.valence==positive
+is it intense? 	e.activation==high
+if you complete a 4-year ph.d program, would you feel this emotion pretty intensely? 	situation(e,youCompletePhdProgram)
+would it be pride? or relief?" 	e==pride||e==relief
+maybe feeling care free now that you're done? 	e==carefree
+relaxed? 	e==relaxed
+ok is it a positive emotion? 	e.valence==positive
+is it very intense 	e.activation==high
+is it associated with attraction? 	associated(e,attraction)
+is it associated with satisfaction ? 	associated(e,satisfaction)
+so more like plain happy? 	similar(e,happy)
+is it like being optimistic? 	similar(e,optimism)
+is it like being thrilled? 	similar(e,thrill)
+okay, is it an emotion that you might feel at disney land? 	situation(e,disney)
+is it an emotion that lasts a long time? 	e.duration==long
+is it caused by something in particular? 	exists(c)(cause(c,e))
+can it occur with out any particular cause? 	cause(emptySet,e)
+is it an emotion that makes you feel good? 	cause(e,feelGood)
+is it similar to sadness? 	similar(e,sadness)
+is it sadness? 	e==sadness
+is it positive? 	e.valence==positive
+is it an emotion you would feel at a theme park? 	situation(e,themePark)
+would you feel it after a test? 	situation(e,afterTest)
+is it associated with satisfaction? 	associated(e,satisfaction)
+if you thought you lost something but then find it in your pocket would you feel like this?? 	situation(e,thoughtYouLostSomethingButFindItInYourPocket)
+when you finish a great piece of art would you feel liek this? 	situation(e,finishAGreatPieceOfArt)
+is it pride ? 	e==pride
+ok is it positive? 	e.valence==positive
+is it like anger? 	similar(e,anger)
+is it like sadness? 	similar(e,sadness)
+would you feel it if you hooked up with your best friend's spouse? 	situation(e,youHookedUpWithYourBestFriendsSpouse)
+not like shame? 	similar(e,shame)
+is it like feeling humble and wanting to do something so your friend can forgive you? like repenting? 	e==humble||e==repenting
+is more closely associated with fear maybe panic that you're going to get caught? 	associated(e,fear)
+scared or paranoid? 	e==scared
+ok is it positive? 	e.valence==positive
+is it asociated with sadness? associated  	associated(e,sadness)
+ok is it associated with being annoyed? 	associated(e,annoyance)
+would you feel like this if you think someone is lying? 	situation(e,youThinkSomeoneIsLying)
+if a friend betrays you would you feel like this ? 	situation(e,friendBetrayesYou)
+more like something a person did themselves? 	cause(self,e)
+is it like guit? 	e==guilt
+so if say you make a big mistake would you feel like this? 	situation(e,makeABigMistake)
+so exhausted ? 	e==exhausted
+is it positive? 	e.valence==positive
+is it like sadness? 	similar(e,sadness)
+maybe more like anger? 	similar(e,anger)
+does it happen suddenly, like shock? 	sudden(e)
+would it happen when you're having a great day and then slowly annoying things piles on top each other so you end up frustrated? 	situation(e,havingAGreatDayThenAnnoyingThingsPileUpAndYouBecomeFrustrated)
+but it's different from being frustrated? 	different(e,frustrated)
+is it like rage? 	similar(e,rage)
+overwhelmed? 	e==overwhelmed
+like devastated? or distressed? 	e==devastated||e==distressed
+stress? *stressed 	e==stress
+ok is it positive/ ? 	e.valence==positive
+is it intense? 	e.activation==high
+is associated with sadness? 	associated(e,sadness)
+your little cousin breaks your TV would you feel this emotion? 	situation(e,cousinBreaksYourTv)
+is it anger? 	e==anger
+would you feel like this if you got lost? 	situation(e,getLost)
+would you feel like this if you crash your car? 	situation(e,crashCar)
+is it associated with irritation? being irritated  	associated(e,irritation)
+if someone lets you down would you feel like this? 	situation(e,someoneLetsYouDown)
+is it associated with disappointment? 	associated(e,disappointment)
+if you break your leg and you are in a lot of pain would you feel like this? 	situation(e,breakLegInALotOfPain)
+not on the pain? 	associated(e,pain)
+ok is it associated with suffering? 	associated(e,suffering)
+is it grief? 	e==grief
+if the power goes out and there is nothing to do  	situation(e,powerGoesOut)
+is it associated with being aggravated? 	associated(e,aggravation)
+if something unexpected happens do you feel liek this'/> like this? 	situation(e,somethingUnexpectedHappens)
+is it surprise? 	e==surprise
+if you get a bad great in a class that you thought you were doing great in do you feel like this? 	situation(e,badGradeInAClassYouThoughtYouWereDoingGreatIn)
+is it disappointment? 	e==disappointment
+stupefaction?  	e==stupefaction
+shock? 	e==shock
+let's see... is it an emotion where another person is involved? 	associated(e,otherPerson)
+is it an emotion that normally makes you feel good? 	cause(e,feelGood)
+does it make you feel bad? 	cause(e,feelBad)
+is the other person the cause of the emotion? 	cause(otherPerson,e)
+can you also feel the emotion about yourself? 	directed(e,self)
+is it associated with disappointment? 	associated(e,disappointment)
+does the emotion dissipate quickly? 	e.duration==short
+is it related to jealosy/envy? 	associated(e,[jealousy,envy])
+ok is it a good emotion? 	good(e)
+is it extreme? 	e.activation==high
+ok would you feel like this if you fail a test? 	situation(e,failATest)
+is it associated with sadness? 	associated(e,sadness)
+if a girl breaks up with you do you feel like this'? 	situation(e,girlBreaksUpWithYou)
+can you feel like this when you lie? 	situation(e,lying)
+is it guilt? 	e==guilt
+is it positive? 	e.valence==positive
+does it last a long time? 	e.duration==long
+do you think a dog can feel this emotion? 	feel(e,dog)
+is it fear? 	e==fear
+is it excited? 	e==excited
+hmm... frightened? 	e==fright
+would you feel it at a haunted house? 	situation(e,atHauntedHouse)
+how about if something made a noise in the night and you weren't sure what it is? 	situation(e,somethingMadeANoiseInTheNightAndYouArentSureWhatItIs)
+is there anticipation involved? if there's an expectation of something happening... 	associated(e,expectation)
+is it dread? 	e==dread
+embarrassment? 	e==embarrassment
+oh, shyness? 	e==shyness
+is it positive? 	e.valence==positive
+is it intense 	e.activation==high
+is it associated with happiness  	associated(e,happiness)
+would you feel like this if you are at disneyland 	situation(e,disney)
+would you feel like this if you are with someone you love? 	situation(e,withSomeoneYouLove)
+can you feel this toward a pet? 	can(directed(e,pet)
+is it associated with enjoyment ? 	associated(e,enjoyment)
+is it associated with being comfortable? 	associated(e,beingComfortable)
+is it associated with serenity? 	associated(e,serenity)
+composed? 	e==composed
+is it tranquility? 	e==tranquility
+unpreoccupied ? I dont even think you can translate that its from a word in spanish 	e==unpreoccupied
+uhm do you feel like this at the spa? 	situation(e,spa)
+do you feel like this during a test? 	situation(e,duringTest)
+how about if you are a professional dancer and you are in the middle of a performance  	situation(e,professionalDancerInMiddleOfPerformance)
+is it like being focused? 	similar(e,focus)
+calmm! haha ok it was close  	e==calm
+1. Is it a positive emotion? 	e.valence==positive
+2. Is it very obvious to other people if you are having this emotion? 	hasExternalExpression(e)
+3. Is it usually an intense emotion? 	e.activation==high
+Does it usually last for a short period of time? 	e.duration==short
+|s it happy? 	e==happiness
+Is it associated with something being satisfied (i.e. an aim or a goal?) 	assocated(e,goal)
+is it pleasure? (as in, taking pleasure in something?) 	e==pleasure
+contented? 	e==contentment
+enjoyment? 	e==enjoyment
+enthusiasm? 	e==enthusiasm
+ah ok  -I might have gone off on the wrong track joy? 	e==joy
+cheerful? 	e==cheerfulness
+does this emotion involve a goal or aim? 	associated(e,goal)
+is there another person involved? 	associated(e,otherPerson)
+does this emotion usually make you feel good? 	cause(e,feelGood)
+would you say it's a negative emotion? 	e.valence==negative
+is it a strong emotion? 	e.activation==high
+so is it necessary that there is another person (or other sentient being) involved? 	necessary(associated(e,otherPerson))
+is it annoyed? 	e==annoyance
+is it the other person that the emotion is directed at?  	directed(e,otherPerson)
+jealosy? 	e==jealousy
+envy? 	e==envy
+ok, is it a positive emotion? 	e.valence==positive
+is it kinda like anger? 	similar(e,anger)
+is it like sadness? 	similar(e,sadness)
+do you feel it when you've had a long exhausting day? 	situation(e,longExhaustingDay)
+do you feel it when someone lets you down? 	situation(e,someoneLetsYouDown)
+how about when you're scared? 	situation(e,scared)
+do you feel it when somebody has something you want? 	situation(e,someoneHasSomethingYouWant)
+do you feel it when you're stressed? 	situation(e,stress)
+kinda like being overwhelemed? *overwhelmed 	similar(e,overwhelmed)
+it's a generally bad feeling, righT? 	e.valence==negative
+so is it bad? 	bad(e)
+is it an intense feeling? 	e.activation==high
+do you feel it when somebody is bothering you? 	situation(e,someoneIsBotheringYou)
+do you get it when you're surprised? 	situation(e,surprise)
+do you feel it when you you blame yourself? 	situation(e,blameYourself)
+i feel really lost, can i get a hint? 	non-yes-no,askHint
+kinda like being disappointed in yourself? 	similar(e,disappointmentInOneself)
+but it's like feeling bad about yourself, right? 	similar(e,feelingBadAboutOneself)
+is it like being tired? 	similar(e,tired)
+is it like being calm? 	similar(e,calm)
+like feeling content? 	similar(e,contentment)
+is it being bored? 	e==boredom
+is it being uninterested? or distracted? 	e==beingUninterested
+is it a positive thing to feel? 	e.valence==negative
+is it an intense thing to feel? 	e.activation==high
+would you feel it for a long time? 	e.duration==long
+would you feel it if a friend died? 	situation(e,friendDied)
+would you feel it if you were suprised? or shocked ? 	situation(e,surprise)
+oh is it jealousy? 	e==jealousy
+ok, is it a positive emotion? 	e.valence==positive
+is it intense? 	e.activation==high
+do you get it when you get a good grade on a midterm? 	situation(e,getAGoodGradeOnAMidTerm)
+would it be while you're working really hard on a project? 	situation(e,workingHardOnProject)
+would you feel it when you're cheering your team on at a football game? 	situation(e,cheeringYourTeam)
+is it more likely when you're listening to a peaceful song 	situation(e,listeningToPeacefulSong)
+is it like a positive feeling you feel towards somebody dear to you? 	similar(e,positiveFeelingTowardSomeoneDear)
+is it love? 	e==love
+maybe affectionate? 	e==affection
+ok it is a positive emotion? 	e.valence==positive
+is it directed at someone else? 	directed(e,otherPerson)
+would you feel it after accomplishing something? 	situation(e,afterAccomplishingSomething)
+is it similar to feeling motivated? 	similar(e,motivation)
+is it motivation? 	e==motivation
+would you feel it if you are about to do something you enjoy? 	situation(e,aboutToDoSomethingYouEnjoy)
+is it similar to excited? 	similar(e,excitement)
+hmmm is it similar to feeling daring? 	similar(e,feelingDaring)
+is it similar to feeling lucky? 	similar(e,feelingLucky)

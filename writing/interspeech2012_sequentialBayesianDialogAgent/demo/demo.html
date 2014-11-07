@@ -1,0 +1,468 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module demo</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>demo</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/abe/emo20qgoogle/writing/interspeech2012_sequentialBayesianDialogAgent/demo/demo.py">/home/abe/emo20qgoogle/writing/interspeech2012_sequentialBayesianDialogAgent/demo/demo.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+<a href="nltk.html">nltk</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+<a href="uuid.html">uuid</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#list">__builtin__.list</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="demo.html#EpisodicBuffer">EpisodicBuffer</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="demo.html#Answer">Answer</a>
+</font></dt><dt><font face="helvetica, arial"><a href="demo.html#Match">Match</a>
+</font></dt><dt><font face="helvetica, arial"><a href="demo.html#Question">Question</a>
+</font></dt><dt><font face="helvetica, arial"><a href="demo.html#Turn">Turn</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="demo.html#LexicalAccess">LexicalAccess</a>
+</font></dt><dt><font face="helvetica, arial"><a href="demo.html#QuestionerAgent">QuestionerAgent</a>
+</font></dt><dt><font face="helvetica, arial"><a href="demo.html#Tournament">Tournament</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="demo.html#HumanComputerTournament">HumanComputerTournament</a>
+</font></dt><dt><font face="helvetica, arial"><a href="demo.html#HumanHumanTournament">HumanHumanTournament</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="nltk.classify.naivebayes.html#NaiveBayesClassifier">nltk.classify.naivebayes.NaiveBayesClassifier</a>(<a href="nltk.classify.api.html#ClassifierI">nltk.classify.api.ClassifierI</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="demo.html#SemanticKnowledge">SemanticKnowledge</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Answer">class <strong>Answer</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Keeps&nbsp;track&nbsp;of&nbsp;answer&nbsp;strings<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Answer-__init__"><strong>__init__</strong></a>(self, a, gloss)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EpisodicBuffer">class <strong>EpisodicBuffer</strong></a>(<a href="__builtin__.html#list">__builtin__.list</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>keep&nbsp;track&nbsp;of&nbsp;turns,&nbsp;using&nbsp;Episodic&nbsp;memory&nbsp;metaphor<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="demo.html#EpisodicBuffer">EpisodicBuffer</a></dd>
+<dd><a href="__builtin__.html#list">__builtin__.list</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="EpisodicBuffer-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>create&nbsp;agent&nbsp;episodic&nbsp;memory&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-addTurn"><strong>addTurn</strong></a>(self, talker, utterance, state, semantics<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EpisodicBuffer-newMatch"><strong>newMatch</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="__builtin__.html#list">__builtin__.list</a>:<br>
+<dl><dt><a name="EpisodicBuffer-__add__"><strong>__add__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__add__">__add__</a>(y)&nbsp;&lt;==&gt;&nbsp;x+y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__contains__"><strong>__contains__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__contains__">__contains__</a>(y)&nbsp;&lt;==&gt;&nbsp;y&nbsp;in&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__delitem__"><strong>__delitem__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__delitem__">__delitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__delslice__"><strong>__delslice__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__delslice__">__delslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__eq__"><strong>__eq__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__eq__">__eq__</a>(y)&nbsp;&lt;==&gt;&nbsp;x==y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__ge__"><strong>__ge__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__ge__">__ge__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;=y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__gt__"><strong>__gt__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__gt__">__gt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__iadd__"><strong>__iadd__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__iadd__">__iadd__</a>(y)&nbsp;&lt;==&gt;&nbsp;x+=y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__imul__"><strong>__imul__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__imul__">__imul__</a>(y)&nbsp;&lt;==&gt;&nbsp;x*=y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__le__"><strong>__le__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__le__">__le__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;=y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__len__"><strong>__len__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__len__">__len__</a>()&nbsp;&lt;==&gt;&nbsp;len(x)</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__lt__"><strong>__lt__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__lt__">__lt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__mul__"><strong>__mul__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__mul__">__mul__</a>(n)&nbsp;&lt;==&gt;&nbsp;x*n</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__ne__"><strong>__ne__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__ne__">__ne__</a>(y)&nbsp;&lt;==&gt;&nbsp;x!=y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__reversed__"><strong>__reversed__</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-__reversed__">__reversed__</a>()&nbsp;--&nbsp;return&nbsp;a&nbsp;reverse&nbsp;iterator&nbsp;over&nbsp;the&nbsp;<a href="__builtin__.html#list">list</a></tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__rmul__"><strong>__rmul__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__rmul__">__rmul__</a>(n)&nbsp;&lt;==&gt;&nbsp;n*x</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__setitem__"><strong>__setitem__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__setitem__">__setitem__</a>(i,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i]=y</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__setslice__"><strong>__setslice__</strong></a>(...)</dt><dd><tt>x.<a href="#EpisodicBuffer-__setslice__">__setslice__</a>(i,&nbsp;j,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i:j]=y<br>
+&nbsp;<br>
+Use&nbsp;&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-__sizeof__"><strong>__sizeof__</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-__sizeof__">__sizeof__</a>()&nbsp;--&nbsp;size&nbsp;of&nbsp;L&nbsp;in&nbsp;memory,&nbsp;in&nbsp;bytes</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-append"><strong>append</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-append">append</a>(<a href="__builtin__.html#object">object</a>)&nbsp;--&nbsp;append&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;to&nbsp;end</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-count"><strong>count</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-count">count</a>(value)&nbsp;-&gt;&nbsp;integer&nbsp;--&nbsp;return&nbsp;number&nbsp;of&nbsp;occurrences&nbsp;of&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-extend"><strong>extend</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-extend">extend</a>(iterable)&nbsp;--&nbsp;extend&nbsp;<a href="__builtin__.html#list">list</a>&nbsp;by&nbsp;appending&nbsp;elements&nbsp;from&nbsp;the&nbsp;iterable</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-index"><strong>index</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-index">index</a>(value,&nbsp;[start,&nbsp;[stop]])&nbsp;-&gt;&nbsp;integer&nbsp;--&nbsp;return&nbsp;first&nbsp;index&nbsp;of&nbsp;value.<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-insert"><strong>insert</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-insert">insert</a>(index,&nbsp;<a href="__builtin__.html#object">object</a>)&nbsp;--&nbsp;insert&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;before&nbsp;index</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-pop"><strong>pop</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-pop">pop</a>([index])&nbsp;-&gt;&nbsp;item&nbsp;--&nbsp;remove&nbsp;and&nbsp;return&nbsp;item&nbsp;at&nbsp;index&nbsp;(default&nbsp;last).<br>
+Raises&nbsp;IndexError&nbsp;if&nbsp;<a href="__builtin__.html#list">list</a>&nbsp;is&nbsp;empty&nbsp;or&nbsp;index&nbsp;is&nbsp;out&nbsp;of&nbsp;range.</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-remove"><strong>remove</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-remove">remove</a>(value)&nbsp;--&nbsp;remove&nbsp;first&nbsp;occurrence&nbsp;of&nbsp;value.<br>
+Raises&nbsp;ValueError&nbsp;if&nbsp;the&nbsp;value&nbsp;is&nbsp;not&nbsp;present.</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-reverse"><strong>reverse</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-reverse">reverse</a>()&nbsp;--&nbsp;reverse&nbsp;*IN&nbsp;PLACE*</tt></dd></dl>
+
+<dl><dt><a name="EpisodicBuffer-sort"><strong>sort</strong></a>(...)</dt><dd><tt>L.<a href="#EpisodicBuffer-sort">sort</a>(cmp=None,&nbsp;key=None,&nbsp;reverse=False)&nbsp;--&nbsp;stable&nbsp;sort&nbsp;*IN&nbsp;PLACE*;<br>
+cmp(x,&nbsp;y)&nbsp;-&gt;&nbsp;-1,&nbsp;0,&nbsp;1</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="__builtin__.html#list">__builtin__.list</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#EpisodicBuffer-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HumanComputerTournament">class <strong>HumanComputerTournament</strong></a>(<a href="demo.html#Tournament">Tournament</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;set&nbsp;of&nbsp;emo20q&nbsp;matches&nbsp;played&nbsp;by&nbsp;a&nbsp;human&nbsp;and&nbsp;a&nbsp;computer<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="HumanComputerTournament-__init__"><strong>__init__</strong></a>(self, annotationFile<font color="#909090">='lists/onlineResults_2011-10-28.txt'</font>)</dt></dl>
+
+<dl><dt><a name="HumanComputerTournament-readMatches"><strong>readMatches</strong></a>(self, fh)</dt></dl>
+
+<hr>
+Methods inherited from <a href="demo.html#Tournament">Tournament</a>:<br>
+<dl><dt><a name="HumanComputerTournament-__add__"><strong>__add__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="HumanComputerTournament-matches"><strong>matches</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HumanHumanTournament">class <strong>HumanHumanTournament</strong></a>(<a href="demo.html#Tournament">Tournament</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;set&nbsp;of&nbsp;emo20q&nbsp;matches&nbsp;played&nbsp;by&nbsp;two&nbsp;humans<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="HumanHumanTournament-__init__"><strong>__init__</strong></a>(self, annotationFile<font color="#909090">='annotate/emo20q.txt'</font>)</dt></dl>
+
+<dl><dt><a name="HumanHumanTournament-printStats"><strong>printStats</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="HumanHumanTournament-readMatches"><strong>readMatches</strong></a>(self, fh)</dt></dl>
+
+<hr>
+Methods inherited from <a href="demo.html#Tournament">Tournament</a>:<br>
+<dl><dt><a name="HumanHumanTournament-__add__"><strong>__add__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="HumanHumanTournament-matches"><strong>matches</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LexicalAccess">class <strong>LexicalAccess</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LexicalAccess-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LexicalAccess-lookUp"><strong>lookUp</strong></a>(self, qgloss)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Match">class <strong>Match</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;emo20q&nbsp;game&nbsp;instance<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Match-emotion"><strong>emotion</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Match-readTurns"><strong>readTurns</strong></a>(self, fh)</dt></dl>
+
+<dl><dt><a name="Match-turns"><strong>turns</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Question">class <strong>Question</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Keeps&nbsp;track&nbsp;of&nbsp;question&nbsp;strings<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Question-__init__"><strong>__init__</strong></a>(self, q, gloss)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="QuestionerAgent">class <strong>QuestionerAgent</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;agent&nbsp;that&nbsp;asks&nbsp;questions<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="QuestionerAgent-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>create&nbsp;questioner&nbsp;agent</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-confirmGuess"><strong>confirmGuess</strong></a>(self, i)</dt><dd><tt>checks&nbsp;if&nbsp;the&nbsp;guess&nbsp;is&nbsp;correct&nbsp;to&nbsp;start&nbsp;match</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-continueOrQuit"><strong>continueOrQuit</strong></a>(self, i)</dt><dd><tt>checks&nbsp;if&nbsp;user&nbsp;is&nbsp;ready&nbsp;to&nbsp;start&nbsp;match</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-evalAndAsk"><strong>evalAndAsk</strong></a>(self, *args)</dt></dl>
+
+<dl><dt><a name="QuestionerAgent-getFeature"><strong>getFeature</strong></a>(self, agentTurn, userTurn)</dt></dl>
+
+<dl><dt><a name="QuestionerAgent-pickNextQuestion"><strong>pickNextQuestion</strong></a>(self, features)</dt></dl>
+
+<dl><dt><a name="QuestionerAgent-receive"><strong>receive</strong></a>(self)</dt><dd><tt>receives&nbsp;a&nbsp;message</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-repl"><strong>repl</strong></a>(self)</dt><dd><tt>read-evaluate-print&nbsp;loop.&nbsp;&nbsp;<br>
+note:&nbsp;_read,&nbsp;_eval,&nbsp;and&nbsp;_print&nbsp;are&nbsp;monkey&nbsp;patched</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-run"><strong>run</strong></a>(self)</dt><dd><tt>thread&nbsp;main&nbsp;loop</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-runNoThread"><strong>runNoThread</strong></a>(self)</dt><dd><tt>thread&nbsp;main&nbsp;loop</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-semanticSend"><strong>semanticSend</strong></a>(self, gloss, delay<font color="#909090">=1</font>)</dt><dd><tt>sends&nbsp;a&nbsp;message,&nbsp;with&nbsp;optional&nbsp;delay<br>
+Also,&nbsp;it&nbsp;addes&nbsp;information&nbsp;to&nbsp;the&nbsp;episodic&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-semanticYnReceive"><strong>semanticYnReceive</strong></a>(self)</dt><dd><tt>receives&nbsp;a&nbsp;YN&nbsp;message&nbsp;while&nbsp;waiting&nbsp;for&nbsp;additional&nbsp;messages<br>
+Also,&nbsp;it&nbsp;addes&nbsp;information&nbsp;to&nbsp;the&nbsp;episodic&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-send"><strong>send</strong></a>(self, msg, delay<font color="#909090">=0.5</font>)</dt><dd><tt>sends&nbsp;a&nbsp;message,&nbsp;with&nbsp;optional&nbsp;delay</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-startIfReady"><strong>startIfReady</strong></a>(self, i)</dt><dd><tt>checks&nbsp;if&nbsp;user&nbsp;is&nbsp;ready&nbsp;to&nbsp;start&nbsp;match</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-toAskingState"><strong>toAskingState</strong></a>(self)</dt><dd><tt>enter&nbsp;question&nbsp;asking&nbsp;state</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-toBetweenMatchesState"><strong>toBetweenMatchesState</strong></a>(self)</dt><dd><tt>enter&nbsp;guessing/confirmation&nbsp;state</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-toGuessingState"><strong>toGuessingState</strong></a>(self, q)</dt><dd><tt>enter&nbsp;guessing/confirmation&nbsp;state</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-toInitialState"><strong>toInitialState</strong></a>(self)</dt><dd><tt>enter&nbsp;initial&nbsp;state</tt></dd></dl>
+
+<dl><dt><a name="QuestionerAgent-welcomeMessage"><strong>welcomeMessage</strong></a>(self)</dt><dd><tt>prints&nbsp;welcome&nbsp;message</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SemanticKnowledge">class <strong>SemanticKnowledge</strong></a>(<a href="nltk.classify.naivebayes.html#NaiveBayesClassifier">nltk.classify.naivebayes.NaiveBayesClassifier</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="demo.html#SemanticKnowledge">SemanticKnowledge</a></dd>
+<dd><a href="nltk.classify.naivebayes.html#NaiveBayesClassifier">nltk.classify.naivebayes.NaiveBayesClassifier</a></dd>
+<dd><a href="nltk.classify.api.html#ClassifierI">nltk.classify.api.ClassifierI</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SemanticKnowledge-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-entities"><strong>entities</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-likelihood"><strong>likelihood</strong></a>(self, observation, model)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-most_informative_features"><strong>most_informative_features</strong></a>(self, n<font color="#909090">=20</font>)</dt><dd><tt>Return&nbsp;a&nbsp;<a href="__builtin__.html#list">list</a>&nbsp;of&nbsp;the&nbsp;'most&nbsp;informative'&nbsp;features&nbsp;used&nbsp;by&nbsp;this&nbsp;<br>
+classifier.&nbsp;&nbsp;For&nbsp;the&nbsp;purpose&nbsp;of&nbsp;this&nbsp;function,&nbsp;the&nbsp;<br>
+informativeness&nbsp;of&nbsp;a&nbsp;feature&nbsp;C{(fname,fval)}&nbsp;is&nbsp;equal&nbsp;to&nbsp;the&nbsp;<br>
+highest&nbsp;value&nbsp;of&nbsp;P(fname=fval|label),&nbsp;for&nbsp;any&nbsp;label,&nbsp;divided&nbsp;by&nbsp;<br>
+the&nbsp;lowest&nbsp;value&nbsp;of&nbsp;P(fname=fval|label),&nbsp;for&nbsp;any&nbsp;label::&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max[&nbsp;P(fname=fval|label1)&nbsp;/&nbsp;P(fname=fval|label2)&nbsp;]</tt></dd></dl>
+
+<dl><dt><a name="SemanticKnowledge-prior"><strong>prior</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-properties"><strong>properties</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-setPriors"><strong>setPriors</strong></a>(self, label_probdist)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-show_most_informative_features"><strong>show_most_informative_features</strong></a>(self, n<font color="#909090">=20</font>)</dt></dl>
+
+<hr>
+Methods inherited from <a href="nltk.classify.naivebayes.html#NaiveBayesClassifier">nltk.classify.naivebayes.NaiveBayesClassifier</a>:<br>
+<dl><dt><a name="SemanticKnowledge-classify"><strong>classify</strong></a>(self, featureset)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-labels"><strong>labels</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SemanticKnowledge-prob_classify"><strong>prob_classify</strong></a>(self, featureset)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="nltk.classify.naivebayes.html#NaiveBayesClassifier">nltk.classify.naivebayes.NaiveBayesClassifier</a>:<br>
+<dl><dt><a name="SemanticKnowledge-train"><strong>train</strong></a>(labeled_featuresets, estimator<font color="#909090">=&lt;class 'nltk.probability.ELEProbDist'&gt;</font>)</dt><dd><tt>:param&nbsp;labeled_featuresets:&nbsp;A&nbsp;<a href="__builtin__.html#list">list</a>&nbsp;of&nbsp;classified&nbsp;featuresets,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.e.,&nbsp;a&nbsp;<a href="__builtin__.html#list">list</a>&nbsp;of&nbsp;tuples&nbsp;``(featureset,&nbsp;label)``.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="nltk.classify.api.html#ClassifierI">nltk.classify.api.ClassifierI</a>:<br>
+<dl><dt><a name="SemanticKnowledge-batch_classify"><strong>batch_classify</strong></a>(self, featuresets)</dt><dd><tt>Apply&nbsp;``<a href="#SemanticKnowledge-classify">classify</a>()``&nbsp;to&nbsp;each&nbsp;element&nbsp;of&nbsp;``featuresets``.&nbsp;&nbsp;I.e.:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[<a href="#SemanticKnowledge-classify">classify</a>(fs)&nbsp;for&nbsp;fs&nbsp;in&nbsp;featuresets]<br>
+&nbsp;<br>
+:rtype:&nbsp;<a href="__builtin__.html#list">list</a>(label)</tt></dd></dl>
+
+<dl><dt><a name="SemanticKnowledge-batch_prob_classify"><strong>batch_prob_classify</strong></a>(self, featuresets)</dt><dd><tt>Apply&nbsp;``<a href="#SemanticKnowledge-prob_classify">prob_classify</a>()``&nbsp;to&nbsp;each&nbsp;element&nbsp;of&nbsp;``featuresets``.&nbsp;&nbsp;I.e.:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[<a href="#SemanticKnowledge-prob_classify">prob_classify</a>(fs)&nbsp;for&nbsp;fs&nbsp;in&nbsp;featuresets]<br>
+&nbsp;<br>
+:rtype:&nbsp;<a href="__builtin__.html#list">list</a>(ProbDistI)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="nltk.classify.api.html#ClassifierI">nltk.classify.api.ClassifierI</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Tournament">class <strong>Tournament</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Tournament-__add__"><strong>__add__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Tournament-matches"><strong>matches</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Turn">class <strong>Turn</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>One&nbsp;of&nbsp;the&nbsp;question/answer&nbsp;pairs&nbsp;from&nbsp;and&nbsp;emo20q&nbsp;match<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Turn-answerId"><strong>answerId</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Turn-questionId"><strong>questionId</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-nlpClassifyYN"><strong>nlpClassifyYN</strong></a>(str)</dt><dd><tt>"Classify&nbsp;answers&nbsp;to&nbsp;a&nbsp;yes/no&nbsp;question&nbsp;into&nbsp;1/yes,&nbsp;-1/no,&nbsp;or&nbsp;0/other</tt></dd></dl>
+ <dl><dt><a name="-nlpIsAffirmative"><strong>nlpIsAffirmative</strong></a>(str)</dt><dd><tt>"Classify&nbsp;answers&nbsp;to&nbsp;a&nbsp;yes/no&nbsp;question&nbsp;into&nbsp;1/yes,&nbsp;-1/no,&nbsp;or&nbsp;0/other</tt></dd></dl>
+ <dl><dt><a name="-nlpIsReady"><strong>nlpIsReady</strong></a>(str)</dt><dd><tt>check&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;player&nbsp;is&nbsp;ready:<br>
+Try&nbsp;to&nbsp;match&nbsp;affirmative&nbsp;answers&nbsp;to&nbsp;the&nbsp;question,&nbsp;are&nbsp;you&nbsp;ready?</tt></dd></dl>
+</td></tr></table>
+</body></html>

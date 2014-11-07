@@ -1,0 +1,1228 @@
+jealousy	e.valence==positive	no 
+jealousy	directed(e,otherPerson)	yep 
+jealousy	e==anger	no 
+jealousy	e.duration==long	it's possible, but generally i guess i'd say no 
+jealousy	similar(e,anger)	hmmm that's a hard one... iguess not really 
+jealousy	cause(something,e)	yes 
+jealousy	e==regret	nope 
+jealousy	e==guilt	nope 
+jealousy	e==frustration	hehe nope 
+jealousy	e==jealousy	yep! that was it 
+boredom	e.valence==positive	negative 
+boredom	e.duration==long	I'm going to say yes, at least it feels like it does. 
+boredom	cause(e,stress)	for me it results in lower stress levels 
+boredom	cause(e,inactivity)	eh... yes, you could say so. 
+boredom	e==depression	no 
+boredom	e==sadness	nope 
+boredom	directed(e,otherPerson)	it can be, but not necessarily. 
+boredom	e==grief	no not that blue 
+boredom	e==loneliness	no 
+boredom	not(experienceWith(e,friends))	yes, definitely. 
+boredom	e==boredom	you got it! good job! 
+proud	e.activation==high	yes 
+proud	e.valence==positive	yes 
+proud	necessary(directed(e,otherPerson))	no 
+proud	similar(e,happy)	no 
+proud	cause(emptySet,e)	no 
+proud	e==curiosity	no 
+proud	e==pride	no 
+proud	e==excitement	but i had a different word in mind 
+proud	similar(e,excitement)	no 
+proud	similar(e,pride)	yes 
+proud	e==proud	yeah hehe i had to look it up after you said pride 
+surprise	e.valence==positive	other 
+surprise	directed(e,otherPerson)	other (it can be, but not necessarily) 
+surprise	cause(e,communication)	yes 
+surprise	self.situation(e,tired)	no 
+surprise	e.frequency==regularly	yes (you=me in particular) 
+surprise	e==interest	no 
+surprise	e.activation==high	yes 
+surprise	e==surprise	yep! good one 
+silly	cause(e,self.feelGood)	I think that when it occurs, it can overtake any "regular" or "everyday" emotions 
+silly	cause(event,e)	both. 
+silly	not(expected(e))	It is often unexpected. There are times when it's solicited by others & I like to solicit it in others. but you know, sometimes i think it's too often in stuff we see like movies and tv and stuff but i'm not certain b/c i haven't seen a movie inor tv in a long long time but i walk past the ads for htem on the subway platform or subway and it's THERE you know? 
+silly	e==surprise	the emotion? no 
+silly	e==happiness	no- something in between the firs & escond guess 
+silly	e==interest	no, it's an emotion my dog & i frequently share 
+silly	e==love	aww, well, yes we share it but it's not my word 
+silly	e==playfulness	yes, i think so perhaps playful comes from it 
+silly	e==curiosity	no 
+silly	e==excitement	it's a lesser form so noo 
+silly	e==amusement	maybe it solicits amuseument in others? 
+silly	e==humor	it requires humor? or maybe you need humor to not be embarassed afterward after going through said emotion 
+silly	e==humor	this word would be right next to it in a thesaurus! not alphabeticaly 
+silly	e==silly	yes! my dog feels silly :D & I 
+calm	e==self.currentState	no, although I try to stay somewhat close to it. 
+calm	e.duration==long	yes 
+calm	aspiration(e)	that too. 
+calm	necessary(cause(otherPerson,e))	it can help.... you don't need someone, but it can help.  I think it could be slightly contagious. 
+calm	subset(e,zenContentment)||similar(e,zenContentment)	kind of  related to contentment 
+calm	adolescent.know(e)	good question!  yes, they should know the word (but it's not applied to them) 
+calm	e==serenity	close. 
+calm	e==stoned	depends on the eight grader :) j/k no... 
+calm	possible(verb(e))	Interesting question.  It can be a verb as well as an adjective 
+calm	e==relaxed	pretty close... 
+calm	e==relief	nope, colder 
+calm	e==calm	you got it! Good job :) 
+serenity	e.valence==positive	yes, can you put number on your question please? 
+serenity	e.activation==high	maybe 
+serenity	directed(e,otherPerson)	no 
+serenity	cause(emptySet,e)	no and $4 
+serenity	unexpected(e)	no 
+serenity	e==happiness	yes 
+serenity	e.valence>happiness.valence	no 
+serenity	e==calm	yes 
+serenity	e==tranquility	close (10) 
+serenity	e==serenity	yes! ding ding ding! 
+love	e==happy	it is happy, but that's not it. 
+love	directed(e,otherPerson)	yes 
+love	cause(e,benefit(otherPerson))	usually, yes. 
+love	similar(e,love)	yes, that's 4. 
+love	e==love	yes!  Happy valentines day  <3 
+adore	directed(e,otherPerson)	yes 
+adore	necessary(directed(e,otherPerson))	yes 
+adore	e.valence==positive	yes (3) 
+adore	e.duration==long	no 
+adore	cause(otherPerson,e)	no 
+adore	e.activation==high	yes 
+adore	cause(something,e)	no 
+adore	e==crush	close 
+adore	e==infatuation	close 
+adore	e==flirtatiousness	no 
+adore	e==amourous	no 
+adore	e==horniness	no 
+anger	e.valence==positive	no 
+anger	directed(e,otherPerson)	yes. in general. 
+anger	e.activation==high	yes 
+anger	e==anger	yes, that's right. 
+thankful	subset(e,humorous)	no, serious. 
+thankful	subset(e,nightmare)	no, not at all 
+thankful	situation(e,sad)	no 
+thankful	situation(e,helpless)	no... that's number 4. 
+thankful	e==despair	no 
+thankful	subset(e,devotion)	no.  It can be, but not necessarily 
+confusion	e.valence==positive	no 
+confusion	mentalState(e)	yes 
+confusion	cause(anotherPerson,e)	yes but not necessarily 
+confusion	directed(e,otherPerson)	no 
+confusion	e==depression	no 
+confusion	e.activation==high	i think it could be strong but the word implies rather mild 
+confusion	e==boredom	no 
+confusion	e==sadness	no 
+confusion	directed(e,self)	yes, more specifically in has to do with how one perceives a situation 
+confusion	e==confusion	yes 
+bravery	e.valence==positive	yes. 
+bravery	directed(e,otherPerson)	not usually. 
+bravery	e.activation==high	hmm, I'd say yes in general 
+bravery	cause(unexpectedEvent,e)	in general, no. 
+bravery	similar(e,happiness)	no, it's different.  Actually relating to the first question, even though it would be considered a positive emotion, it might not make the experiencer feel happyness, joy, etc. 
+bravery	related(e,understanding||learning)	yes, in general, especially about the situation. 
+bravery	similar(e,informed)||similar(e,vigilant)	yes, getting closer 
+bravery	e==aware	no 
+bravery	e==receptive	no, you're getting farther now. 
+bravery	e==alert	no 
+bravery	e==sensible	no... sensible isn't highly activated  :-P 
+bravery	e==enlighted	no... think stronger and more dealing a specific situation 
+bravery	e==focused	no, even stronger. 
+bravery	e==absorbed	nope, a lot stronger. 
+bravery	e==determined	that's getting closer, but still stronger. 
+bravery	e==keen	no. 
+bravery	e==perseverance	ooh, you're very close! 
+bravery	e==persistence	no, stronger than perseverence/persistence... even tougher situation 
+bravery	e==resolute	no, stronger and less patience! 
+bravery	e==bravery	yes! 
+frustration	situation(e,dogDied)	no 
+frustration	situation(e,birthday)	nope 
+frustration	situation(e,cutoffOnHighway)	perhaps 
+frustration	situation(e,seeGhost)	no, not generally 
+frustration	situation(e,fightWithSomeone)	maybe you could feel it 
+frustration	situation(e,recieveSomethingDesired)	nope 
+frustration	e==anger	no 
+frustration	similar(e,anger)	kind of similar 
+frustration	situation(e,punchedInFace)	not so much for getting punched in the face 
+frustration	situation(e,haveGrudge)	no, I wouldn't say that it's normally for grudges 
+frustration	behavior(e,shouting)	yes, possibly, especially if you had this emotion long enough. 
+frustration	e==resentment	no 
+frustration	e==passiveAggressive	no. 
+frustration	e==aggressive	no, it's less necessarily directed at another person than your recent guesses 
+frustration	situation(e,hateSelf)	probably you would feel it, but it's not that strong 
+frustration	situation(e,disappointedInSelf)	yes  at least possibly 
+frustration	e==regret	no, it's not about blaming yourself but rather blaming someone else or some situation 
+frustration	e==frustration	aha! yep 
+frustration	situation(e,friendDied)	yes 
+frustration	e==sadness	no 
+frustration	e==grief	no it is not so high intensity 
+frustration	behavior(e,crying)	I don't think so 
+frustration	e==sorrow	no a little less intense I think 
+frustration	situation(e,loseKeys)	mmm yes 
+frustration	situation(e,futureTest)	no, but I would feel it maybe after an exam 
+frustration	e==worry	more intense 
+frustration	e==shame	not quite 
+frustration	e==regret	no all that you say are more internal I think 
+frustration	behavior(e,sighing)	yes :) 
+frustration	e==frustration	yessss!!!!! 
+gratefulness	situation(e,passedScreening)	yes sort of well possible is a better answer i mean possibly 
+gratefulness	e.valence<passedScreening.valence	possibly but its doubtful 
+gratefulness	e==contentment	no but you may feel content at the same time 
+gratefulness	situation(e,doingNiceAct)	no unless you were looking for an opportunity to do a nice act and you were afforded the opportunity 
+gratefulness	e==satisfaction	it's like satisfaction but directed towards someone else and their actions 
+gratefulness	e==gratefulness	yep  :-) way to go 
+disgust	e.valence==positive	negative no i think u should ask yes or no question 
+disgust	e.activation==high	no 
+disgust	directed(e,otherPerson)	yes (it is related to another person. but it's more like what I feel from the other person when I see) (wasn't sure about directed, so. ) 
+disgust	situation(e,dislikingOtherPerson)	yes 
+disgust	e==annoyance	no (that was 5) 
+disgust	situation(e,revenge)	no 
+disgust	situation(e,boredWithOtherPerson)	no 
+disgust	situation(e,disgustAboutOtherPerson)	yes 
+disgust	e==disgusted	yes yey~ u r genius 
+admire	e.valence==positive	yes 
+admire	directed(e,otherPerson||directed(e,something)	yes 
+admire	directed(e,futureEnvisionment)	no 
+admire	situation(e,has(something,otherPerson)&&~has(something(self)))	yes it is very related to that 
+admire	similar(e,jealous)>similar(e,curious)	no it is positive 
+admire	similar(e,desire)>similar(e,curious)	yes, close to desire but not exactly that 
+admire	similar(e,love)	you might feel that if you love someone, but not necessarily and you might feel that for someone you don;t love 
+admire	e==affection	no 
+admire	similar(e,hostility)	no it is positive 
+admire	e==hospitality	no (i count that as one question, so you have asked 9 already) 
+admire	similar(e,joy)	no not really 
+admire	similar(e,admiring)	yes!! 
+admire	e==admire	yes!!! :-) you got it, you are a genius too 
+contempt	situation(e,birthday)	no 
+contempt	situation(e,friendDied)	no 
+contempt	directed(e,otherPerson)	yes 
+contempt	directed(e,friend)	no 
+contempt	e.valence==negative	yes 
+contempt	e==hatred	no 
+contempt	situation(e,has(otherPerson,sthYouWant))	no 
+contempt	directed(e,enemy)	you could, but you could have an enemy and still not feel that towards him 
+contempt	directed(e,stranger)	no, rather the opposite you feel it for someone you know 
+contempt	e==pity	no, pity could also have a positive aspect but they are related 
+contempt	e==contempt	yes :) wow 
+awe	e.valence==positive	not necessarily but it could be 
+awe	directed(e,otherPerson)	yes 
+awe	situation(e,tryToObtainSthFromOtherPerson)	it could 
+awe	situation(e,tryToBeSimilarToOtherPerson)	not necessarily it could thought i mean though 
+awe	similar(e,ambition)	you wouldn't feel ambition towards someone else 
+awe	similar(e,admiration)	it can be but it is not necessarily positive 
+awe	similar(e,faith)||similar(e,trust)	no 
+awe	similar(e,desire)	it could be but it could be the opposite 
+awe	similar(e,obsession)	no 
+awe	depend(e.valence,e.degreeFelt)	no i would say the degree is about the same whether positive or negative 
+awe	depend(e.valence,e.situation)	yes 
+awe	similar(e,curiosity)	no not necessarily 
+awe	directed(e,superiorPerson)	you definitely could if they merit it 
+awe	directed(e,closeFriend)	you could but you could also feel it towards someone you don't know personally 
+awe	similar(e,influencedByOther)||similar(e,inspiredByOther)	those feelings could co-occur with feeling this emotion in a positive way actually i guess the could co-coccur in a negative sense but then the influence would be in the opposite sense 
+awe	situation(e,followingOtherPersonsBehavior)	it could be it doesn't necessarily lead you to taking action it's experienced during observation 
+awe	similar(e,surprise)	yes 
+awe	e==surprise	no (i think that should count as one question though because i would have told you after 17 if it was) 
+awe	e==astonishment	that is ridiculously close but it doesn't have to be sudden 
+awe	e==amazement	it's a synonym so i'll give it to you but you can guess the right word if you want 
+awe	e==astounded	you were closer with amazed here is a very abstract hint there are two words that mean the opposite thing and they both start with this word 
+shame	situation(e,bad)	yes 
+shame	situation(e,sick(otherPerson))	no 
+shame	e.activation<situation(e,sick(otherPerson))	no 
+shame	situation(e,beUnfairTo(otherPerson,self))	no 
+shame	situation(e,otherPersonDied)	no 
+shame	hasExternalExpression(e)	no 
+shame	hasInternalExpression(e)	yes 
+shame	situation(e,self.doneSomethingBadTo(otherPerson))	no 
+shame	e.activation==high	no 
+shame	e.activation==moderate	yes (to me, but not sure if yes to others. so it's more like subjective) 
+shame	situation(e,futureTest)	no (but can do after the test.) 
+shame	e==disappointment	close,but no 
+shame	e.activation>disappointment.activation	no 
+shame	e==embarrassment	oh very close, but no 
+shame	e==shame	yess!!!! u r geius good good *genius, I mean 
+enthusiasm	e.valence==positive	yes 
+enthusiasm	directed(e,self)	not necessarily 
+enthusiasm	e.activation==high	yes 
+enthusiasm	similar(e,excited)	yes 
+enthusiasm	e==excited	no 
+enthusiasm	e==happiness	no, excited was more close 
+enthusiasm	similar(e,surprise)	no you could be surprised first and then feel that (but it is not necessary) actually excited was very close 
+enthusiasm	e==joy	it's more intense than joyful you could feel joyful in the same time 
+enthusiasm	e==flattered	no 
+enthusiasm	e==amazement	not amazement you feel it when you expect something to happen 
+enthusiasm	e==optimism	mmmm no 
+enthusiasm	e==hopeful	well, it's more sure that something will happen so you are not hoping you look forwrd to it *forward 
+enthusiasm	e==enthralled	maybe a little bit less intense than enthralled 
+enthusiasm	e==thrill	very close 
+enthusiasm	e==delight	you are very close it is basically like a synonym delighted is something that is not really expressed what I am thinking may be expressed by nods or body movements 
+enthusiasm	e==overjoyed	mmmm very close 
+enthusiasm	e==satisfaction	I am sorry, because I thought it was an easy one, but it turns out not that easy no 
+enthusiasm	e==euphoria	no it's more close to thrilled and delighted but you can feel ephoria at the same time 
+enthusiasm	e==ecstacy	no less intense than that you would feel it if you went tomorrow for vacations 
+enthusiasm	e==pleased	no, more intense 
+confidence	e.activation==positive	yes 
+confidence	e.activation==high	I think it could be, but not extremely lets say medium 
+confidence	e==contentment	no 
+confidence	e==pleased	no 
+confidence	e==amusement	no 
+confidence	e==pride	no, that's 6 
+confidence	situation(e,goalAttainment)	aha, yes, good one. youre not terrible, just your strategy  :-P 
+confidence	e==satisfaction	no, less about after attainment, and more about before attainment 
+confidence	e==hope	no 
+confidence	e==optimism	no, but right direction 
+confidence	e==eagerness	no 
+confidence	e==enthusiasm	no, a little less active 
+confidence	e==excitement	no, it's got more of the attainment of goals, but not necessarily a specific goal 
+confidence	e==accomplished	no, but closely related with accomplished. the more accomplished you are, the more you will feel this emotion... 
+confidence	e==fulfillment	no the more you feel this emotion, the more likely you will undertake and accomplish stuff 
+confidence	e==confidence	aha! yes 
+relief	cause(emptySet,e)	then no, it is not spontaneous 
+relief	cause(otherPerson,e)	yes 
+relief	necessarily(cause(otherPerson,e))	not necessarily 
+relief	e.valence==positive	generally 
+relief	directed(e,otherPerson)	not really 
+relief	e.duration==short	it depend 
+relief	e==pleased	nope 
+relief	e==amusement	nope 
+relief	similar(e,amused)	nope 
+relief	e.activation==high	yes 
+relief	e==surprise	nope 
+relief	e==impressed	nope 
+relief	situation(e,goals)	it can be... it is a reaction to events (where goals and people are a subset of events) 
+relief	e==relief	yes! haha... good job 
+madness/anger	e.valence==positive	no 
+madness/anger	e.valence==negative	sort of, but it can be righteous 
+madness/anger	e.frequency==regularly	sometimes 
+madness/anger	situation(e,sad)	no 
+madness/anger	personalityTrait(e)	no 
+madness/anger	situation(e,stubbedToe)	YES!!! 
+madness/anger	situation(e,badDay)	yes 
+madness/anger	e==anger	it is a synonym for anger the word i was thinking was mad, so we'll count that. then we can start with yoy chosing a word 
+confusion	e.valence==positive	negative 
+confusion	e.frequency>daily	perhaps 
+confusion	possible(good(e))	no but it's not considered the worst kind of emotion either 
+confusion	cause(e,harmToSelf)	yes it could cause them to make poor decisions 
+confusion	cause(e,harmToOther)	no...not as a direct effect at least 
+confusion	spelling=~/^d/	no 
+confusion	control(self,e)	I don't think so 
+confusion	experience(e,children)	yes, probably more frequently than adults 
+confusion	try(adults,cause(adults,not(experience(e,children))))	yes, perhaps through explanation 
+confusion	common(e,most(children))	yes...but it's not something you associate with bad or naughty kids 
+confusion	cause(e,wakeUp(chidren)&&cry(children))	no 
+confusion	situation(e,scared(children))	in most scenarios probably not 
+confusion	situation(e,birthday)	I don't think it's relevant in that context. Adults experience this emotion too any guesses? i guess it's a tough one 
+confusion	e==hatred	nope. do i reveal it now? 
+confusion	subset(e,shame)	no 
+confusion	e==rage	no give up? 
+confusion	e==frustration	not exactly, but I would say that frustration is very related to this feeling 
+sadness	e.temperature==hot	not really 
+sadness	e==neutral	no 
+sadness	subset(e,happy)	no 
+sadness	subset(e,sad)	yes 
+sadness	behavior(e,verbal)	not necessarily 
+sadness	e==remorse	no 
+sadness	e==sadness	ding ding ding!  Yes  :-)  
+glee	similar(e,happiness)	yes 
+glee	e==happiness	no 
+glee	e.activation==high	yes 
+glee	e.duration==long	mostly not 
+glee	e==humor	no 
+glee	e==joy	no 
+glee	directed(e,otherPerson)	not necessarily 
+glee	e.frequency==regularly	no in general 
+glee	e==extatic	no 
+glee	e==excited	no 
+glee	unexpected(e)	mostly 
+glee	difficult(e)	:) not sure, maybe - you were very close. It is a synonym of something you mentioned earlier 
+glee	e==gladness	no 
+glee	e==overjoyed	no....similar though 
+glee	e==jubilant	no very close 
+glee	e==euphoria	no 
+glee	e==thrill	sorry no yeah i can quickly see the problem with this there are many synonyms for some emotions so it can get pretty difficult 
+glee	e==delight	no think TV 
+glee	e==silly	no 
+glee	e==hyper	no 
+glee	e==surprise	no 
+glee	e==sexy	no want me to spill it? i guess it was tough. 
+glee	e==enthusiasm	sorry no 
+excitement	e.valence==negative	no! 
+excitement	e.frequency==regularly	yes, it's common, but maybe not everyday 
+excitement	e.valence==positive	yes 
+excitement	situation(e,sunnyDay)	if you like sun very very much then yes it is possible 
+excitement	pleasant(experiencer(e))	yes 
+excitement	associated(e,optimism)	not that much it is more associated with a situation that has happenned ** correction for question6: you may feel this emotion also when you are waiting for something, not only if something has happenned 
+excitement	synonym(e,joy)	you are joyful when you feel it 
+excitement	personalityTrait(e)	no, it is more spontaneous 
+excitement	e==happiness	you are close you can be happy for a long period of time but you can feel this emotion more temporarily 
+excitement	after(e,accomplishingSomethingSuccessfully)	yes but this is not the only case you can feel that also when you are waiting for something nice to happen 
+excitement	directed(e,otherPerson)	no not necessarily at least 
+excitement	euphoric(e)	yes it is! you are very close! 
+excitement	e==excitement	YESSSSS!!!!!! :):) congrats!!!! 
+fear/scared	situation(e,doPoorlyOnExam)	perhaps, but it wouldn't be your primary emotion 
+fear/scared	e.activation==high	yes it's usually very strong 
+fear/scared	situation(e,someoneCloseDied)	no probably not at least, although i could envision a scenario in which you would 
+fear/scared	situation(e,carStolen)	it would depend on the context if the thief were present, then maybe 
+fear/scared	e==anger	no 
+fear/scared	situation(e,badNeighborhoodAtNight)	yes 
+fear/scared	e==scared	yes! well, the word i had in mind was "fear" but being scared is a product of that 
+thrilled	e.valence==positive	yes 
+thrilled	behavior(e,heartBeatingFast)	yesss 
+thrilled	e.frequency==regularly	well i'd say yes well wait sorry probably not no 
+thrilled	non-yes-no,behavior(e,verbal)	to the first, no. to the second yes. (so more nonverbally) (though that one is tough to say as well) 
+thrilled	e==ecstasy	no 
+thrilled	similarity(e,amazed)>similarity(e,excited)	no 
+thrilled	similar(e,thisIsWonderful)	yes 
+thrilled	e==awesome,joke	hehe no... but close 
+thrilled	e==phenomenal	no 
+thrilled	similarity(e,awesome)>similarity(e,excited)	no 
+thrilled	similar(e,eager)	no 
+thrilled	cause(externalThings,e)	no 
+thrilled	similar(e,energetic)	ah...hmmmm.... i guess i have to say no... 
+thrilled	meta-question-head-explodes	no 
+thrilled	usually(e.activation>excited.activation)	that's a hard one i'd say yes 
+thrilled	e==remarkable	you're pretty close man don't give up no 
+thrilled	e==spectacular	no 
+thrilled	e==terrific	no 
+devastated	e.valence==positive	no 
+devastated	similarity(e,red)>similarity(e,blue)	blue 
+devastated	behavior(e,action)	do something about this emotion?..what do you mean by that? i dont get the question ...ha..so answer would be..i dont know..probably more no 
+devastated	behavior(e,actionToImproveCondition)	it really depends..but i would say more often yes 
+devastated	e.duration==long	yes it can be 
+devastated	e.activation==low	this is hard to choose...if i really had to choose without trying to clarify it...i would say calm 
+devastated	e==depressed	no but close 
+devastated	e==boredom	no 
+devastated	e==missingSomeone	missing a person?..ok..i'll have to interpret that myself..yeah..it can be.. ok i'll say yes for that one then 
+devastated	e==longing	nope 
+devastated	assocated(e,otherPerson)	yes it can be... you were really close earlier~ 
+devastated	usually(hiddenFromOthers(e))	expressed to others 
+devastated	e==sadness	no 
+devastated	e==worry	no 
+devastated	e==homesick	nono 
+devastated	e.frequency==regularly	no 
+devastated	e==melancholy	i guess that's close enough:) 
+devastated	non-yes-no,giveup	devastated 
+worry	e.valence==negative	yes in general 
+worry	behavior(e,bodyMovement)	it could but not necessarily 
+worry	can(cause(otherPerson,e))	yes 
+worry	can(cause(emptySet,e))	yes but typically i would think it is cause by external events 
+worry	situation(e,somebodyHitYou)	no 
+worry	situation(e,ateSomethingBad)	no eating something bad isn't really an emotion 
+worry	situation(e,getFOnExam)	yes you could 
+worry	e==sadness	no 
+worry	e==frustration	no 
+worry	e==anger	no 
+worry	associated(e,unsatisfaction)	no it doesn't really have to do with how you feel about the current situation 
+worry	directed(e,otherPeople)	no it is more inward but it could be felt about people 
+worry	e==anxiety	no not exactly but very close 
+worry	e==worry	yes you got it 
+pity/sympathy	situation(e,bestFriendDied)	yes 
+pity/sympathy	e==sadness	not precisely little lighter than that (i guess) 
+pity/sympathy	e==remorse	(I don't even know the word) 
+pity/sympathy	situation(e,failExam)	no.... it's more outward 
+pity/sympathy	behavior(e,crying)	yes 
+pity/sympathy	e==grief	close.... but I think it's even more outward feeling toward someone who are experiencing a situation.... 
+pity/sympathy	e==sympathy	i don't see any difference in terms of natural language description.... so... yes... mine was pity 
+melancholy	directed(e,otherPerson)	no 
+melancholy	directed(e,self)	no not necessarily but could be ... 
+melancholy	associated(e,disappointment)	no not necessarily but could b be 
+melancholy	associated(e,physicalPain)	no 
+melancholy	associated(e,mentallyTiredConfused)	yes it can be more I would say, related to mentally tired 
+melancholy	similar(e,frustration)	by similar you mean ? synonym? no 
+melancholy	non-yes-no,clarification	well there can be a misunderstanding here ... it's not necessarily part of the frustration state it could be considered more to be a consequence  
+melancholy	similar(e,distracted)	no 
+melancholy	similar(e,disappointment)	no 
+melancholy	similar(e,boredom)	no 
+melancholy	situation(e,after(longDifficultDayAtWork))	no 
+melancholy	e==depressed	it's not depressed ... I would say it is more like a symptom ... 
+melancholy	e==melancholy	( :P ) It is melancholic ... 
+thrilled/entrancement	e.valence==positive	yes 
+thrilled/entrancement	e.activation==high	yes 
+thrilled/entrancement	situation(e,yourTeamScores)	you could yes 
+thrilled/entrancement	situation(e,getPhd)	hmm not exactly... (but again one could) 
+thrilled/entrancement	situation(e,getMarried)	yes you do i suppose but the example with the team that you gave was the one that described it best (how can i know since i am not married???) 
+thrilled/entrancement	e==enthusiastic	no 
+thrilled/entrancement	e==cheerfulness	no it is stronger than that 
+thrilled/entrancement	situation(e,onDrugs)	hahaha how can i know?? but yes i suppose if the drug was supposed to make you high/activated 
+thrilled/entrancement	e==euphoria	hahahah no ithough to put that...but it was too greek ;-) 
+thrilled/entrancement	situation(e,ecstasyDrug)	yes i would assume so yes 
+thrilled/entrancement	e==ecstasy	no ( :P ) 
+thrilled/entrancement	e==ecstasy	no but you are close maybe i should give it to you 
+thrilled/entrancement	e==exhilaration	it has to do with sth sudden not exhilarated 
+thrilled/entrancement	similar(e,surprise)	yes but a very good surprise (it could also affect physically like the drug) it is not necassarily a surprise though, its more that its sth sudden 
+thrilled/entrancement	e==delirium	no but delirious is negative is more like mentally unstable 
+thrilled/entrancement	e==entrancement	no but let mw look it up to see if it is a synonym (my vocabul;ary is not that great, keep that in mind ;-)) ok its really close you got it i think it was thrilled 
+depression	e.valence==positive	no 
+depression	associated(e,highEnergy&&excitement)	no opposite u did 2 questions 
+depression	situation(e,helpless)	ummm.. I think so kind of 
+depression	behavior(e,droopedFaceAndLookingDown)	oh yeah 
+depression	e==sadness	no, but very similar sad for long time, you can think it as 
+depression	situation(e,prepareForScreening)	yes. but I think they may feel that when they feel after failing the screeening 
+depression	e==depression	yes!! u r right! u r genius haha 
+anxiety	e.valence==positive	no 
+anxiety	situation(e,brokeUpRelationship)	not that much i guess 
+anxiety	not(salent(e))	it is not 
+anxiety	stationary(e)	well .. if u feel it for a while .. not over days 
+anxiety	similar(e,sadness)	well .. no that much but to an extent can lead to sadness 
+anxiety	associated(e,haveConcern)	yes 
+anxiety	e==anxiety	yes! bulls eye 
+envy	e.valence==positive	umm i would say yes 
+envy	cause(e,negativeEmotion)	yes i think so i think it depends on situation 
+envy	associated(e,outcomeOfResult)	yes. very likely 
+envy	e.activation==high	could be both yes and no 
+envy	e.readabilty==obvious	umm not as much as happiness, sadness, etc. but you can still read it in context 
+envy	e&&pEvent(beforeScreeningResults)	no it may be influenced by the results of others, so 
+envy	(e&&pEvent(afterScreeningResults))||situation(e,afterScreeningResults)	no. not this time, but yes for last time 
+envy	associated(e,beingDeterminedOrTakingPromise)	umm yes. it can be realted to both actually when result came out, mine is bad and yours is good. what emotion would I get? 
+envy	similar(e,disappointment)	close but, no 
+envy	similar(e,scared)	no u r going far 
+envy	similar(e,concerned)	no 
+envy	similar(e,embarrassment)	no u may feel embarrased because ur result is not good but target emotion may follow that you saw the other person's result is good 
+envy	associated(e,jealously)	no. but very close just different word with a bit less negative feeling 
+envy	e==dislikeForOtherPerson	no. jeolous is almost right but a bit less negative meaning in it or you can think as almost synonym 
+envy	e==envy	yes! u r genius 
+soberness	cooccur(e,frustration)	not necessarily You may feel like that or may not...it's not that related to frustration 
+soberness	situation(e,doThingsYouEnjoy)	Not necessarily, again! But most of the time 
+soberness	associated(e,femininity)	no 
+soberness	cooccur(e,sadness)	generally yes, but not necessarily 
+soberness	positivePerceptionInAmericanSociety(e)	I think so, specially when compared to its opposite 
+soberness	forSome(p)(p.incapableOfFeeling(e))	no 
+soberness	associated(e,selfEsteem)	no 
+soberness	associated(e,abilityToConcentrate)	yes 
+soberness	associated(e,distraction)	yes to some extent 
+soberness	associated(e,levelOfInterestInAnActivity)	yes to some extent 
+soberness	associated(e,thoughtfulness)	yes to some extent 
+soberness	associated(e,anticipation)	Not that much 
+soberness	e==focused	not exactly, but you are close to it 
+soberness	e==reflective	not exactly, but it is related...focused was closer 
+soberness	e==obsessive	no, u got further 
+soberness	beginsWith(e.spelling,consonant)	yes 
+soberness	endsWith(e.spelling,ful)	no Do you want a hint? 
+soberness	endsWith(e.spelling,ive)	no 
+soberness	endsWith(e.spelling,ness)	yes, the name with "ness", but the state is the associated adjective definitely It is associated with using a chemical substance 
+soberness	e==deliberateness	No, it is associated with alcohol 
+soberness	e==drunkeness	NO! do you pay attention to my answers to questions you already asked? it's associated with NOT using a substance 
+worry/anxiety	situation(e,atDisney)	no 
+worry/anxiety	situation(e,runOverADog)	possibly, yes 
+worry/anxiety	situation(e,someoneCutsInLine)	in general, no 
+worry/anxiety	e==remorse	no 
+worry/anxiety	situation(e,someoneCloseDied)	not necessarily but you could I suppose 
+worry/anxiety	situation(e,stealSomethingFromAFriend)	I think so... I don't normally steal stuff from friends though ;-)  
+worry/anxiety	situation(e,friendGetsANewCarThatIsBetterThanYours)	no 
+worry/anxiety	situation(e,enjoyableActivity)	no, it's not too typical of most enjoyable activities, though I can think of a few counter examples. 
+worry/anxiety	situation(e,receiveUnexpectedGift)	no 
+worry/anxiety	situation(e,soundAtNight)	yes 
+worry/anxiety	e==annoyance	no 
+worry/anxiety	situation(e,waitingInLine)	no not necessarily 
+worry/anxiety	situation(e,plateBreaks)	in general, no.  But if the plate were very expensive and you were concerned about someone finding out (like the kid stealing), then maybe... 
+worry/anxiety	situation(e,inSouthCentralAtNightCarryingLaptopEncounterStranger)	yes, that's getting close 
+worry/anxiety	e==fear	no, but close 
+worry/anxiety	situation(e,openingCollegeApplicationResultLetter)	yes 
+worry/anxiety	e==nervousness	I think that's number 16 no, that's a near synonym, but I think it's slightly different 
+worry/anxiety	situation(e,bigEventComingUpYouCantWait)	no, actually more the opposite... you don't want it to happen. 
+worry/anxiety	e==anxiety	yes, it's anxious... I think i'll count it, but that wasn't the exact word.  Do you know it? 
+regret	cause(e,feelGood)	no 
+regret	situation(e,doSomethingStupid)	Yes 
+regret	e==regret	yes, but that was too easy hahah lets go again 
+happiness	situation(e,doSomethingStupid)	no 
+happiness	associated(e,goodKarma)	no 
+happiness	associated(e,badKarma)	no it doesnt really relate to karma  
+happiness	similarity(e,red)>similarity(e,blue)	red yes 
+happiness	situation(e,atDisney)	no 
+happiness	situation(e,waitingInLine)	no 
+happiness	situation(e,somethingGoesWell)	yes 
+happiness	similar(e,satisfaction)	yes (and yes... it's a yes/no question) 
+happiness	situation(e,greatAccomplishment)	yes 
+happiness	situation(e,somethingGoodHappensByChance)	yes, that too 
+happiness	e==happiness	aha... yes, you got it! 
+anxiety	cause(e,feelGood)	no 
+anxiety	situation(e,somethingGoesWrong)	yes 
+anxiety	e&&assocated(somethingGoesWrong,otherPerson)	yes, it can be (can I say more than "yes"?) 
+anxiety	directed(e,self)	yes 
+anxiety	e==embarrassment	no 
+anxiety	e==guilt	no but in regards to your earlier question "do you feel it when something goes wrong," the answer is yes, but it's not necessarily when something has gone wrong 
+anxiety	e==depression	no 
+anxiety	e.duration==long	it can, but not usually 
+anxiety	directed(e,otherPerson)	yes, but mostly kept to yourself 
+anxiety	e==frustration	no 
+anxiety	e==sadness	no 
+anxiety	e.activation==high	yes 
+anxiety	e.activation>stressedOut.activation	no 
+anxiety	similar(e,stressedOut)	yes 
+anxiety	e==stressedOut	almost 
+anxiety	e==anxiety	yea! 
+sadness	e.valence==positive	no 
+sadness	cause(e,disappointmentByOtherPeople)	yes, it could 
+sadness	cause(e,disappointmentInSelf)	yes, among other things... 
+sadness	associated(e,blame)	no, not necessarily 
+sadness	e==anger	no 
+sadness	e==sadness	yes... good job! 
+surprise	similarity(e,red)>similarity(e,blue)	i think i get it, I would say neutral, but maybe a little red 
+surprise	e.frequency==regularly	no 
+surprise	e.valence==negative	no it' neutral *it's 
+surprise	e==confusion	no 
+surprise	cause(emptySet,e)	yes 
+surprise	e==shyness	no 
+surprise	e==boredom	no 
+surprise	e==restless	no 
+surprise	e.duration==long	no, it's very breif *brief 
+surprise	e==surprise	yup! 
+hope	e.valence==neutral	no 
+hope	e.activation==high	no, not usually super intense, but maybe in some cases 
+hope	e.valence==positive	yes 
+hope	cause(emptySet,e)	no, not usually 
+hope	cause(greatAccomplishment,e)	no 
+hope	only(cause(otherPerson,e))	no, it can be, but other things as well 
+hope	e==pride	no 
+hope	assocated(e,otherEmotions)	yes 
+hope	associated(e,happiness)	yes, there's usually some happiness during and possibly after this emotion 
+hope	e==enthusiasm	no 
+hope	e==relief	no, but close.  It might come before relief. 
+hope	e==excitement	no, but close. 
+hope	e==anticipation	no, but very close. 
+hope	e==eagerness	no, but still pretty close 
+hope	e.activation>eager.activation	no, I'd say it's less intense but maybe longer lasting 
+hope	e==hope	yes!  Good job! 
+exasperation	e.valence==positive	no 
+exasperation	e.valence==neutral	no 
+exasperation	associated(e,happiness)	no 
+exasperation	situation(e,afterSomethingGoodHappens)	no, often after or during something negative 
+exasperation	similar(e,stressedOut)	yes 
+exasperation	e==nervousness	no but it is in the neighborhood  
+exasperation	e==apprehension	no 
+exasperation	e.activation>nervousness.activation	yeah 
+exasperation	e==scared	uhm no its more towards stressed out rather than scared but more intense than nervous 
+exasperation	e==overwhelmed	almost it might be almost the same more negative 
+exasperation	e==frustration	almost its a bit more geared to when you are frustrated with another person I can tell u know because I think its almost the same as frustrated if u want 
+exasperation	e==resentment	no too far from frustrated 
+exasperation	e==worry	no 
+exasperation	e.activation>annoyance.activation	yes but that is the right track just more intense 
+exasperation	e==exasperation	exaperated exasperated that is it!!!! 
+hope	e.valence==positive	yea 
+hope	associated(e,otherPerson)	it can be, but not only for people 
+hope	only(associated(e,people))	no, I meant you can feel it towards another person, but also for yourself and other things 
+hope	e==love	no 
+hope	possible(e.valence==neutral)	it's clearly positive 
+hope	situation(e,doneGoodJobOnProject)	not when you're done, but maybe before it's done, while you're working on it 
+hope	situation(e,applyForDesirableJob)	yea 
+hope	e==hope	yup! 
+amusement	e.valence==positive	yes 
+amusement	e.activation==high	yes 
+amusement	intense>e.activation>mild	yes so not always intense* so it can be mild to but not so mild for it to be neutral 
+amusement	associated(e,relief)	No 
+amusement	associated(e,happiness)	yes definitely 
+amusement	situation(e,afterGreatAccomplishment)	You could but its not common 
+amusement	situation(e,whileWorkingOnGreatAccomplishment)	no 
+amusement	situation(e,afterFunSurprise)	yes 
+amusement	associated(e,contentment)	Uhm not necessarily it is felt in similar situations but its not the same. 
+amusement	e==exhilaration	less intense 
+amusement	e==pleased	no 
+amusement	e.activation>pleased.activation	its different it is a reaction to something funny rather than something pleasing so no almost the same intensity 
+amusement	e==cheerfulness	no 
+amusement	situation(e,afterAwesomeConcert)	no 
+amusement	situation(e,duringFunnyMovie)	yes 
+amusement	situation(e,duringThrillerMovie)	no 
+amusement	similar(e,entertained)	yes 
+amusement	necessarily(behavior(e,laughing))	yes or smiling or at least smiling inside...if you know what I mena mean 
+amusement	e==amusement	yes! 
+boredom	e.valence==positive	nope 
+boredom	e.activation==high	no 
+boredom	situation(e,doingSomethingNotVeryExciting)	yes 
+boredom	e==boredom	yes haha :-D 
+anger	e.valence==positive	no 
+anger	e.valence==neutral	no 
+anger	situation(e,inCompetition)	you could but not always 
+anger	situation(e,afterSomethingBadHappens)	yes you can not always tho 
+anger	situation(e,beforeSomethingBigHappens)	no 
+anger	possibly(directed(e,self))	yes 
+anger	similar(e,apprehension)	could be stronger sorry I meant to say no, stronger 
+anger	e.activation>anxiety.activation	yes 
+anger	e.activation>overwhelmed.activation	yes 
+anger	similar(e,defeated)	no more negative  
+anger	similar(e,shame)	no 
+anger	similar(e,fury)	yes 
+anger	similar(e,revenge)	no 
+anger	e==violent	could be yeah but not necesarilly necessarily 
+anger	similar(e,vicious)	no you can just feel it but it isnt necessarily vicious 
+anger	e.activation>fury.activation	no a similar one 
+anger	e-fury==anotherEmotion	I dont think so its very much like being furious 
+anger	e==ferocious	no close tho you want to keep guessing you are so close I dont think you can ask anything that will get you closer cause they are almost synonyms 
+anger	non-yes-no,giveUp	angry 
+embarrassment	e.valence==positive	no 
+embarrassment	e.valence==neutral	no 
+embarrassment	associated(e,sadness)	yes it can be 
+embarrassment	associated(e,anger)	yes but less often than with sadness although in a similar way you get feel this emotion and then feel sad or angry about it 
+embarrassment	situation(e,failAtSomething)	yeah 
+embarrassment	situation(e,blameYourself)	uhm it can but not necessarily  
+embarrassment	associated(e,embarrassment)	it is embarrassment  
+enthusiasm	e.valence==positive	yea 
+enthusiasm	situation(e,youHaveDoneSomethingRight)	yea, but not limited to after having done something right but also before and during 
+enthusiasm	e.activation==high	it can be, but id say usually, on a range from 1-10, 10 being the most intense, it'd be 6 or 7 actually maybe 5 
+enthusiasm	associated(e,calm)	it's not calm at all 
+enthusiasm	situation(e,doingSomethingYouLike)	yea 
+enthusiasm	e==pleasure	no but it's associated with it 
+enthusiasm	cooccur(e,pleasure)	yea 
+enthusiasm	opposite(e,sadness)	yea 
+enthusiasm	e==happiness	not exactly 
+enthusiasm	similar(e,satisfaction)	mot really; satisfied is more of after an accomplishment has been made the emotion of thinking is mostly before and during 
+enthusiasm	similar(e,entertainment)	kinda, more like being engaged in something 
+enthusiasm	situation(e,readingABook)	you could, but it's not a very likely emotion you'd be feeling more like when you have a task to do 
+enthusiasm	e==determination	on the right track 
+enthusiasm	situation(e,scaredButDeterminedToDoSomething)	no, you'd have to have a positive attitude 
+enthusiasm	situation(e,feelingThatYouAreDoingAGoodJobAtSomething)	definitely 
+enthusiasm	e==pride	not exactly, it's more like determined than pride, because pride more like an emotion you'd feel afterwards and determined is what you feel while you're working on it 
+enthusiasm	situation(e,positiveOutlookForSomethingYouAreDoing)	yea! getting closer! 
+enthusiasm	similar(e,hope)	it's similar, but more intense 
+enthusiasm	similar(e,delight)	it's like a fusion of determined and delighted 
+enthusiasm	e==optimism	yea, but more energetic than optimistic 
+enthusiasm	e==cheerfulness	it's cheerful and determined, but it's really similar to optimistic Not sure if there are more questions to ask that will give you the word; want me to tell you? 
+enthusiasm	giveUp,non-yes-no	it's enthusiastic :-P it's kinda difficult to guess 
+guilt	e.valence==positive	no 
+guilt	e.valence==neutral	no 
+guilt	associated(e,anger)	n no you can feel angry with it but they are not associated  
+guilt	associated(e,sadness)	same thing as with anger 
+guilt	situation(e,failAtSomething)	yeah you can 
+guilt	situation(e,terribleSurprise)	no 
+guilt	situation(e,dreadingImmanentFailure)	yeah its a possibility 
+guilt	e==disappointment	no it can go along with disappointment but its not the same 
+guilt	situation(e,afterSomethingBad)	yes 
+guilt	associated(e,blame)	yes 
+guilt	similar(e,guilt)	yes! 
+loneliness	e.valence==positive	no 
+loneliness	e.activation==high	it can be, but usually it's mild 
+loneliness	situation(e,enviousOfCarAndRichParents)	no, not at all 
+loneliness	situation(e,someoneDoesSomethingToBotherYou)	no, it's not connected to anger or envy 
+loneliness	situation(e,someoneDoesSomethingUnexpected)	it can be, but it's not so much surprise but a sad realization 
+loneliness	e==disappointment	more complex than dissapointment, specifically with people 
+loneliness	similar(e,pain)	it's like a pain in your heart 
+loneliness	describedAs(e,beingLost)	I've never heard it described that way, but you could say that 
+loneliness	associated(e,dismay)	yea 
+loneliness	e==appalled	no, not so much shock but more sadness 
+loneliness	situation(e,someoneIsLonely)	It's lonely! 
+relief	e.valence==negative	no 
+relief	e.valence==neutral	no but its mellow  
+relief	e.valence==positive	yes definitely 
+relief	similar(e,contentment)	similar but not the same content is a more constant emotion this is more common after you realize something 
+relief	situation(e,pleasedWhenSomethingGoesYourWay)	yes 
+relief	e==relief||e==relaxed	relief! 
+envy/jealousy	e.valence==negative	yes 
+envy/jealousy	e.activation==high	it can be but not necessarily 
+envy/jealousy	usually(e.valence!=high))	it really ranges depending on the situation 
+envy/jealousy	similar(e,anger)	can be yeah it can be mixed with anger not the same tho 
+envy/jealousy	mixable(e,sadness)	yeah 
+envy/jealousy	similarity(e,anger)>similarity(e,sadness)	yeah I would say so 
+envy/jealousy	situation(e,youveFailed)	no 
+envy/jealousy	similar(e,fear)	no 
+envy/jealousy	associated(e,embarrassment)	no 
+envy/jealousy	situation(e,afterNastySurprise)	it can but a nasty surprise isnt necessary to feel this emotion 
+envy/jealousy	if(nastySurprise)then(e.activation==low)	probably not 
+envy/jealousy	if(nastySurprise)then(e.activation==high)	depends on the situation really 
+envy/jealousy	if(friendBetraysYou)then(e.activation==low)	it would be not a common emotion when a friend betrays you 
+envy/jealousy	situation(e,findingThatVegatablesHadGoneBad)	no 
+envy/jealousy	similar(e,regret)	no you would feel like this because an another person they might not cause this emotion intentionally  
+envy/jealousy	situation(e,betrayal)	can be but not necesarily 
+envy/jealousy	subset(e,pain)	Yeah it can be suffered from sorta like a pain 
+envy/jealousy	e.activation==high	can have yeah 
+envy/jealousy	e.activation==variable	yeah 
+envy/jealousy	situation(e,ditchedByFriendInDesert)	no It happens when your neighbor gets something really nice 
+envy/jealousy	e==jealousy	yes envy 
+fear/distress	e.valence==positive	no 
+fear/distress	e.valence==mildlyNegative	it can range, but a standard representation of it is relatively intense 
+fear/distress	associated(e.embarrassment)	no, but associated with it oh ok it is sorry it can be linked with embarrassment, but i wouldn't use embarrassment as a bridge leading to the emotion i have in mind 
+fear/distress	situation(e,goingToPerformInFrontOfAudience)	yes you can feel it when you perform 
+fear/distress	associated(e,worrying)	yes it can 
+fear/distress	associated(e,anxiety)	yea 
+fear/distress	opposite(e,calm)	yes 
+fear/distress	e==worry	more than that, worrying can be like a big test coming up, but the emotion i'm thinking of is more intense 
+fear/distress	e==anxiety	it's super close, but anxiety is like a cousin think more like instincts 
+fear/distress	e==distress	yea...i think that's a good synonym, it's fear! 
+annoyance	e.valence==positive	no 
+annoyance	e.valence==neutral	no 
+annoyance	e.activation==variable	yeah 
+annoyance	similar(e,anger)	this emotion will most likely lead to (be accompanied) by anger  
+annoyance	similarity(e,anger)>similarity(e,sadness)	much more likely  actually sadness is not related to this emotion at all 
+annoyance	e==anger	no 
+annoyance	situation(e,feelUnderHighPressure)	you could but its not necessarily associated with being under high pressure 
+annoyance	situation(e,betrayal)	yeah 
+annoyance	e==vengeful	its not vengeful but yeah you might get vengeful 
+annoyance	associated(e,determination)	not at all 
+annoyance	exist(s)(situation(e,s)&&s!=betrayal)	oh yeah plenty 
+annoyance	situation(e,fightingForYourLife)	you can but it isnt the first emotion you would feel 
+annoyance	similar(e,panic)	no 
+annoyance	similar(e,pain)	yeah pain can be associated with this emotion? sorry no question mark 
+annoyance	situation(e,physicalPain)	yeah 
+annoyance	situation(e,accidentalPain)	less likely 
+annoyance	situation(e,doSomethingStupidAndCausePainOnYourself)	yeah 
+annoyance	similar(e,shame)	no 
+annoyance	similar(e,blame)	no 
+annoyance	associated(e,annoyance)	its annoyance  being annoyed 
+guilt/regret	e.valence==positive	no 
+guilt/regret	associated(e,fear)	sort of, right direction but not so intense 
+guilt/regret	situation(e,lostInTheWoods)	no think more social situation 
+guilt/regret	situation(e,talkingToSomeoneYouLike)	no 
+guilt/regret	situation(e,talkingToSomeoneVeryBoring)	no, it's more of a bad consequence 
+guilt/regret	situation(e,youArentConfident)	yea,  you could 
+guilt/regret	associated(e,insecurity)	not very closely but insecurity can be a result 
+guilt/regret	precedes(e,insecurity)	yea 
+guilt/regret	situation(e,someoneLeavesYouOutOfTheirPlans)	no, it's not that someone did something bad to you, but you did something bad to them 
+guilt/regret	e==regret	so close actually that's it: guilt 
+pride	e.valence==positive	yes 
+pride	e.activation==high	yeah it usually is 
+pride	situation(e,afterSomethingAwesomeHappens)	yeah it can 
+pride	situation(e,workingTowardABigAccomplishment)	it can but is more common after 
+pride	associated(e,pride)	its pride! 
+tiredness	e.valence==positive	no 
+tiredness	e.activation==high	yea actually when you asked if it's intense it can have a huge effect on you, but you dont have an intense display of this emotion 
+tiredness	situation(e,someoneTellsYouALieAndYouFindOut)	you can but not really 
+tiredness	associated(e,anger)	no well it could, but i don't think anger will lead you in the right direction 
+tiredness	associated(e,otherPerson)	no 
+tiredness	situation(e,youLetSomeoneYouLoveDown)	not necessarily but maybe if you let them down after putting in a lot of effort. 
+tiredness	associated(e,shame)	not really shame, it's more physical than psychological 
+tiredness	associated(e,beingTired)	it's tired! 
+affection/love	e.valence==positive	yes 
+affection/love	hasExternalExpression(e)	not necessarily but you can yeah it varies a lot 
+affection/love	behavior(e,laughing)	no laughing usually it is not very common 
+affection/love	behavior(e,smiling)	you can but it isnt normally associated to this emotion 
+affection/love	e.activation==high	it can vary from very mild to very intense\ 
+affection/love	if(situation(completeAPhdProgram))then(e.activation==high)	no 
+affection/love	similar(e,hope)	no 
+affection/love	similar(e,contentment)	no 
+affection/love	similar(e,confidence)	no it regards another person most of the time 
+affection/love	similar(e,love)	yes! very close  feeling affection 
+contentment/calm	e.valence==positive	yea 
+contentment/calm	directed(e,otherPerson)	not really, more on situations 
+contentment/calm	situation(e,atDisney)	yea 
+contentment/calm	associated(e,excitement)	excitement is too energetic 
+contentment/calm	situation(e,bigProjectComingUpAndYouFeelPositivelyAboutIt)	well the project would cause stress, so you wouldn't feel this emotion  
+contentment/calm	e==calm	yea! well, more like content but basically the same, right? 
+suffering	e==positive	no 
+suffering	e.activation==high	yes 
+suffering	similar(e,exhilaration)	no 
+suffering	e.activation!=exhilaration.activation	well its negative but it is also intense could be as intense as exhilaration just negative 
+suffering	similar(e,fury)	no different 
+suffering	mixable(e,sadness)	yeah def. 
+suffering	e.sadness>e.anger	yeah 
+suffering	similar(e,depression)	very similar 
+suffering	similar(e,despair)	yes stronger than despair tho 
+suffering	e.activation>overwhelmed.activation	different more towards being in despair 
+suffering	e==doomed	you would give up beucase you feel like this kinda like feeling pain 
+suffering	e==incompetence||e==worthlessness	no 
+suffering	situation(e,blameYourself)	yeah you could 
+suffering	situation(e,blamingSomeoneElse)	no if you were feeling this emotion you would be blaming yourself 
+suffering	similar(e,feelingStupid)	much stronger you feel this emotion and you probably feel stupid 
+suffering	non-yes-no,askHint	despair 
+suffering	sequenceOfEvents([despair,e,giveUp])	you would probably feel it simultaneously  
+suffering	e.activation==despair.activation	probably more 
+suffering	e==hopelessness	soooo close you would ______ from hopelessness 
+suffering	e==desperate	close too 
+suffering	e==resignation	suffer 
+tiredness	e.valence==positive	nope 
+tiredness	associated(e,anger)	not really 
+tiredness	sad(e)	yea but i wouldnt call it sad for real 
+tiredness	directed(e,otherPerson)	nope 
+tiredness	situation(e,goingToBeachButThereIsAPossibilityOfRain)	nope 
+tiredness	situation(e,upsetAtSomeone)	mayybe if theyyve caused you to be upset many times before 
+tiredness	e.activation==high	no not usually. your scenario is an uncommon example 
+tiredness	situation(e,youExpectedSomeoneToOpenTheDoorButTheyDidnt)	no its more of an emotion that occurs after your own actions 
+tiredness	situation(e,accidentallyRunOverACuteBunny)	heh, no you wouldnt 
+tiredness	associated(e,embarrassment)	could be but wrong direction common emotion of college students 
+tiredness	associated(e,shyness)	nope 
+tiredness	associated(e,impatience)	no, more about work and stress 
+tiredness	e==tired	thats it :-) 
+relief	e.valence==positive	yeah 
+relief	e.activation==high	it can be but it can also be pretty mild 
+relief	behavior(e,laughing)	you can but not because something is funny 
+relief	similar(e,optimism)	no 
+relief	similar(e,pride)	No different  
+relief	similar(e,happiness)	yeah you could be plain happy and feel this emotion 
+relief	situation(e,watchingFavoriteTvShow)	no 
+relief	situation(e,atAGreatConcert)	yeah if you have been waiting for the concert for a while but its not that common 
+relief	situation(e,lookingForwardToSomething)	noo you would look forward to feeling like this 
+relief	e==exhilaration	no more after rather than during 
+relief	e==relief	yes!! 
+embarrassment	e.valence==negative	yea 
+embarrassment	e.activation==high	on a scale of 1-5 id say 3.5 with 1 being least intense 
+embarrassment	similar(e,sadness)	sorta, but its kinda like an energetic sadness, if that makrss sense 
+embarrassment	e==misery	well its not so much sad, more like bring uncomfortable *being 
+embarrassment	e==suffering	thats the right direction 
+embarrassment	e==anguish	not exactly 
+embarrassment	associated(e,guilt)	not really  the emoyion im thinking of isnt so serious like anguish or guilt 
+embarrassment	situation(e,someoneIsLying)	no 
+embarrassment	situation(e,youCheatedOnATest)	you would be if you got caught in front of your whole class 
+embarrassment	e==embarrassed	yep! 
+helpless	e.valence==positive	no 
+helpless	e.valence==neutral	no 
+helpless	e.activation==high	It can vary but its not the most intense negative emotion  
+helpless	similarity(e,anger)>similarity(e,sadness)	no the other way more linked to sadness than anger 
+helpless	e==mix(sadness,anotherEmotion)	no its close to sadness but not the same 
+helpless	e-sadness==shame	no its different because with this emotion you feel more than just sadness in regards to a situation 
+helpless	situation(e,losingAnImportantMatch)	yeah it could be 
+helpless	situation(e,youveDisappointedSomebody)	similar too its when maybe you have disappointed somebody and you feel like you cant do anything to fix it 
+helpless	e==helplessness	yesss 
+enthusiasm/eagerness	e.valence==positive	yes 
+enthusiasm/eagerness	similar(e,love)	not really, but you can feel this emotion towards love 
+enthusiasm/eagerness	situation(e,youWantLove)	more like if you think love's coming your way 
+enthusiasm/eagerness	similar(e,excitement)	kinda 
+enthusiasm/eagerness	similar(e,disire)	kinda mux desire and excited 
+enthusiasm/eagerness	e==longing	but with excited 
+enthusiasm/eagerness	e==eagerness	yea! it was enthusiastic 
+terror	e.valence==positive	no 
+terror	similar(e,sadness)	much stronger and different* 
+terror	similar(e,desperation)	you would be desperate in a situation with this emotion but this emotion would prevail 
+terror	e==fear	stronger but yes right path  
+terror	e==anxiety	stronger think of terrible fear if you are walking down the street and someone walks out to chase you with a chainsaw 
+terror	e==terror	yes! 
+joy	e.valence==positive	yes 
+joy	e.activation==high	it can be yes usually its intense 
+joy	situation(e,afterGreatAccomplishment)	yes 
+joy	similar(e,pride)	it can go along with pride 
+joy	coocur(e,surprise)	pleasantly surprise d 
+joy	e==pleased	no but its very very close 
+joy	e==contentment	stronger a very pleasant expirince think of* 
+joy	e==gladness||e==gratefulness	another word for glad so close its actually different its experienced together with being glad  think of a very happy moment in ur life you had this emotion 
+joy	e==relief||e==spirited||e==ecstacy	no closer to ecstatic 
+joy	e==thrill	no you want to give up? 
+joy	coocur(e,extremeHappiness)	yeah it a very good moment its too general I'll tell you its Joy. 
+love	e.valence==positive	yes 
+love	associated(e,beingSurprised)	nope 
+love	situation(e,doingYoga)	no 
+love	excited(e)&&happy(e)	yea it can be 
+love	situation(e,gettingAMassage)	nope well, maybe depending on who it is 
+love	situation(e,youFinishedALongPaperAndYouThinkItTurnedOutWell)	nope 
+love	situation(e,withSomeoneYouLove)	yea! 
+love	e==attraction	it's more general, you kinda said it already 
+love	e==love	yea! 
+dread/hopeless	e.valence==positive	ni no 
+dread/hopeless	e.valence==neutral	n o 
+dread/hopeless	similar(e,sadness)	no stronger 
+dread/hopeless	e.activation==high	yes close to both but its more something you would feel when you dont want to do something 
+dread/hopeless	e==defiance||e==suffering	no closer to anguish think of the emotion you feel when there is a final and you dont want to do it 
+dread/hopeless	e==doomed||e==tortured	close to doom  think of the emotion you get when you have to do something you really dont want to do 
+dread/hopeless	e==hopelessness	hopeless close enough dread 
+shyness	e.valence==positive	no 
+shyness	associated(e,irritation)	not really 
+shyness	situation(e,breakup)	no 
+shyness	similar(e,anger)	no, itd be more like sadness with stress 
+shyness	associated(e,depression)	no 
+shyness	associated(e,aggravation)	no, aggravation seems kinda dominant whereas the emotion is kinda submissive 
+shyness	associated(e,suffering)	i would say so 
+shyness	situation(e,doingHomeworkAndFeelingTired)	no more like in social situations 
+shyness	e==shyness	thats it! 
+relief	e.valence==positive	yes 
+relief	e.activation==high	as far as intensity its a medium  
+relief	situation(e,doWellOnTest)	yes definitely specially if were are worried about the test 
+relief	e==relief	yes! 
+depression/misery	e.valence==negative	yea 
+depression/misery	associated(e,control)	no 
+depression/misery	similar(e,anger)	no, like sadness 
+depression/misery	situation(e,youBuyExpensiveCarButItBreaks)	no but you would feel this in general 
+depression/misery	associated(e,loneliness)	yea it can be 
+depression/misery	situation(e,youScrewUpGroupPresentation)	yea 
+depression/misery	e==shame	no but you can feel both at the same my wmotioni s very heneral *emlltion is *general sorry 
+depression/misery	similar(e,misery)	basically yea! depression! 
+tense/uncomfortable	e.valence==positive	no 
+tense/uncomfortable	similar(e,sadness)	no different 
+tense/uncomfortable	similar(e,anger)	similar but not quite there 
+tense/uncomfortable	similar(e,annoyance)	yeah associated with annoyed 
+tense/uncomfortable	e==frustration	very similar 
+tense/uncomfortable	e==exasperated	lose cloaw close 
+tense/uncomfortable	situation(e,awkwardSituation)	close 
+tense/uncomfortable	e==nervousness	almost? 
+tense/uncomfortable	e==apprehension	no 
+tense/uncomfortable	e==selfConscious	no tense 
+contentment	e.valence==positive	yes 
+contentment	similar(e,happiness)	yea, a c;am happiness *calm 
+contentment	similar(e,love)	no 
+contentment	similar(e,pleasure)	yea! its conrenr (content 
+fury	e.valence==positive	no 
+fury	associated(e,otherPerson)	yes, in general 
+fury	associated(e,love)	no 
+fury	e==anger	close, but no 
+fury	e.duration==short	not usually good question! 
+fury	directed(e,stranger)	you could, but I think you'd have to have some kind of interaction/history with the stranger first 
+fury	e.activation>anger.activation	yes! 
+fury	e==hatred	no but getting close 
+fury	cause(e,physicalHarm)	yes, you could say that... someone might get smacked, and the experiencer might get high blood pressure 
+fury	e==frustration	no, it's stronger 
+fury	e==fury	yep, you got it !  :-D  
+regret	situation(e,today)	yes 
+regret	associated(e,otherPeople)	yes, it can but not exclusively 
+regret	experienceWith(e,friends)	no 
+regret	cause(e,action)	yes, it can 
+regret	e.activation==high	yes, I think so 
+regret	hasExternalExpression(e)	no 
+regret	cause(e,feelGood)	no 
+regret	similar(e,frustrated)	no 
+regret	e==confused	no 
+regret	similar(e,sadness)	hmm, Yes, I think it relates a little bit 
+regret	e==depression	not that strong, also it doesn't necessarily lead to sadness 
+regret	e==nostalgia	no, perhaps a little stronger 
+regret	e==missingSomeone	no, but I think you're in the neighborhood 
+regret	cause(something,e)	yes yes, it has an origin, but it can pop up throughout the rest of your life 
+regret	e==regret	yes ! 
+disgust	e.valence==positive	no 
+disgust	e.valence==neutral	no 
+disgust	e.activation==variable	yes 
+disgust	similar(e,sadness)	no more like anger 
+disgust	situation(e,afterYouFailATest)	No it would happen more often after you have witnessed something 
+disgust	situation(e,afterYouSeeSomeoneBullyYourLittleSister)	yes 
+disgust	similar(e,rage)	it could be accompagnied by rage but it is not rage accompanied  
+disgust	situation(e,afterDealingWithSomebodyAnnoying)	not every time but it is possible 
+disgust	e==anger+otherEmotion	different 
+disgust	similar(e,beingWary)	closer yes 
+disgust	similar(e,paranoia)	no its different after you have seen something very distasteful for example 
+disgust	situation(e,afterSeeingADocumentaryAboutTheMeatIndustry)	yes possibly  
+disgust	situation(e,seeNewsAboutSerialKillerAndWalkHomeLateAtNight)	no 
+disgust	similar(e,skepticism)	Well it relates closely to the feeling that you got initially when watching the documentary about the meat you might have felt this emotion towards some of the scenes you saw 
+disgust	e==shock||e==disgust	disgust! thats it! 
+anxiety	e.valence==positive	no 
+anxiety	e.activation==high	yea it usually is 
+anxiety	similar(e,sadness)	sorta, it's more sad than anger 
+anxiety	similar(e,envy)	no 
+anxiety	associated(e,depression)	do you mean it could progress into depression? it's not associated with depression depression seems not to be very energetic, but the emotion i'm thinking of kinda does 
+anxiety	situation(e,youJustLostAPet)	if you're looking for him you would 
+anxiety	similar(e,exasperation)	no 
+anxiety	situation(e,lostInTheWoods)	definitely 
+anxiety	similar(e,scared)	maybe a little less intense 
+anxiety	e==misery	think more along the lines of the energy of being scared 
+anxiety	e==despair	but less intense than being scared 
+anxiety	e==glumness	what would you feel when you have a scary test? 
+anxiety	e==fear||e==anxiety	yea! anxiety! 
+guilt	e.valence==positive	no 
+guilt	similar(e,anger)	no 
+guilt	similar(e,sadness)	yes 
+guilt	situation(e,someoneCloseDied)	no more a reaction to something you do 
+guilt	e==guilt	yes guilt!!! 
+surprise	e.valence==negative	it's kinda neutral 
+surprise	e.activation==high	yes 
+surprise	situation(e,scared)	yep 
+surprise	situation(e,winLottery)	yep 
+surprise	e==surprise	yea you got it! 
+relief	e.valence==positive	yes 
+relief	e.activation==high	yes it can be 
+relief	situation(e,afterYouGet100OnAMidterm)	yes 
+relief	e==pride	no but close you feel it when you are driving and think you are going to crash but you dont 
+relief	e==relief	yes! 
+annoyance/irritated	e.valence==positive	no 
+annoyance/irritated	e.activation==high	not really 
+annoyance/irritated	similar(e,sadness)	more like mad 
+annoyance/irritated	similar(e,rage)	rage is super intense, the emotion i'm thinking of is pretty mild 
+annoyance/irritated	situation(e,loseYourFavoriteSweater)	yea but more when you lose a regular sweater and it's cold out 
+annoyance/irritated	associated(e,irritation)	yea! it irritated/annoyed *it's 
+grumpiness	e.valence==positive	no 
+grumpiness	e.activation==high	yes 
+grumpiness	similar(e,anger)	yeah similar 
+grumpiness	situation(e,someoneTakesTheThingYouWant)	not necessarily but it can 
+grumpiness	situation(e,tennisDoublesPartnerKeepsMessingUp)	yeah you would get this way after the match maybe not during it 
+grumpiness	e==bitter	closer to bitter 
+grumpiness	e==resentment	Yeah but its like when someone is just not in a good mood it can be combined with bitterness resentfulness 
+grumpiness	e==grumpy	grumpy! 
+eagerness/determination	e.valence==positive	yes 
+eagerness/determination	similar(e,happiness)	well, you can be really serious, but happy at the same time 
+eagerness/determination	situation(e,atDisney)	no 
+eagerness/determination	situation(e,pleasantlySurprised)	no 
+eagerness/determination	associated(e,optimism)	yea 
+eagerness/determination	e==hope	yea, but there's more of a focused energy 
+eagerness/determination	e==eagerness	umm, well , i think they're all synonyms, and its hard to differentiate; i was thinking determination 
+disappointed	e.valence==positive	No 
+disappointed	similar(e,sadness)	YES yes sorry no caps hahaha 
+disappointed	similar(e,depression)	it can b e but not always 
+disappointed	different(e,sadness)	yes \ when you feel this negative emotion you can also feel sadness 
+disappointed	situation(e,betrayal)	yes 
+disappointed	painful(e)	yes very close 
+disappointed	exist(s)(situation(e,s)&&s!=betrayal)	yeah when someone does something you didnt expect 
+disappointed	similar(e,shock)	close yeah  think about how you feel when your friend that was going to do a favor for you doesnt do it 
+disappointed	e==disappointment	yes! disappointing  
+wariness	e.valence==positive	no 
+wariness	e.activation==high	it can be, but it varies 
+wariness	similar(e,sadness)	no, i'd say more it's more like anger than sadness, but it's not really anger 
+wariness	situation(e,friendGetsPrettierGirlfriendThanYou)	haha no 
+wariness	situation(e,beforeYouGetAColdVaccine)	if you're scared of shots, yes 
+wariness	associated(e,worry)	yea, but think more like nervous 
+wariness	e==anxiety	well, they're all really similar, i was thinking something like  well, think more like paranoid mixed with anxious 
+wariness	e==helplessness	yea, but not so submissive as helplessness, more like you're stranded in a creepy forest and you're closely watching your surroundings 
+wariness	giveUp	haha, i was thinking wary 
+satisfaction	e.valence==positive	yes 
+satisfaction	e.activation==high	yeah it can be 
+satisfaction	situation(e,youCompletePhdProgram)	yes 
+satisfaction	e==pride||e==relief	close to relief think of a satisfaction? of a  synonym haha typo 
+satisfaction	e==carefree	yeah you call that a word its when you are____ 
+satisfaction	e==relaxed	no you want to give up? its kinda hard  
+exhilaration/thrill	e.valence==positive	yea 
+exhilaration/thrill	e.activation==high	yea 
+exhilaration/thrill	associated(e,attraction)	not necessarily 
+exhilaration/thrill	associated(e,satisfaction)	not always, think simple 
+exhilaration/thrill	similar(e,happy)	yea! oh, i mean, think more like plain happy, not happiness mixed in with something 
+exhilaration/thrill	similar(e,optimism)	nope 
+exhilaration/thrill	similar(e,thrill)	there you go! i was thinking exhilaration 
+sorrow/sadness	situation(e,disney)	no 
+sorrow/sadness	e.duration==long	sometimes 
+sorrow/sadness	exists(c)(cause(c,e))	there are many causes 
+sorrow/sadness	cause(emptySet,e)	no 
+sorrow/sadness	cause(e,feelGood)	no 
+sorrow/sadness	similar(e,sadness)	yes 
+sorrow/sadness	e==sadness	sorrow 
+pride	e.valence==positive	yes 
+pride	situation(e,themePark)	no 
+pride	situation(e,afterTest)	maybe if it goes well rather when you get a good grade back 
+pride	associated(e,satisfaction)	it can be 
+pride	situation(e,thoughtYouLostSomethingButFindItInYourPocket)	nope 
+pride	situation(e,finishAGreatPieceOfArt)	yea 
+pride	e==pride	yep! 
+worry/scared	e.valence==positive	no 
+worry/scared	similar(e,anger)	No 
+worry/scared	similar(e,sadness)	yeah its closer 
+worry/scared	situation(e,youHookedUpWithYourBestFriendsSpouse)	yeah but it is not guilt 
+worry/scared	similar(e,shame)	no its more like after the fact you feel guilty and also something else 
+worry/scared	e==humble||e==repenting	no it is neither 
+worry/scared	associated(e,fear)	yes yes but what do you call when you are afraid you are going to get caught 
+worry/scared	e==scared	its kinda like scared, worried 
+exhaustion	e.valence==positive	no 
+exhaustion	associated(e,sadness)	i'd say more like sadness than anger, but it's like either *but it's not really like either 
+exhaustion	associated(e,annoyance)	not really, but you can be annoyed and this emotion at the same time or becuase you're annoyed, you can feel this emotion 
+exhaustion	situation(e,youThinkSomeoneIsLying)	you could, but maybe more likely if they keep lying time after time 
+exhaustion	situation(e,friendBetrayesYou)	maybe, but this emotion isn't really linked with social situaqtions 
+exhaustion	cause(self,e)	yea, like a hard day's night :-D 
+exhaustion	e==guilt	no 
+exhaustion	situation(e,makeABigMistake)	maybe more like,you've had a long day, made many mistakes and you just wanna go home and rest 
+exhaustion	e==exhausted	no worries, exhausted is right! :-) 
+stress	e.valence==positive	no 
+stress	similar(e,sadness)	no 
+stress	similar(e,anger)	uhm its really like neither it can happen when you are sad happy or angry but its bad 
+stress	sudden(e)	no probably progressively  
+stress	situation(e,havingAGreatDayThenAnnoyingThingsPileUpAndYouBecomeFrustrated)	yes 
+stress	different(e,frustrated)	yes 
+stress	similar(e,rage)	no more like when you have a lot of homework 
+stress	e==overwhelmed	its associated with overwhelmed 
+stress	e==devastated||e==distressed	closer to distress  think of hw 
+stress	e==stress	yeesss!' 
+shock	e.valence==positive	no 
+shock	e.activation==high	yes 
+shock	associated(e,sadness)	no well, it could be I guess, but not closely. 
+shock	situation(e,cousinBreaksYourTv)	hahaha... yes, quite possibly 
+shock	e==anger	no 
+shock	situation(e,getLost)	no 
+shock	situation(e,crashCar)	yes 
+shock	associated(e,irritation)	no 
+shock	situation(e,someoneLetsYouDown)	yes, in some extreme cases. 
+shock	associated(e,disappointment)	no, not so much (except as I said in extreme cases) 
+shock	situation(e,breakLegInALotOfPain)	yes, but the emphasis is on breaking your leg 
+shock	associated(e,pain)	less about that, but it might be a factor 
+shock	associated(e,suffering)	yes it's often the beginning of suffering 
+shock	e==grief	no, it's not really associated with sadness except in very extreme cases 
+shock	situation(e,powerGoesOut)	possibly, but I think the situation would have to be more extreme 
+shock	associated(e,aggravation)	possibly... you might feel this emotion right before being extremely aggravated. 
+shock	situation(e,somethingUnexpectedHappens)	yes 
+shock	e==surprise	no, it's similar to surprise but without the possibility of it being pleasant. 
+shock	situation(e,badGradeInAClassYouThoughtYouWereDoingGreatIn)	yes 
+shock	e==disappointment	no, more extreme and immediate... it's what you would feel before you realized you were dissapointed 
+shock	e==stupefaction	haha... pretty close.  it might be synonym, but this word is much more common 
+shock	e==shock	yes, good job! 
+jealousy/envy	associated(e,otherPerson)	yes 
+jealousy/envy	cause(e,feelGood)	no 
+jealousy/envy	cause(e,feelBad)	Not exactly bad, its unpleasant 
+jealousy/envy	cause(otherPerson,e)	yes 
+jealousy/envy	directed(e,self)	no 
+jealousy/envy	associated(e,disappointment)	it can be felt along with it but it isnt really associated with it 
+jealousy/envy	e.duration==short	no usually 
+jealousy/envy	associated(e,[jealousy,envy])	its jealousy! nice! 
+guilt	good(e)	no 
+guilt	e.activation==high	can be but there is a range. 
+guilt	situation(e,failATest)	possibly... if it was your fault 
+guilt	associated(e,sadness)	yes 
+guilt	situation(e,girlBreaksUpWithYou)	in certain cases, for example if she broke up with you because you cheated on her 
+guilt	situation(e,lying)	yes 
+guilt	e==guilt	yep!  good job... 
+insecurity/shyness	e.valence==positive	no 
+insecurity/shyness	e.duration==long	it can yeah 
+insecurity/shyness	feel(e,dog)	uhmmm yeah possibly 
+insecurity/shyness	e==fear	no but it is similar 
+insecurity/shyness	e==excited	think fear but more specific 
+insecurity/shyness	e==fright	closer very close but not exactly you can feel all of this due to this emotion 
+insecurity/shyness	situation(e,atHauntedHouse)	no 
+insecurity/shyness	situation(e,somethingMadeANoiseInTheNightAndYouArentSureWhatItIs)	no 
+insecurity/shyness	associated(e,expectation)	yeah 
+insecurity/shyness	e==dread	no think of the reason why someone wouldnt do something in front of people 
+insecurity/shyness	e==embarrassment	no it can go along but you feel this because you are afraid of feeling embarrassment 
+insecurity/shyness	e==shyness	close enough insecurity  insecure 
+calm	e.valence==positive	yes 
+calm	e.activation==high	no 
+calm	associated(e,happiness)	somewhat... I would say they tend to coocur 
+calm	situation(e,disney)	no not so much... 
+calm	situation(e,withSomeoneYouLove)	yes and not just romantic love, ie, family too 
+calm	can(directed(e,pet)	no actually you don't normally feel it towards anything 
+calm	associated(e,enjoyment)	somewhat... but like I said it's not about anything in particular. 
+calm	associated(e,beingComfortable)	yes 
+calm	associated(e,serenity)	yes, in fact that might be a synonym, but I think you'll get it while I'm pondering... I think it's a little different, serene is usually a comfortable surrounding but you can be this emotion in any situation... 
+calm	e==composed	no, not composed but it's also very close 
+calm	e==tranquility	the same state of mind but it can be in any situation.... so not quite 
+calm	e==unpreoccupied	hahaha.... no its not that complicated... i think there is a cognate in spanish too 
+calm	situation(e,spa)	yes, you definitely feel it in cases when you'd be tranquil/serene, but also say on a battle field if you are very well trained. 
+calm	situation(e,duringTest)	ideally yes, but in general no 
+calm	situation(e,professionalDancerInMiddleOfPerformance)	yes, I think so but I think it's very close to tranquil/serene maybe I should count it... 
+calm	similar(e,focus)	its kind of a prerequisite if you're agitated you can't focus, so you need to ____ down. 
+calm	e==calm	aha!!! yeah, it's probably synonym, just that I think about it too much :-P 
+cheerfulness	e.valence==positive	yes 
+cheerfulness	hasExternalExpression(e)	yes 
+cheerfulness	e.activation==high	no, not so much 
+cheerfulness	e.duration==short	no 
+cheerfulness	e==happiness	it is a happy emotion, but happy isn't it.  For me at least, it's slightly different 
+cheerfulness	assocated(e,goal)	no, but good question though 
+cheerfulness	e==pleasure	no, but it is kind of close.  this emotion is pleasurable and being satisfied is probably a prerequisite, but it's not any one particular aim/goal or cause. 
+cheerfulness	e==contentment	no, this emotion is a little more positive 
+cheerfulness	e==enjoyment	also pretty close, but no.  Less about any particular object of enjoyment.  you might enjoy being around a person feeling this emotion though. 
+cheerfulness	e==enthusiasm	very close, but not so strong 
+cheerfulness	e==joy	all your past couple of guesses are pretty close no 
+cheerfulness	e==cheerfulness	yeah! 
+envy	associated(e,goal)	no, it doesn't have to 
+envy	associated(e,otherPerson)	yes 
+envy	cause(e,feelGood)	no 
+envy	e.valence==negative	yes 
+envy	e.activation==high	it can be strong, but it doesn't have to be, so I would say no 
+envy	necessary(associated(e,otherPerson))	yes 
+envy	e==annoyance	no 
+envy	directed(e,otherPerson)	yes 
+envy	e==jealousy	very close, but not quite the same 
+envy	e==envy	yep 
+apathy/uninterested	e.valence==positive	no i would say generally it's not considered positive 
+apathy/uninterested	similar(e,anger)	no 
+apathy/uninterested	similar(e,sadness)	no 
+apathy/uninterested	situation(e,longExhaustingDay)	you may but not necessarily 
+apathy/uninterested	situation(e,someoneLetsYouDown)	not typically 
+apathy/uninterested	situation(e,scared)	no definitely not when you're scared 
+apathy/uninterested	situation(e,someoneHasSomethingYouWant)	no 
+apathy/uninterested	situation(e,stress)	no not while you are stressed but enough stress may lead you to feel this way 
+apathy/uninterested	similar(e,overwhelmed)	no but being overwhelmed may cause you to feel this way 
+apathy/uninterested	e.valence==negative	it's not generally considered a good thing 
+apathy/uninterested	bad(e)	sort of 
+apathy/uninterested	e.activation==high	no it's not intense 
+apathy/uninterested	situation(e,someoneIsBotheringYou)	no 
+apathy/uninterested	situation(e,surprise)	no i wouldn't really say that it is caused by external stimuli 
+apathy/uninterested	situation(e,blameYourself)	no 
+apathy/uninterested	non-yes-no,askHint	hmmm it is internal and not cause by others 
+apathy/uninterested	similar(e,disappointmentInOneself)	but i wouldn't say it is very negative you couldn't feel this and be disappointed in yourself simultaneously  
+apathy/uninterested	similar(e,feelingBadAboutOneself)	no not at all it doesn't reflect how you feel about yourself 
+apathy/uninterested	similar(e,tired)	sort of you're on the right track 
+apathy/uninterested	similar(e,calm)	you would probably be in a calm state if you feel this 
+apathy/uninterested	similar(e,contentment)	no it's not really a positive feeling 
+apathy/uninterested	e==boredom	no but you are EXTREMELY close 
+apathy/uninterested	e==beingUninterested	yes to the first not really to the second it is very similar to be uninterested that's a synonym so you got it :) it was apathy 
+jealousy	e.valence==negative	nope 
+jealousy	e.activation==high	it can vary 
+jealousy	e.duration==long	you could 
+jealousy	situation(e,friendDied)	not at all 
+jealousy	situation(e,surprise)	nope, unless you were shocked at something your friend accomplished or received 
+jealousy	e==jealousy	yea! i kinda gave too much info yeah you gave it away a little with that hint :) 
+affection	e.valence==positive	yes 
+affection	e.activation==high	it can be but it can cover a pretty broad range of intensity 
+affection	situation(e,getAGoodGradeOnAMidTerm)	no i wouldn't typically associate it with that situation 
+affection	situation(e,workingHardOnProject)	no 
+affection	situation(e,cheeringYourTeam)	you may sort of 
+affection	situation(e,listeningToPeacefulSong)	ummm i wouldn't say it is more likely it depends who you are listening to the song with i guess 
+affection	similar(e,positiveFeelingTowardSomeoneDear)	yes 
+affection	e==love	very close 
+affection	e==affection	that's it :) 
+hope/feelingLucky	e.valence==positive	yes 
+hope/feelingLucky	directed(e,otherPerson)	not really 
+hope/feelingLucky	situation(e,afterAccomplishingSomething)	not necessarily after 
+hope/feelingLucky	similar(e,motivation)	yea 
+hope/feelingLucky	e==motivation	it's a little less goal-oriented than motivated 
+hope/feelingLucky	situation(e,aboutToDoSomethingYouEnjoy)	yea, maybe something like playing poker 
+hope/feelingLucky	similar(e,excitement)	yea, but keep the feeling of motivation in mind 
+hope/feelingLucky	similar(e,feelingDaring)	maybe, but it's more like motivation like positive energy 
+hope/feelingLucky	similar(e,feelingLucky)	yes well, maybe it's synonymous I was thinking hopeful 
