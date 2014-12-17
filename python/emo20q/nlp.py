@@ -52,6 +52,14 @@ def isAffirmative(str):
         return True
     return False
     
+def isQuestion(string):
+    """"Determine whether an input is a question or not"""
+    if re.search(r'\?', string):
+        return True
+    if re.search(r'(?:how|who|what|why) (?:do|is|are|does|did|was|can|would|should|old|you)', string):
+        return True
+    return False
+    
 
 def splitCommaList(string):
     out = []
