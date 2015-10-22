@@ -1,0 +1,1 @@
+cat ../../../../annotate/emo20q.txt | grep "end:" | perl -ne '/emotion:(.+?)[\/,].+?/; $emo = $1;  /questions:(\d+)/; $nq = $1;  /outcome:(.+?)[\/].+?$/; $out = $1=="success"? "True" : "False"; print "hh\t100\t", $emo, "\t", $nq, "\t", $out, "\n";' 
