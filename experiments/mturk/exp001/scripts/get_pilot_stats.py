@@ -19,7 +19,7 @@ def dialog_iter(root_dir):
 
 if __name__ == "__main__":
     for dialog_file in dialog_iter(dialog_dir):
-        print dialog_file
+        #print dialog_file
         #import pdb; pdb.set_trace()
         obj = pickle.load(open(os.path.join(dialog_dir,dialog_file)))
         # for x in obj:
@@ -31,4 +31,5 @@ if __name__ == "__main__":
         #         if hasattr(x,'q'):
         #             print x.a.text                    
         turns = [item for item in obj if hasattr(item, 'q')]
-        print len(turns)
+        if len(turns) > 0:
+            print len(turns)
