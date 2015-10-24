@@ -40,7 +40,8 @@ class SemanticKnowledge(NaiveBayesClassifier):
          emotions = m.emotion().split("/") #deal with synonyms (sep'd w/ '/' )
          for e in emotions:
             self._labels.add(e)
-            self._label_freqdist.inc(e) 
+            #self._label_freqdist.inc(e) 
+            self._label_freqdist[e] += 1
             for t in m.turns():
                qid = t.questionId()
                if(qcounts[qid] >= feature_count_threshold):
@@ -54,7 +55,8 @@ class SemanticKnowledge(NaiveBayesClassifier):
                   #deal with guesses:
                   #guess = re.search(r'^e==(\w+)$',t.qgloss )
                   #if(guess):
-                  self._feature_freqdist[e,qid].inc(ans)
+                  self._feature_freqdist[e,qid][ans] +=1
+                  #self._feature_freqdist[e,qid].inc(ans)
                   self._feature_values[qid].add(ans)
 
       # assign "None" to properties of entities when property is unseen
@@ -63,7 +65,8 @@ class SemanticKnowledge(NaiveBayesClassifier):
          for fname in self._features: 
             count = self._feature_freqdist[e, fname].N() 
             if count == 0:
-               self._feature_freqdist[e, fname].inc(None) 
+               #self._feature_freqdist[e, fname].inc(None) 
+               self._feature_freqdist[e, fname][None] += 1
                self._feature_values[fname].add(None) 
                #these next 3 lines are questionable
                self._feature_values[fname].add("yes") 
