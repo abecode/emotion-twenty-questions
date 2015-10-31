@@ -71,7 +71,7 @@ exp	wave	emotion	success	length	difficulty
 001	003	sadness	True	19	e
 001	003	enamored	False	20	h
 001	003	anger	True	19	e
-001	003	anger	True	6
+001	003	anger	True	6	e
 001	003	satisfaction	True	20	h
 001	003	happiness	True	19	e
 001	003	happiness	True	7	e
@@ -240,7 +240,7 @@ exp	wave	emotion	success	length	difficulty
 001	008	maniacal	False	20	h
 001	008	disgust	True	17	m
 001	009	ambivalence	False	20	h
-001	009	happiness	True	10
+001	009	happiness	True	10	e
 001	009	frustration	True	18	m
 001	009	joy	False	20	m
 001	009	elation	True	17	h
@@ -270,40 +270,32 @@ exp	wave	emotion	success	length	difficulty
 001	009	happiness	True	15	e
 001	009	frustration	True	11	m
 001	010	happiness	True	10	m
-001	010	quixotic	False	20
-001	010	shame	False	20
-001	010	hope	True	14
-001	010	loneliness	True	12
-001	010	inquisitiveness	True	16
-001	010	relaxation	True	5
-001	010	happiness	True	10
-001	010	love	True	19
-001	010	happiness	True	6
-001	010	happiness	True	10
-001	010	sadness	True	11
-001	010	tiredness	True	19
-001	010	joyfulness	False	20
-001	010	anger	True	5
-001	010	nostalgia	False	20
-001	010	morose	False	20
-001	010	love	False	20
-001	010	fear	True	7
-001	010	courage	False	20
-001	010	mischievous	False	20
-001	010	happiness	True	15
-001	010	jealousy	True	4
-001	010	happiness	True	15
-001	010	hate	False	20
-001	010	patience	False	20
-001	010	frustration	True	11
-001	010	love	True	18
-001	010	misery	False	20
-001	010	despise	False	20
-001	010	exuberance	False	20
-001	010	inspiration	False	20
-001	010	aggravation	False	20
-001	010	anxiety	True	20
-001	010	euphoria	True	11
-001	010	sadness	True	14
-001	010	confusion	True	6
-001	010	unsure	False	20
+001	010	happiness	True	10	e
+001	010	love	True	19	e
+001	010	happiness	True	6	e
+001	010	happiness	True	10	e
+001	010	sadness	True	11	e
+001	010	joyfulness	False	20	m
+001	010	anger	True	5	e
+001	010	nostalgia	False	20	m
+001	010	morose	False	20	h
+001	010	fear	True	7	h
+001	010	courage	False	20	m
+001	007	indifference	False	20	m
+001	010	mischievous	False	20	h
+001	010	happiness	True	15	e
+001	010	jealousy	True	4	m
+001	010	happiness	True	15	e
+001	010	hate	False	20	m
+001	010	patience	False	20	h
+001	010	frustration	True	11	m
+001	010	love	True	18	m
+001	010	despise	False	20	h
+001	010	exuberance	False	20	h
+001	010	inspiration	False	20	h
+001	010	aggravation	False	20	h
+001	010	anxiety	True	20	m
+001	010	euphoria	True	11	h
+001	010	sadness	True	14	e
+001	010	confusion	True	6	m
+001	010	unsure	False	20	h
