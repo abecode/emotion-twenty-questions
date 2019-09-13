@@ -19,101 +19,110 @@ import math
 
 class EpisodicBuffer(list):
     def __init__(self):
-        super(list,self).__init__()
-    def add(self,input,semantics=None):
-        input.semantics = semantics
-        if isinstance(input,Question):
-            input.talker = "agent"
-            self.append(input)
-        elif isinstance(input,Answer):
-            input.talker = "user"
+        super(list, self).__init__()
+    def add(self, input_, semantics=None):
+        input_.semantics = semantics
+        if isinstance(input_, Question):
+            input_.talker = "agent"
+            self.append(input_)
+        elif isinstance(input_, Answer):
+            input_.talker = "user"
             q = self.pop()
-            if isinstance(q,Question):
-                t = Turn(q,input)
+            if isinstance(q, Question):
+                t = Turn(q, input_)
                 self.append(t)
-            elif isinstance(q,AgentUtt):
+            elif isinstance(q, AgentUtt):
                 self.append(q)
-                self.append(input)
+                self.append(input_)
             else:
                 raise GPDAError("Stack content error")
-        elif isinstance(input,AgentUtt):
-            input.talker = "agent"
-            self.append(input)
-        elif isinstance(input,UserUtt):
-            input.talker = "user"
-            self.append(input)
+        elif isinstance(input_, AgentUtt):
+            input_.talker = "agent"
+            self.append(input_)
+        elif isinstance(input_, UserUtt):
+            input_.talker = "user"
+            self.append(input_)
         else:
             raise GPDAError("Stack content error")
     def newMatch(self):
         del self[:]
     def numTurns(self):
-        turns = filter(lambda x: isinstance(x,Turn) or isinstance(x,Question),self)
+        turns = list(filter(lambda x: isinstance(x, Turn) or isinstance(x, Question), self))
         return len(turns)
-    def getFeature(self,q,a):
-        if(not q.gloss): 
+    def getFeature(self, q, a):
+        if(not q.gloss):
             raise Exception("no gloss")
         answer = None
         if emo20q.nlp.classifyYN(a.text) == 1 : answer = "yes"
         elif emo20q.nlp.classifyYN(a.text) == -1  : answer = "no"
         else : answer = "other"
-        return (q.gloss,answer)
+        return (q.gloss, answer)
     def getFeatures(self):
-        turns = filter(lambda x: isinstance(x,Turn),self)
+        turns = filter(lambda x: isinstance(x, Turn), self)
         features = {}
         for x in turns:
-            f = self.getFeature(x.q,x.a)
-            features[f[0]]=f[1]
+            f = self.getFeature(x.q, x.a)
+            features[f[0]] = f[1]
         return features
-    def save(self,db="couchdb"):
-        if db=="couchdb":
+    def save(self, db="couchdb"):
+        if db == "couchdb":
             import couchdb
             import time
             import json
             import sys #only used for debugging
-            # -maybe check if there is an identifier, to sync/updata 
+            # -maybe check if there is an identifier, to sync/updata
             #  rather than creating a new document
             # - save agent state info?
             def match2JsonEncoder(x):
                 out = {}
-                if isinstance(x,Turn):
+                if isinstance(x, Turn):
                     out['type'] = 'Turn'
-                    out['container'] = [{'type':'Question',
-                                         'param':{'text':x.q.text,
-                                                  'gloss':x.q.gloss}},
-                                        {'type':'Answer',
-                                         'param':{'text':x.a.text,
-                                                  'gloss':x.a.gloss}}]
+                    out['container'] = [{'type': 'Question',
+                                         'param': {'text': x.q.text,
+                                                   'gloss': x.q.gloss}},
+                                        {'type': 'Answer',
+                                         'param': {'text': x.a.text,
+                                                   'gloss': x.a.gloss}}]
                     return out
-                if isinstance(x,UserUtt):
+                if isinstance(x, UserUtt):
                     out['type'] = 'UserUtt'
-                    out['param'] = {'text':x.text}
+                    out['param'] = {'text': x.text}
                     return out
-                if isinstance(x,AgentUtt):
+                if isinstance(x, AgentUtt):
                     out['type'] = 'AgentUtt'
-                    out['param'] = {'text':x.text}
+                    out['param'] = {'text': x.text}
                     return out
-        #return {}
+                #return {}
 
         m = {}
-        m['type']='Dialog'
-        m['param']= {
+        m['type'] = 'Dialog'
+        m['param'] = {
             'exp': "001",
-            'wave':"010",
-            'provenance': ['http','text','web','gpdaquestioner','human-computer','mturk'],
-            'date': "%s-%s-%s %s:%s:%s"% tuple( map(lambda x: getattr(time.gmtime(), x), ['tm_year','tm_mon','tm_mday', 'tm_hour', 'tm_min', 'tm_sec'])) #this line is a bit terse, sorry
-            } 
-        m['container'] =[ x for x in self]
+            'wave': "010",
+            'provenance': ['http', 'text', 'web', 'gpdaquestioner', 'human-computer', 'mturk'],
+            'date': "%s-%s-%s %s:%s:%s"% tuple( map(lambda x: getattr(time.gmtime(), x),
+                                                    ['tm_year',
+                                                     'tm_mon',
+                                                     'tm_mday',
+                                                     'tm_hour',
+                                                     'tm_min',
+                                                     'tm_sec'])) #this line is a bit terse, sorry
+            }
+        m['container'] = [ x for x in self]
         #create empty dialog in couch
-        print json.dumps(m,sys.stdout,sort_keys=True, indent=2, default=match2JsonEncoder)
+        print(json.dumps(m, sys.stdout, sort_keys=True, indent=2, default=match2JsonEncoder))
         db = couchdb.client.Database("http://ark.usc.edu:5984/emo20q_webdata")
-        doc_id, doc_rev = db.save(json.loads(json.dumps(m,sys.stdout,default=match2JsonEncoder,sort_keys=False, indent=2)))
-        print doc_id, doc_rev
-        
-        
+        doc_id, doc_rev = db.save(json.loads(json.dumps(m,
+                                                        sys.stdout,
+                                                        default=match2JsonEncoder,
+                                                        sort_keys=False, indent=2)))
+        print(doc_id, doc_rev)
+
+
 class QuestionerAgent(GPDA):
     """
     this class is a rewrite/refactor of the older agent as a generalized pushdown automaton
-    
+
     it is hoped that this will make the design more principled
 
     >>> agent = QuestionerAgent()
@@ -121,7 +130,7 @@ class QuestionerAgent(GPDA):
     # start in startState
     >>> agent.state.name
     'startState'
-    
+
     # fire up this ol' automaton
     >>> print agent("")
     [Agent enters the universe of discourse]
@@ -133,16 +142,25 @@ class QuestionerAgent(GPDA):
     # test him out
     >>> agent("fasdfadsf")
     'Let me know when you are ready... (some people get stuck here... try typing something into the box to let me know whether you are ready, or not)'
-    
+
     >>> print agent("ok fine") #doctest: +ELLIPSIS
     Ok, let me see here...
     ...
-    
+
     # this just tests that the dialog will go to 20 questions, make a guess, and log the dialog
     >>> doctest.ELLIPSIS_MARKER = '-etc-'
     >>> agent("no") #doctest: +ELLIPSIS
     -etc-
-    
+
+    >>> print agent("no") #doctest: +ELLIPSIS
+    -etc-
+
+    >>> print agent("no") #doctest: +ELLIPSIS
+    -etc-
+
+    >>> print agent("no") #doctest: +ELLIPSIS
+    -etc-
+
     >>> print agent("no") #doctest: +ELLIPSIS
     -etc-
 
@@ -157,22 +175,10 @@ class QuestionerAgent(GPDA):
 
     >>> print agent("no") #doctest: +ELLIPSIS
     -etc-
-    
-    >>> print agent("no") #doctest: +ELLIPSIS
-    -etc-
 
     >>> print agent("no") #doctest: +ELLIPSIS
     -etc-
 
-    >>> print agent("no") #doctest: +ELLIPSIS
-    -etc-
-
-    >>> print agent("no") #doctest: +ELLIPSIS
-    -etc-
-
-    >>> print agent("no") #doctest: +ELLIPSIS
-    -etc-
-    
     >>> print agent("no") #doctest: +ELLIPSIS
     -etc-
 
@@ -187,7 +193,10 @@ class QuestionerAgent(GPDA):
 
     >>> print agent("no") #doctest: +ELLIPSIS
     -etc-
-    
+
+    >>> print agent("no") #doctest: +ELLIPSIS
+    -etc-
+
     >>> print agent("no") #doctest: +ELLIPSIS
     -etc-
 
@@ -204,7 +213,7 @@ class QuestionerAgent(GPDA):
     Awesome!
     Would you like to play again?
 
-    
+
     """
 
     startState = State("startState")
@@ -214,76 +223,76 @@ class QuestionerAgent(GPDA):
     reviewingState = State("reviewingState")
     betweenMatchesState = State("betweenMatchesState")
     endState = State("endState")
-    
-    
-    
-    def __init__(self, 
+
+
+
+    def __init__(self,
                  episodicBuffer=EpisodicBuffer(),
                  semanticKnowledge=SemanticKnowledge(),
                  lexicalAccess=LexicalAccess() ):
-        super(QuestionerAgent,self).__init__()
+        super(QuestionerAgent, self).__init__()
         self.episodicBuffer = episodicBuffer
         self.semanticKnowledge = semanticKnowledge
         self.lexicalAccess = lexicalAccess
         self.stack = self.episodicBuffer
-        
+
 
         self.belief =  nltk.probability.UniformProbDist(self.semanticKnowledge.entities())
         # to welcome message from startState
-        self.add_transition(self.startState,self.welcomeState,
+        self.add_transition(self.startState, self.welcomeState,
                             test=lambda x: True, #transition on any input
                             function=self.welcomeMessage)
         # reprompt til ready (loop in welcomeState)
-        self.add_transition(self.welcomeState,self.welcomeState,
-                            test=lambda x: not emo20q.nlp.isReady(x), 
+        self.add_transition(self.welcomeState, self.welcomeState,
+                            test=lambda x: not emo20q.nlp.isReady(x),
                             function=lambda x: "Let me know when you are ready... (some people get stuck here... try typing something into the box to let me know whether you are ready, or not)",
                             )
         #start match, to asking state from welcomeState
-        self.add_transition(self.welcomeState,self.askingState,
-                            test=emo20q.nlp.isReady, 
+        self.add_transition(self.welcomeState, self.askingState,
+                            test=emo20q.nlp.isReady,
                             function=self.beginPlaying)
         #main asking loop
-        self.add_transition(self.askingState,self.askingState,
-                            test=self.shouldIAsk, 
+        self.add_transition(self.askingState, self.askingState,
+                            test=self.shouldIAsk,
                             function=self.evaluateQuestionAnswer)
-        self.add_transition(self.askingState,self.confirmingState,
-                            test=lambda x: emo20q.nlp.isAffirmative(x) and self.episodicBuffer[-1].isIdentityQuestion(), 
+        self.add_transition(self.askingState, self.confirmingState,
+                            test=lambda x: emo20q.nlp.isAffirmative(x) and self.episodicBuffer[-1].isIdentityQuestion(),
                             function=self.confirmAnswer)
         #sucess! to betweenMatchesState from confirmingState
-        self.add_transition(self.confirmingState,self.betweenMatchesState,
-                            test=emo20q.nlp.isAffirmative, 
+        self.add_transition(self.confirmingState, self.betweenMatchesState,
+                            test=emo20q.nlp.isAffirmative,
                             function=lambda x: self.doYouWantToPlayAgain(x,outcome="success"))
         #a failed guess w/ <20 questions, to askingState from confirmingState
-        self.add_transition(self.confirmingState,self.askingState,
-                            test=lambda x: not emo20q.nlp.isAffirmative(x) and self.shouldIAsk(x), 
+        self.add_transition(self.confirmingState, self.askingState,
+                            test=lambda x: not emo20q.nlp.isAffirmative(x) and self.shouldIAsk(x),
                             function=self.evaluateQuestionAnswer)
         #a failed guess, >20 questions, to reviewingState
-        self.add_transition(self.confirmingState,self.reviewingState,
-                            test=lambda x: not emo20q.nlp.isAffirmative(x) and self.episodicBuffer.numTurns()>=20, 
+        self.add_transition(self.confirmingState, self.reviewingState,
+                            test=lambda x: not emo20q.nlp.isAffirmative(x) and self.episodicBuffer.numTurns()>=20,
                             function=self.reviewAnswerAfterDisconfirm)
         #ran out of questions, ask what the emotion was, to reviewingState
-        self.add_transition(self.askingState,self.reviewingState,
-                            test=self.shouldIReview, 
+        self.add_transition(self.askingState, self.reviewingState,
+                            test=self.shouldIReview,
                             function=self.reviewAnswer)
         #failed match, but try again, to betweenMatchesState from reviewingState
-        self.add_transition(self.reviewingState,self.betweenMatchesState,
-                            test=lambda x: True, 
+        self.add_transition(self.reviewingState, self.betweenMatchesState,
+                            test=lambda x: True,
                             function=lambda x: self.doYouWantToPlayAgain(x,outcome="failure"))
-        #replay 
-        self.add_transition(self.betweenMatchesState,self.welcomeState,
-                            test=emo20q.nlp.isReady, 
+        #replay
+        self.add_transition(self.betweenMatchesState, self.welcomeState,
+                            test=emo20q.nlp.isReady,
                             function=self.replayMessage)
-        #no replay 
-        self.add_transition(self.betweenMatchesState,self.endState,
-                            test=lambda x: not emo20q.nlp.isAffirmative(x), 
+        #no replay
+        self.add_transition(self.betweenMatchesState, self.endState,
+                            test=lambda x: not emo20q.nlp.isAffirmative(x),
                             function=self.goodbyeMessage)
 
 
         self.state = self.startState
-    def processGlobalCommands(self,input):
-        if re.match(r':quit',input):
+    def processGlobalCommands(self, input_):
+        if re.match(r':quit', input_):
             raise GPDAError("endState via :quit")
-    def welcomeMessage(self,input):
+    def welcomeMessage(self, input_):
         output = "[Agent enters the universe of discourse]\n"
         output += "Welcome to EMO20Q\n"
         output += "I'm goint to try to guess the emotion that you are thinking of\n"
@@ -291,27 +300,27 @@ class QuestionerAgent(GPDA):
         output += "Let me know when you are ready..."
         self.episodicBuffer.add(AgentUtt(output))
         return output
-    def replayMessage(self,input):
+    def replayMessage(self, input_):
         self.episodicBuffer.newMatch()
-        self.episodicBuffer.add(UserUtt(input))
+        self.episodicBuffer.add(UserUtt(input_))
         output = "Cool.  Let me know when you think of another emotion...\n"
         output += "Let me know when you are ready..."
         self.episodicBuffer.add(AgentUtt(output))
         return output
-    def goodbyeMessage(self,input):
-        self.episodicBuffer.add(UserUtt(input))
+    def goodbyeMessage(self, input_):
+        self.episodicBuffer.add(UserUtt(input_))
         output = "Thank you for playing"
         self.episodicBuffer.add(AgentUtt(output))
         return output
-    def beginPlaying(self,input):
-        self.episodicBuffer.add(UserUtt(input))
+    def beginPlaying(self, input_):
+        self.episodicBuffer.add(UserUtt(input_))
         output = "Ok, let me see here... \n"
-        nextQ = self.pickNextQuestion()        
+        nextQ = self.pickNextQuestion()
         output += self.lexicalAccess.lookUp(nextQ)
-        self.episodicBuffer.add(Question(output,gloss=nextQ))
+        self.episodicBuffer.add(Question(output, gloss=nextQ))
         return output
-    def evaluateQuestionAnswer(self,input):
-        self.episodicBuffer.add(Answer(input))
+    def evaluateQuestionAnswer(self, input_):
+        self.episodicBuffer.add(Answer(input_))
         if self.episodicBuffer.numTurns() >= 20:
             raise GPDAError("shouldn't be asking with 20 or more questions")
         #output = "ok, I see.  Number %s. Is it a bla bla bla?"%str(self.episodicBuffer.numTurns()+1)
@@ -323,40 +332,40 @@ class QuestionerAgent(GPDA):
         post = self.semanticKnowledge.prob_classify(features)
 
         # if last question was an identity question (guess), then zero out that emotion
-        if isinstance(self.episodicBuffer[-1],Turn) and \
+        if isinstance(self.episodicBuffer[-1], Turn) and \
                 hasattr(self.episodicBuffer[-1].q, "isIdentityQuestion") and \
                 self.episodicBuffer[-1].q.isIdentityQuestion():
             match = re.search(r'^e==(.+)$', self.episodicBuffer[-1].q.gloss)
             tmpDict = dict((key, post.prob(key)) for key in post.samples())
             tmpDict[match.group(1)] = 0
             #print sorted([key for key in tmpDict], key=tmpDict.__getitem__,reverse=True)
-            post = nltk.probability.DictionaryProbDist(tmpDict,normalize=True)
+            post = nltk.probability.DictionaryProbDist(tmpDict, normalize=True)
         # if last question was an identity question (guess), then zero out that emotion
         # slightly messy having reduplication here: to deal with a disconfirmed confirmation
-        if isinstance(self.episodicBuffer[-3],Turn) and \
+        if isinstance(self.episodicBuffer[-3], Turn) and \
                 hasattr(self.episodicBuffer[-3].q, "isIdentityQuestion") and \
                 self.episodicBuffer[-3].q.isIdentityQuestion():
             match = re.search(r'^e==(.+)$', self.episodicBuffer[-3].q.gloss)
             tmpDict = dict((key, post.prob(key)) for key in post.samples())
             tmpDict[match.group(1)] = 0
             #print sorted([key for key in tmpDict], key=tmpDict.__getitem__,reverse=True)
-            post = nltk.probability.DictionaryProbDist(tmpDict,normalize=True)
+            post = nltk.probability.DictionaryProbDist(tmpDict, normalize=True)
 
         #deal with similarity questions
-        if isinstance(self.episodicBuffer[-1],Turn) and \
+        if isinstance(self.episodicBuffer[-1], Turn) and \
                 hasattr(self.episodicBuffer[-1].q, "isSimilarityQuestion") and \
                 self.episodicBuffer[-1].q.isSimilarityQuestion() and \
-                emo20q.nlp.classifyYN(self.episodicBuffer[-1].a.text)==-1:
+                emo20q.nlp.classifyYN(self.episodicBuffer[-1].a.text) == -1:
             match = re.search(r'^similar(e,.+)$', self.episodicBuffer[-1].q.gloss)
             tmpDict = dict((key, post.prob(key)) for key in post.samples())
             tmpDict[match.group(1)] = 0
             #print sorted([key for key in tmpDict], key=tmpDict.__getitem__,reverse=True)
-            post = nltk.probability.DictionaryProbDist(tmpDict,normalize=True)
-        
+            post = nltk.probability.DictionaryProbDist(tmpDict, normalize=True)
+
         self.belief = post
         b = Belief(self.belief)
-        print b
-        print b.entropy()
+        print(b)
+        print(b.entropy())
         #smoothing
         if b.entropy() < .9:
             tmpDict = {}
@@ -368,7 +377,7 @@ class QuestionerAgent(GPDA):
             post = nltk.probability.DictionaryProbDist(tmpDict,normalize=True)
         self.belief = post
         b = Belief(self.belief)
-        print b.entropy()
+        print(b.entropy())
 
         #self.episodicBuffer.add(Belief(self.belief))
         nextQ = self.pickNextQuestion()
@@ -377,36 +386,36 @@ class QuestionerAgent(GPDA):
         #for x in self.stack:
         #    print x
         return output
-    def shouldIAsk(self,input):
-        print self.episodicBuffer.numTurns()
-        if hasattr(self.episodicBuffer[-1],'isIdentityQuestion') and self.episodicBuffer[-1].isIdentityQuestion() and emo20q.nlp.isAffirmative(input):
+    def shouldIAsk(self, input__):
+        print(self.episodicBuffer.numTurns())
+        if hasattr(self.episodicBuffer[-1],'isIdentityQuestion') and self.episodicBuffer[-1].isIdentityQuestion() and emo20q.nlp.isAffirmative(input_):
             return False
         if self.episodicBuffer.numTurns() < 20:
             return True
         return False
-    def shouldIReview(self,input):
-        if self.episodicBuffer.numTurns() >= 20 and not (self.episodicBuffer[-1].isIdentityQuestion() and  emo20q.nlp.isAffirmative(input)):
+    def shouldIReview(self, input_):
+        if self.episodicBuffer.numTurns() >= 20 and not (self.episodicBuffer[-1].isIdentityQuestion() and  emo20q.nlp.isAffirmative(input_)):
             return True
         return False
-    def confirmAnswer(self,input):
-        self.episodicBuffer.add(Answer(input))
+    def confirmAnswer(self, input_):
+        self.episodicBuffer.add(Answer(input_))
         output = "so did I get it right?"
         self.episodicBuffer.add(AgentUtt(output))
         return output
-    def reviewAnswer(self,input):
-        self.episodicBuffer.add(Answer(input))
+    def reviewAnswer(self, input_):
+        self.episodicBuffer.add(Answer(input_))
         output = "Dammit, that is disappointing... \n"
         output += "Well, what was the emotion that you picked?"
         self.episodicBuffer.add(AgentUtt(output))
         return output
-    def reviewAnswerAfterDisconfirm(self,input):
-        self.episodicBuffer.add(UserUtt(input))
+    def reviewAnswerAfterDisconfirm(self, input_):
+        self.episodicBuffer.add(UserUtt(input_))
         output = "Dammit, that is disappointing... \n"
         output += "Well, what was the emotion that you picked?"
         self.episodicBuffer.add(AgentUtt(output))
         return output
-    def doYouWantToPlayAgain(self,input,outcome=None):
-        self.episodicBuffer.add(UserUtt(input))
+    def doYouWantToPlayAgain(self, input_, outcome=None):
+        self.episodicBuffer.add(UserUtt(input_))
         ###################################################
         # This is where serialization to couchdb occurs
         ###################################################
@@ -427,7 +436,7 @@ class QuestionerAgent(GPDA):
             return sum([probdist.prob(x) for x in ("yes","no","other")])
         def sumYes(probdist):
             return probdist.prob("yes")
-        probYes = defaultdict(float) 
+        probYes = defaultdict(float)
 
         for ((label, fname), probdist) in self.semanticKnowledge._feature_probdist.items():
             #probNotNone[fname] += sumNotNone(probdist)*self.semanticKnowledge._label_probdist.prob(label)
@@ -460,7 +469,7 @@ class QuestionerAgent(GPDA):
             return sum([probdist.prob(x) for x in ("yes","no","other")])
         def sumYes(probdist):
             return probdist.prob("yes")
-        probYes = defaultdict(float) 
+        probYes = defaultdict(float)
 
         for ((label, fname), probdist) in self.semanticKnowledge._feature_probdist.items():
             #probNotNone[fname] += sumNotNone(probdist)*self.semanticKnowledge._label_probdist.prob(label)
@@ -472,7 +481,7 @@ class QuestionerAgent(GPDA):
         else:
             result = sorted([x for x in probYes if x not in features],key=probYes.__getitem__, reverse=True)
         return result[0:n]
-        
+
 
 
 class Utterance(object):
@@ -494,11 +503,11 @@ class Question(AgentUtt):
             return True
         else:
             return False
-        
+
 
 class Answer(UserUtt):
     pass
-    
+
 class Turn(object):
     def __init__(self,q,a):
         self.q = q
@@ -521,25 +530,32 @@ class Belief(dict):
             if self[x] != 0:
                 result += self[x]*math.log(self[x],2)
         return -result
-            
+
 if __name__ == "__main__":
     import argparse
     argParser = argparse.ArgumentParser(description="""A generalized pushdown automaton implementation of an EMO20Q questioner agent.  """)
-    argParser.add_argument('-t', '--test', 
+    argParser.add_argument('-t', '--test',
                            action='store_true',
                            help='test using doctest')
-    argParser.add_argument('--run', 
+    argParser.add_argument('--run',
                            action='store_true',
                            help='run the agent interactively on the commandline')
     args = argParser.parse_args()
-    if args.test: 
+
+    # backwards compatibility for raw_input
+    try:
+        input = raw_input
+    except NameError:
+        pass
+    
+    if args.test:
         import doctest
         doctest.testmod()
     #elif args.run:
     else:
-        input = ""
+        input_ = ""
         agent = QuestionerAgent()
         while True:
-            print agent(input)
-            input = raw_input("> ") 
-            
+            print(agent(input_))
+            #input = raw_input("> ")
+            input_ = input("> ")

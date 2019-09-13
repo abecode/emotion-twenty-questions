@@ -42,18 +42,18 @@ class HumanComputerTournament(Tournament):
                 mtch = Match()
                 mtch._turns=turns
                 mtch._emotion=currentEmotion
-                if currentEmotion != '':       #there was a blank/empty emotion 
+                if currentEmotion != '':       #there was a blank/empty emotion
                     matches.append(mtch)
                 turns = []
                 currentEmotion=emotion
             turns.append(turn)
         else:
             return matches
-        
-    
+
+
 class HumanHumanTournament(Tournament):
     """A set of emo20q matches played by two humans"""
-    
+
     def __init__(self, annotationFile="../annotate/emo20q.txt"):
         self.base = Base()
         f = open(annotationFile, 'r')
@@ -92,7 +92,7 @@ class HumanHumanTournament(Tournament):
 
     def createSqliteDb(self,engine):
         #engine = create_engine('sqlite:///emo20q.db', echo=True)
-        self.base.metadata.create_all(engine)   
+        self.base.metadata.create_all(engine)
 
 
     def printStats(self):
@@ -130,7 +130,7 @@ class Match(Base):
     def emotion(self):
         return self._emotion
 
-    
+
 
     def readTurns(self,fh):
         while True:
@@ -155,7 +155,7 @@ class Match(Base):
                     break
                 else:
                     question += line
-                    
+
             while True:
                 line = fh.readline()
                 #print "answer: "+line
@@ -197,12 +197,12 @@ class Turn(Base):
     def answerId(self):
         ans = "other"
         if "agloss" in self.__dict__:
-            if self.agloss.find("yes") == 0 : ans = "yes" 
+            if self.agloss.find("yes") == 0 : ans = "yes"
             if self.agloss.find("no") == 0 : ans = "no"
         else:
-            if self.a.lower().find("yes") == 0 : ans = "yes" 
+            if self.a.lower().find("yes") == 0 : ans = "yes"
             if self.a.lower().find("no") == 0 : ans = "no"
-            
+
         return ans
 
 class Question(Base):
@@ -231,13 +231,13 @@ class Answer(Base):
     gloss = Column(String)  #question's logical gloss
     clean = Column(String)  #a cleaned verson of the question, ei, correct orthography
     t = Column(Integer)     #truth degree
-    
+
     def __init__(self,a,gloss):
         self.a = a
         self.gloss = gloss
-    
 
-    
+
+
 if __name__ == "__main__":
 
     # read in tournament, do some testing, get some stats
@@ -247,7 +247,7 @@ if __name__ == "__main__":
     #t.printStats()
 
     #engine = create_engine('sqlite:///emo20q.db', echo=True)
-    #Base.metadata.create_all(engine)   
+    #Base.metadata.create_all(engine)
     import networkx as nx
     from networkx import graphviz_layout
     import matplotlib.pyplot as plt
@@ -261,4 +261,3 @@ if __name__ == "__main__":
 
     nx.draw(G)
     plt.show()
-    
