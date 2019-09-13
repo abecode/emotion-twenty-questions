@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 import re
 import json
 #from sqlalchemy.ext.declarative import declarative_base
@@ -123,7 +124,6 @@ class HumanHumanTournament(Tournament):
     def __init__(self, annotationFile=None):
 #        self.base = Base()
         if not annotationFile:
-            import os
             annotationFile = os.path.dirname(__file__) + "/emo20q.txt"
         f = open(annotationFile, 'rU')
         try:
@@ -215,8 +215,9 @@ class Match(object):
                 #print "question: "+line
                 if not line:
                     break
-                if re.match("end:",line):
-                    fh.seek(-len(line),1)
+                if re.match("end:", line):
+                    fh.seek(fh.tell() - len(line.encode("utf-8")),
+                            os.SEEK_SET)
                     return
                 if re.match("^ *$",line):
                     continue
