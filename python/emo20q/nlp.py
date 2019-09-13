@@ -5,7 +5,7 @@ import re
 def isReady(str):
     """
     check to see if the player is ready:
-    Try to match affirmative answers to the question, are you ready? 
+    Try to match affirmative answers to the question, are you ready?
     """
     str = str.lower()
     match = re.search(r'\byes\b|\bready\b|\bsure\b|\bgo\b|\bok\b|\bokay\b|\byep\b|\byea\b|\byeah\b', str)
@@ -18,10 +18,10 @@ def classifyYN(str):
     if re.search(r'\n',str) : #only look at first line
         newstr = str.split("\n")[0]
         return classifyYN(newstr)
-    
+
     yes = 0
     no = 0
-    if re.search(r'\byes\b',str)  : yes += 1 
+    if re.search(r'\byes\b',str)  : yes += 1
     if re.search(r'\byeah\b',str)  : yes += 1
     if re.search(r'\byea\b',str)  : yes += 1
     if re.search(r'\byup\b',str)  : yes += 1
@@ -42,16 +42,16 @@ def classifyYN(str):
         ans = 1
     elif no > 0 and yes == 0:
         ans = -1
-    else: 
+    else:
         ans=0
     return ans
-    
+
 def isAffirmative(str):
     """"Classify answers to a yes/no question into 1/yes, -1/no, or 0/other"""
     if classifyYN(str) == 1:
         return True
     return False
-    
+
 def isQuestion(string):
     """"Determine whether an input is a question or not"""
     if re.search(r'\?', string):
@@ -59,7 +59,7 @@ def isQuestion(string):
     if re.search(r'(?:how|who|what|why) (?:do|is|are|does|did|was|can|would|should|old|you)', string):
         return True
     return False
-    
+
 
 def splitCommaList(string):
     out = []
@@ -79,16 +79,16 @@ class GenerateDeclarative(dict):
     This class will take a question gloss (semantic representation for a
     question) and generate a declarative sentence from a lookup table (this
     class inherits from dict
-    
+
     instantiate
     >>> gd = GenerateDeclarative()
 
     generate/lookup
-    >>> gd.generate('e.valence==negative') 
+    >>> gd.generate('e.valence==negative')
     'it is considered a negative thing to feel'
 
     generate using a random realization (random is seeded)
-    >>> gd.generateRandom('e.valence==negative') 
+    >>> gd.generateRandom('e.valence==negative')
     'it is a negative emotion'
     """
 
@@ -101,11 +101,11 @@ class GenerateDeclarative(dict):
         col = {}
         for i,c in enumerate(header):
             col[c]=i
-            
+
         for row in datareader:
-            if re.search(r'NULL', row[col["atmplt"]]): 
+            if re.search(r'NULL', row[col["atmplt"]]):
                 continue
-            if re.search(r'^\s*$', row[col["atmplt"]]): 
+            if re.search(r'^\s*$', row[col["atmplt"]]):
                 continue
             #print row
             #print row[col["gloss"]], row[col["atmplt"]]
@@ -120,9 +120,9 @@ class GenerateDeclarative(dict):
             col[c]=i
 
         for row in datareader:
-            if re.search(r'NULL', row[col["atmplt"]]): 
+            if re.search(r'NULL', row[col["atmplt"]]):
                 continue
-            if re.search(r'^\s*$', row[col["atmplt"]]): 
+            if re.search(r'^\s*$', row[col["atmplt"]]):
                 continue
             #print row
             #print row[col["gloss"]], row[col["atmplt"]]
@@ -131,7 +131,7 @@ class GenerateDeclarative(dict):
         random.seed(1)
 
     def __setitem__(self,key,value):
-        """ this implements a dict of lists """ 
+        """ this implements a dict of lists """
         if key in self:
             self[key].append(value)
         else:
@@ -167,7 +167,7 @@ class GenerateDeclarative(dict):
             return self.negate(out)
         else:
             return self.hedge(out)
-    
+
     def negate(self,sentence):
         if re.search(r'^only',sentence):
             return re.sub(r'^only ', "not only ", sentence)
@@ -186,12 +186,12 @@ class GenerateDeclarative(dict):
         return "not " + sentence
     def hedge(self,sentence):
         return "maybe " + sentence
-        
+
 
 if __name__ == "__main__":
     import doctest
-    
+
     doctest.testmod()
     #gd = GenerateDeclarative()
     #print gd
-    print "ok"
+    print("ok")

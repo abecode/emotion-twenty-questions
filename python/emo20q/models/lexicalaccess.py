@@ -9,7 +9,7 @@ class LexicalAccess():
    def __init__(self):
       # read in tournament, do some testing, get some stats
       tournament = HumanHumanTournament()
-      
+
       self._dictionary = defaultdict(list)
 
       for m in tournament.matches():
@@ -26,9 +26,9 @@ class LexicalAccess():
           else:
              raise Exception("I didn't find a lexical realization for %s" % qgloss)
        return random.choice(candidates)
-   
+
 if __name__ == "__main__":
     l = LexicalAccess()
     qgloss = raw_input("please enter a semantic question representation\n>> ")
-    print "This is a randomly selected/generated question text:"
-    print l.lookUp(qgloss)
+    print("This is a randomly selected/generated question text:")
+    print(l.lookUp(qgloss))

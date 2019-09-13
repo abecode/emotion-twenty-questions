@@ -44,20 +44,20 @@ class HumanComputerTournament(Tournament):
                 mtch = Match()
                 mtch._turns=turns
                 mtch._emotion=currentEmotion
-                if currentEmotion != '':       #there was a blank/empty emotion 
+                if currentEmotion != '':       #there was a blank/empty emotion
                     matches.append(mtch)
                 turns = []
                 currentEmotion=emotion
             turns.append(turn)
         else:
             return matches
-        
+
 class HumanComputerCouchDbTournament(Tournament):
     """A set of emo20q matches played by a human and a computer, read from a
     couchdb database
-    
+
     >>> t = HumanComputerCouchDbTournament()
-    
+
     """
     # the previous commit was the real one...
     #def __init__(self, dbUrl="http://ark.usc.edu:5984/emo20q_webdata"):
@@ -66,8 +66,8 @@ class HumanComputerCouchDbTournament(Tournament):
         import couchdb
         db = couchdb.client.Database(dbUrl)
         self._matches = []
-        #for row in db.view('_design/mturk/_view/all'): 
-        for row in db.view('_all_docs', include_docs=True): 
+        #for row in db.view('_design/mturk/_view/all'):
+        for row in db.view('_all_docs', include_docs=True):
             mtch = Match()
             doc = db.get(row.key)
             if 'param' not in doc: continue #this is a design document, not data
@@ -85,11 +85,41 @@ class HumanComputerCouchDbTournament(Tournament):
                     mtch._turns.append(turn)
             self._matches.append(mtch)
 
-        
-    
+
+class HumanComputerCouchJsonTournament(Tournament):
+    """A set of emo20q matches played by a human and a computer, read from a
+    a json dump of a couchdb database
+
+    >>> t = HumanComputerJsonTournament()
+
+    """
+    # the previous commit was the real one...
+    def __init__(self, fname="/Users/kaze7539/proj/emo20q/emo20q_github/db/emo20q_webdata_fromCouch_20121102.json"):
+        db = json.load(open(fname))
+        self._matches = []
+        for row in db.get("rows"):
+            mtch = Match()
+            doc = row.get('doc')
+            if 'param' not in doc: continue #this is a design document, not data
+            if 'emotion' not in doc['param']: continue # this this emo20q dialog hasn't been annotated
+            if 'container' not in doc: raise KeyError('"container" not found in doc') #this shouldn't happen ever
+            mtch._emotion = doc['param']['emotion']
+            #print mtch._emotion
+            mtch._turns = []
+            for t in doc['container']:
+                if 'type' in t and t['type'] == "Turn":
+                    turn = Turn()
+                    turn.qgloss= t['container'][0]['param']['gloss']
+                    turn.a = t['container'][1]['param']['text']
+                    #print turn.qgloss, turn.a
+                    mtch._turns.append(turn)
+            self._matches.append(mtch)
+
+
+
 class HumanHumanTournament(Tournament):
     """A set of emo20q matches played by two humans"""
-    
+
     def __init__(self, annotationFile=None):
 #        self.base = Base()
         if not annotationFile:
@@ -132,23 +162,23 @@ class HumanHumanTournament(Tournament):
 
     #def createSqliteDb(self,engine):
         #engine = create_engine('sqlite:///emo20q.db', echo=True)
-        #self.base.metadata.create_all(engine)   
+        #self.base.metadata.create_all(engine)
 
 
     def printStats(self):
-        print "there are {0:d} matches".format(len(t.matches))
+        print("there are {0:d} matches".format(len(t.matches)))
         #sum up the turns
         sumTurns = 0
         for m_idx,m in enumerate(t.matches):
             assert isinstance(m,Match)
             assert type(m._turns) == list
-            print "  In match {0:d} there are {1:d} turns.".format(m_idx,len(m.turns))
+            print("  In match {0:d} there are {1:d} turns.".format(m_idx,len(m.turns)))
             for tn_idx,tn in enumerate(m.turns()):
                 assert isinstance(tn,Turn)
                 #further tests
                 sumTurns = sumTurns + len(m.turns())
 
-        print "In all, there are {0:d} turns.".format(sumTurns)
+        print("In all, there are {0:d} turns.".format(sumTurns))
 
 
 #class Match(Base):
@@ -171,7 +201,7 @@ class Match(object):
     def emotion(self):
         return self._emotion
 
-    
+
 
     def readTurns(self,fh):
         while True:
@@ -196,7 +226,7 @@ class Match(object):
                     break
                 else:
                     question += line
-                    
+
             while True:
                 line = fh.readline()
                 #print "answer: "+line
@@ -218,7 +248,7 @@ class Match(object):
             turn.qgloss = qgloss.strip()
             turn.a = answer.strip()
             turn.agloss = agloss.strip()
-            #ignore non-yes-no questions and their answers 
+            #ignore non-yes-no questions and their answers
             if "non-yes-no" in turn.agloss: continue
             if "non-yes-no" in turn.qgloss: continue
             yield turn
@@ -242,12 +272,12 @@ class Turn(object):
     def answerId(self):
         ans = "other"
         if "agloss" in self.__dict__:
-            if self.agloss.find("yes") == 0 : ans = "yes" 
+            if self.agloss.find("yes") == 0 : ans = "yes"
             if self.agloss.find("no") == 0 : ans = "no"
         else:
-            if self.a.lower().find("yes") == 0 : ans = "yes" 
+            if self.a.lower().find("yes") == 0 : ans = "yes"
             if self.a.lower().find("no") == 0 : ans = "no"
-            
+
         return ans
 
 #class Question(Base):
@@ -278,45 +308,45 @@ class Answer(object):
     # gloss = Column(String)  #question's logical gloss
     # clean = Column(String)  #a cleaned verson of the question, ei, correct orthography
     # t = Column(Integer)     #truth degree
-    
+
     def __init__(self,a,gloss):
         self.a = a
         self.gloss = gloss
-    
 
-    
+
+
 if __name__ == "__main__":
 
     import argparse
     argParser = argparse.ArgumentParser(description="""A generalized pushdown automaton implementation of an EMO20Q questioner agent.  """)
-    argParser.add_argument('-t', '--test', 
+    argParser.add_argument('-t', '--test',
                            action='store_true',
                            help='test using doctest')
-    argParser.add_argument('--run', 
+    argParser.add_argument('--run',
                            action='store_true',
                            help='do some random stuff... nothing very useful, just some print statments and networkx plot')
 
     args = argParser.parse_args()
-    if args.test: 
+    if args.test:
         import doctest
         doctest.testmod()
     elif args.run:  #just some random stuff
-            
+
         # read in tournament, do some testing, get some stats
         t = HumanHumanTournament("../annotate/emo20q.txt")
         assert isinstance(t,Tournament)
         assert type( t.matches() ) == list
-        print len(t.matches())
-        print [m.emotion() for m in t.matches()]
+        print(len(t.matches()))
+        print([m.emotion() for m in t.matches()])
         #t.printStats()
         #engine = create_engine('sqlite:///emo20q.db', echo=True)
-        #Base.metadata.create_all(engine)   
+        #Base.metadata.create_all(engine)
         import networkx as nx
         from networkx import graphviz_layout
         import matplotlib.pyplot as plt
-        
+
         G = nx.DiGraph()
-        
+
         for m_idx,m in enumerate(t.matches()):
             assert isinstance(m,Match)
             assert type(m.turns()) == list
@@ -324,4 +354,3 @@ if __name__ == "__main__":
 
             nx.draw(G)
             plt.show()
-    
